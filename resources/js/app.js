@@ -23,6 +23,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('home-component', require('./components/Home.vue').default);
 Vue.component('card-component', require('./components/Card.vue').default);
 Vue.component('cadastro-produto-component', require('./components/CadastroProduto.vue').default);
+Vue.component('dropdown-component', require('./components/Dropdown.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
