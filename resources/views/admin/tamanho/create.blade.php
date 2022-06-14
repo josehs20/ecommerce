@@ -1,1 +1,5 @@
-<h1>cadastro de Tamanhos</h1>
+@extends('layouts.app')
+
+@section('content')
+    <cadastro-tamanho-component></cadastro-tamanho-component>
+@endsection
