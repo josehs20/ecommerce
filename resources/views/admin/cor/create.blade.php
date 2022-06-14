@@ -1,1 +1,5 @@
-<h1>cadastro de Cor</h1>
+@extends('layouts.app')
+
+@section('content')
+    <cadastro-cor-component></cadastro-cor-component>
+@endsection
