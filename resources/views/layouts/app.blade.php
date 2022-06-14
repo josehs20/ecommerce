@@ -226,14 +226,15 @@
             left: 0;
             padding: 1rem 1rem 0 0
         }
+
         .show {
             width: calc(var(--nav-width) + 100px)
         }
 
-        .addpd{
+        .addpd {
             padding: 0 5rem
         }
-        
+
     }
 </style>
 
@@ -330,22 +331,27 @@
             <br>
             <div id="nav-bar" class="l-navbar">
                 <nav class="nav">
-                    <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span
-                                class="nav_logo-name">Empresa</span> </a>
-                        <div class="nav_list"> <a href="#" class="nav_link active"> <i
-                                    class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
+                    <div>
+                        <a href="#" class="nav_logo">
+                            <i class='bx bx-layer nav_logo-icon'></i>
+                            <span class="nav_logo-name">Empresa</span>
+                        </a>
+                        <div id="nav_list" class="nav_list">
+                            <a href="#" class="nav_link active">
+                                <i onclick="abrirNav()" class='bx bx-grid-alt nav_icon'></i>
+                                <span class="nav_name">Dashboard</span>
+                            </a>
                             <a href="#" class="nav_link">
-                                <i id="i" class='bx bx-user nav_icon'></i>
-                            
+                                <i onclick="abrirNav()" class='bx bx-user nav_icon'></i>
+
                                 <span class="nav_name">
-                                    <dropdown-component
-                                        titulo="Registros"                              
+                                    <dropdown-component titulo="Registros"
                                         :itens="{
-                                            produto: { titulo: 'Produto', rota: '#produto' },
-                                            categoria: { titulo: 'Categoria', rota: '#categoria' },
-                                            cor: { titulo: 'Cor', rota: '#cor' },
-                                            tamanho: { titulo: 'Tamanho', rota: '#tamanho' },
-                                            estoque: { titulo: 'Estoque', rota: '#estoque' }
+                                            produto: { titulo: 'Produto', rota: 'produto/create' },
+                                            categoria: { titulo: 'Categoria', rota: 'categoria/create' },
+                                            cor: { titulo: 'Cor', rota: 'cor/create' },
+                                            tamanho: { titulo: 'Tamanho', rota: 'tamanho/create' },
+                                            estoque: { titulo: 'Estoque', rota: 'estoque/create' }
                                         }">
                                     </dropdown-component>
                                 </span>
@@ -372,7 +378,8 @@
 
                     </div>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();" class="nav_link">
+                                                            document.getElementById('logout-form').submit();"
+                        class="nav_link">
                         <i class='bx bx-log-out nav_icon'></i>
                         <span class="nav_name">Sair</span>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -389,28 +396,27 @@
     </div>
 
     <script>
+        function abrirNav() {
 
-        document.addEventListener("DOMContentLoaded", function(event) {
-
-            var i = document.getElementById('i')
             var nav = document.getElementById("nav-bar")
             var bodypd = document.getElementById('app')
             var headerpd = document.getElementById('header')
-            var toggle = document.getElementById('header-toggle')         
+            var toggle = document.getElementById('header-toggle')
 
-            i.addEventListener('click', () => {
-                nav.classList.toggle('show')
-                toggle.classList.toggle('bx-x')                        
-                bodypd.classList.toggle('app')                        
-                headerpd.classList.toggle('app')
-            })
+            nav.classList.toggle('show')
+            toggle.classList.toggle('bx-x')
+            bodypd.classList.toggle('app')
+            headerpd.classList.toggle('app')
+            toggle.classList.toggle('addpd')
+        }
+        document.addEventListener("DOMContentLoaded", function(event) {
 
             const showNavbar = (toggleId, navId, bodyId, headerId) => {
                 const toggle = document.getElementById(toggleId),
                     nav = document.getElementById(navId),
                     bodypd = document.getElementById(bodyId),
                     headerpd = document.getElementById(headerId)
-                    
+
 
                 // Validate that all variables exist
                 if (toggle && nav && bodypd && headerpd) {
@@ -420,7 +426,7 @@
                         // change icon
                         toggle.classList.toggle('bx-x')
                         toggle.classList.toggle('addpd')
-                        
+
                         // add padding to body
                         bodypd.classList.toggle('app')
                         // add padding to header
