@@ -285,37 +285,37 @@
 
 
 
-        @auth    
-            <header class="header" id="header">
+        @auth
+            <header id="header" class="header">
                 <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
                 <h3>{{ auth()->user()->name }} </h3>
             </header>
             <br>
             <br>
-            <div class="l-navbar" id="nav-bar">
+            <div id="nav-bar" class="l-navbar">
                 <nav class="nav">
                     <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span
                                 class="nav_logo-name">Empresa</span> </a>
                         <div class="nav_list"> <a href="#" class="nav_link active"> <i
                                     class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
-                            <a href="#" class="nav_link"> 
-                                <i class='bx bx-user nav_icon'></i> 
-                                <span class="nav_name">
-                                    <dropdown-component 
-                                        titulo="Registros"
-                                        :itens="{
-                                                produto: { titulo: 'Produto', rota: '#produto' },
-                                                categoria: { titulo: 'Categoria', rota: '#categoria' },
-                                                cor: { titulo: 'Cor', rota: '#cor' },
-                                                tamanho: { titulo: 'Tamanho', rota: '#tamanho' },
-                                                estoque: { titulo: 'Estoque', rota: '#estoque' }
-                                        }"
-                                    
-                                    ></dropdown-component>
-                                </span>
-                                
-                            </a>
+                            <a href="#" class="nav_link">
+                                <i id="i" class='bx bx-user nav_icon'></i>
                             
+                                <span class="nav_name">
+                                    <dropdown-component
+                                        titulo="Registros"                              
+                                        :itens="{
+                                            produto: { titulo: 'Produto', rota: '#produto' },
+                                            categoria: { titulo: 'Categoria', rota: '#categoria' },
+                                            cor: { titulo: 'Cor', rota: '#cor' },
+                                            tamanho: { titulo: 'Tamanho', rota: '#tamanho' },
+                                            estoque: { titulo: 'Estoque', rota: '#estoque' }
+                                        }">
+                                    </dropdown-component>
+                                </span>
+
+                            </a>
+
                             {{-- <a href="#" class="nav_link"> 
                                 <i class='bx bx-message-square-detail nav_icon'></i> 
                                 <span class="nav_name">Messages</span>
@@ -331,36 +331,50 @@
                             <a href="#" class="nav_link"> 
                                 <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
                                 <span class="nav_name">Stats</span>
-                            </a>  --}}
+                            </a> --}}
+                        </div>
+
                     </div>
-                    
-                    </div> 
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();" class="nav_link"> 
-                            <i class='bx bx-log-out nav_icon'></i> 
-                            <span class="nav_name">Sair</span> 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                class="d-none">
-                                @csrf
-                            </form>
-                        </a>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();" class="nav_link">
+                        <i class='bx bx-log-out nav_icon'></i>
+                        <span class="nav_name">Sair</span>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </a>
                 </nav>
             </div>
         @endauth
-        
+
         <main class="py-4">
             @yield('content')
         </main>
     </div>
-    
+
     <script>
+
         document.addEventListener("DOMContentLoaded", function(event) {
+
+            var i = document.getElementById('i')
+            var nav = document.getElementById("nav-bar")
+            var bodypd = document.getElementById('app')
+            var headerpd = document.getElementById('header')
+            var toggle = document.getElementById('header-toggle')         
+
+            i.addEventListener('click', () => {
+                nav.classList.toggle('show')
+                toggle.classList.toggle('bx-x')                        
+                bodypd.classList.toggle('app')                        
+                headerpd.classList.toggle('app')
+            })
 
             const showNavbar = (toggleId, navId, bodyId, headerId) => {
                 const toggle = document.getElementById(toggleId),
                     nav = document.getElementById(navId),
                     bodypd = document.getElementById(bodyId),
                     headerpd = document.getElementById(headerId)
+                    
 
                 // Validate that all variables exist
                 if (toggle && nav && bodypd && headerpd) {
