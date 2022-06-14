@@ -5,11 +5,21 @@
     .dropdown a:hover{
         color: white;
     }
+    .dropdown-menu{
+        width: 100px;
+    }
+
+    .dropdown-menu li a{
+        color: black;
+    }
+    .dropdown-menu li a:hover{
+        color: unset;
+    }
 </style>
 <template>
    <div>
         <div class="dropdown">
-            <a class="btn dropdown" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="dropdown dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                 {{ titulo }}
             </a>
 
