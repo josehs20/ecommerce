@@ -22,8 +22,14 @@ window.Vue = require('vue').default;
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('home-component', require('./components/Home.vue').default);
 Vue.component('card-component', require('./components/Card.vue').default);
-Vue.component('cadastro-produto-component', require('./components/CadastroProduto.vue').default);
 Vue.component('dropdown-component', require('./components/Dropdown.vue').default);
+Vue.component('botao-component', require('./components/Botao.vue').default);
+
+//cadastros
+Vue.component('cadastro-produto-component', require('./components/CadastroProduto.vue').default);
+Vue.component('cadastro-categoria-component', require('./components/CadastroCategoria.vue').default);
+Vue.component('cadastro-cor-component', require('./components/CadastroCor.vue').default);
+Vue.component('cadastro-tamanho-component', require('./components/CadastroTamanho.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

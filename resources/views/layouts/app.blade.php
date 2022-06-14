@@ -327,8 +327,6 @@
                 <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
                 <h3>{{ auth()->user()->name }} </h3>
             </header>
-            <br>
-            <br>
             <div id="nav-bar" class="l-navbar">
                 <nav class="nav">
                     <div>
@@ -347,11 +345,11 @@
                                 <span class="nav_name">
                                     <dropdown-component titulo="Registros"
                                         :itens="{
-                                            produto: { titulo: 'Produto', rota: 'produto/create' },
-                                            categoria: { titulo: 'Categoria', rota: 'categoria/create' },
-                                            cor: { titulo: 'Cor', rota: 'cor/create' },
-                                            tamanho: { titulo: 'Tamanho', rota: 'tamanho/create' },
-                                            estoque: { titulo: 'Estoque', rota: 'estoque/create' }
+                                            produto: { titulo: 'Produto', rota: '/produto/create' },
+                                            categoria: { titulo: 'Categoria', rota: '/categoria/create' },
+                                            cor: { titulo: 'Cor', rota: '/cor/create' },
+                                            tamanho: { titulo: 'Tamanho', rota: '/tamanho/create' },
+                                            estoque: { titulo: 'Estoque', rota: '/estoque/create' }
                                         }">
                                     </dropdown-component>
                                 </span>
