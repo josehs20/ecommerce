@@ -22,6 +22,7 @@ Auth::routes();
 //grupo de rotas para admin
 Route::middleware('admin')->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    //Route::resource('/home', [App\Http\Controllers\HomeController::class, 'index']);
 });
 
 

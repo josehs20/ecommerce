@@ -198,6 +198,42 @@
         .app {
             padding-left: calc(var(--nav-width) + 188px)
         }
+
+    }
+
+    @media screen and (max-width: 768px) {
+
+        body {
+            margin: calc(var(--header-height) + 1rem) 0 0 0;
+            padding-left: calc(var(--nav-width) + 2rem)
+        }
+
+        .header {
+            height: calc(var(--header-height) + 1rem);
+            padding: 0 2rem 0 calc(var(--nav-width) + 2rem)
+        }
+
+        .header_img {
+            width: 40px;
+            height: 40px
+        }
+
+        .header_img img {
+            width: 45px
+        }
+
+        .l-navbar {
+            left: 0;
+            padding: 1rem 1rem 0 0
+        }
+        .show {
+            width: calc(var(--nav-width) + 100px)
+        }
+
+        .addpd{
+            padding: 0 5rem
+        }
+        
     }
 </style>
 
@@ -285,7 +321,7 @@
 
 
 
-        @auth    
+        @auth
             <header class="header" id="header">
                 <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
                 <h3>{{ auth()->user()->name }} </h3>
@@ -298,24 +334,22 @@
                                 class="nav_logo-name">Empresa</span> </a>
                         <div class="nav_list"> <a href="#" class="nav_link active"> <i
                                     class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
-                            <a href="#" class="nav_link"> 
-                                <i class='bx bx-user nav_icon'></i> 
+                            <a href="#" class="nav_link">
+                                <i class='bx bx-user nav_icon'></i>
                                 <span class="nav_name">
-                                    <dropdown-component 
-                                        titulo="Registros"
+                                    <dropdown-component titulo="Registros"
                                         :itens="{
-                                                produto: { titulo: 'Produto', rota: '#produto' },
-                                                categoria: { titulo: 'Categoria', rota: '#categoria' },
-                                                cor: { titulo: 'Cor', rota: '#cor' },
-                                                tamanho: { titulo: 'Tamanho', rota: '#tamanho' },
-                                                estoque: { titulo: 'Estoque', rota: '#estoque' }
-                                        }"
-                                    
-                                    ></dropdown-component>
+                                            produto: { titulo: 'Produto', rota: '#produto' },
+                                            categoria: { titulo: 'Categoria', rota: '#categoria' },
+                                            cor: { titulo: 'Cor', rota: '#cor' },
+                                            tamanho: { titulo: 'Tamanho', rota: '#tamanho' },
+                                            estoque: { titulo: 'Estoque', rota: '#estoque' }
+                                        }">
+                                    </dropdown-component>
                                 </span>
-                                
+
                             </a>
-                            
+
                             {{-- <a href="#" class="nav_link"> 
                                 <i class='bx bx-message-square-detail nav_icon'></i> 
                                 <span class="nav_name">Messages</span>
@@ -331,28 +365,27 @@
                             <a href="#" class="nav_link"> 
                                 <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
                                 <span class="nav_name">Stats</span>
-                            </a>  --}}
+                            </a> --}}
+                        </div>
+
                     </div>
-                    
-                    </div> 
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();" class="nav_link"> 
-                            <i class='bx bx-log-out nav_icon'></i> 
-                            <span class="nav_name">Sair</span> 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                class="d-none">
-                                @csrf
-                            </form>
-                        </a>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();" class="nav_link">
+                        <i class='bx bx-log-out nav_icon'></i>
+                        <span class="nav_name">Sair</span>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </a>
                 </nav>
             </div>
         @endauth
-        
+
         <main class="py-4">
             @yield('content')
         </main>
     </div>
-    
+
     <script>
         document.addEventListener("DOMContentLoaded", function(event) {
 
@@ -369,6 +402,8 @@
                         nav.classList.toggle('show')
                         // change icon
                         toggle.classList.toggle('bx-x')
+                        toggle.classList.toggle('addpd')
+                        
                         // add padding to body
                         bodypd.classList.toggle('app')
                         // add padding to header
