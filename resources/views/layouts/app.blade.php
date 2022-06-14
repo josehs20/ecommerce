@@ -347,11 +347,11 @@
                                 <span class="nav_name">
                                     <dropdown-component titulo="Registros"
                                         :itens="{
-                                            produto: { titulo: 'Produto', rota: 'produto/create' },
-                                            categoria: { titulo: 'Categoria', rota: 'categoria/create' },
-                                            cor: { titulo: 'Cor', rota: 'cor/create' },
-                                            tamanho: { titulo: 'Tamanho', rota: 'tamanho/create' },
-                                            estoque: { titulo: 'Estoque', rota: 'estoque/create' }
+                                            produto: { titulo: 'Produto', rota: '/produto/create' },
+                                            categoria: { titulo: 'Categoria', rota: '/categoria/create' },
+                                            cor: { titulo: 'Cor', rota: '/cor/create' },
+                                            tamanho: { titulo: 'Tamanho', rota: '/tamanho/create' },
+                                            estoque: { titulo: 'Estoque', rota: '/estoque/create' }
                                         }">
                                     </dropdown-component>
                                 </span>
