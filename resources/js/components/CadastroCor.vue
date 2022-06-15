@@ -24,7 +24,7 @@
                 </card-component>
             </div>
         </div>
-        </br>
+        <br>
         <!-- LISTA DE CORES -->
         <div class="row justify-content-center">
             <div class="col-md-6">

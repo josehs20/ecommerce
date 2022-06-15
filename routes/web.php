@@ -28,7 +28,7 @@ Route::middleware('admin')->group(function () {
     Route::resource('/produto', App\Http\Controllers\Admin\ProdutoController::class);
 
     //categoria
-    Route::resource('/categoria', App\Http\Controllers\Admin\CategoriaController::class);
+    Route::resource('/categorias', App\Http\Controllers\Admin\CategoriaController::class);
 
     //cor
     Route::resource('/cor', App\Http\Controllers\Admin\CorController::class);

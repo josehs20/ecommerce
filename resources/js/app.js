@@ -7,7 +7,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue').default;
-
+window.Swal = require('sweetalert2');
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -32,12 +32,31 @@ Vue.component('cadastro-categoria-component', require('./components/CadastroCate
 Vue.component('cadastro-cor-component', require('./components/CadastroCor.vue').default);
 Vue.component('cadastro-tamanho-component', require('./components/CadastroTamanho.vue').default);
 
+
+//tabelas
+Vue.component('table-component', require('./components/Table.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+Vue.filter('formataDataTempo', function (d) {
+    if (!d) return ''
 
+    d = d.split('T')
+
+    let data = d[0]
+    let tempo = d[1]
+
+    //formata data
+    data = data.split('-')
+    data = data[2] + '/' + data[1] + '/' + data[0]
+
+    tempo = tempo.split('.')
+    tempo = tempo[0]
+
+    return data + ' ' + tempo
+})
 const app = new Vue({
     el: '#app',
 });

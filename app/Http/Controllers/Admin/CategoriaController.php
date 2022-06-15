@@ -15,7 +15,8 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        //
+        $categorias = Categoria::orderBy('id')->get();
+        return response()->json($categorias, 200);
     }
 
     /**
@@ -36,7 +37,13 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $categoria = Categoria::create($request->all());
+
+        if (!$categoria) {
+            return response()->json(['errors' => 'Erro ao cadastrar categoria, tente novamente'], 400);
+        }
+
+        return response()->json(['msg' => 'Categoria ' . $categoria->nome . ' criada com sucesso'], 200);
     }
 
     /**
@@ -79,8 +86,11 @@ class CategoriaController extends Controller
      * @param  \App\Models\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categoria $categoria)
+    public function destroy($categoria)
     {
-        //
+        $categoria = Categoria::find($categoria);
+        $categoria->delete();
+
+        return response()->json(['msg' => 'Categoria excluida com sucesso'], 200);
     }
 }

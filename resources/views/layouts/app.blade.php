@@ -346,7 +346,7 @@
                                     <dropdown-component titulo="Registros"
                                         :itens="{
                                             produto: { titulo: 'Produto', rota: '/produto/create' },
-                                            categoria: { titulo: 'Categoria', rota: '/categoria/create' },
+                                            categoria: { titulo: 'Categoria', rota: '/categorias/create' },
                                             cor: { titulo: 'Cor', rota: '/cor/create' },
                                             tamanho: { titulo: 'Tamanho', rota: '/tamanho/create' },
                                             estoque: { titulo: 'Estoque', rota: '/estoque/create' }

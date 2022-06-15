@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="card-footer">
-            <slot name="rodape"></slot>
+            
         </div>
     </div>
     <!--Fim do card-->

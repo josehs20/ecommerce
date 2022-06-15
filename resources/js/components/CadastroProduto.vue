@@ -35,10 +35,10 @@
                                 </input-component>
                             </div>
                         </div>
-                        
+
                         <!-- Linha dois cadastro de produto -->
                         <div class="row mt-2">
-                            
+
                             <div class="col-md-4">
                                 <input-component titulo="Categoria" id="categoriaProduto" id-help="categoriaProduto">
 
@@ -55,13 +55,75 @@
                                     <input readonly type="file" class="form-control" id="lucroProduto"
                                         aria-describedby="lucroProduto" placeholder="Lucro">
                                 </input-component>
+                                <div class="mt-4">
+                                    <ul class="list">
+                                        <li class="">Lista de imagens</li>
+                                        <li class="">img 1</li>
+                                        <li class="">img 2</li>
+
+                                    </ul>
+
+                                </div>
                             </div>
+                        </div>
+
+                        <div class="row mt-4">
+
+                            <div class="col-md-4">
+                                <input-component titulo="Cor" id="categoriaProduto" id-help="categoriaProduto">
+
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected value="1">jeans</option>
+                                        <option value="1">camisa</option>
+                                        <option value="1">short</option>
+                                    </select>
+                                </input-component>
+                            </div>
+
+                            <div class="col-md-4">
+                                <input-component titulo="Tamanho" id="tamanhoProduto" id-help="tamanhoProduto">
+
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected value="1">PP</option>
+                                        <option value="1">M</option>
+                                        <option value="1">G</option>
+                                    </select>
+                                </input-component>
+                            </div>
+
+                            <div class="col-md-2">
+                                <input-component titulo="Estoque" id="quantidadeProduto" id-help="quantidadeProduto"
+                                    texto-ajuda="Informe o nome do produto">
+                                    <input type="number" class="form-control" id="quantidadeProduto"
+                                        aria-describedby="custoProduto" placeholder="Quantidade" v-model="custoProduto">
+                                </input-component>
+
+                            </div>
+                            <div class="col-md-2 d-flex justify-content-center h-20 mt-4">
+
+                                <botao-component titulo="Adicionar"></botao-component>
+                            </div>
+                        </div>
+                    </template>
+
+                    <template v-slot:rodape>
+                        rodape
+                    </template>
+                </card-component>
+                <br>
+
+                <card-component titulo="Lista de produtos ">
+                    <template v-slot:conteudo>
+                        <!-- Linha um cadastro de produto -->
+                        <div class="row">
+
+
                         </div>
 
                     </template>
 
                     <template v-slot:rodape>
-                        rodape
+
                     </template>
                 </card-component>
             </div>
