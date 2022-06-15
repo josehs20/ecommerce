@@ -5910,7 +5910,13 @@ __webpack_require__.r(__webpack_exports__);
           var formData = new FormData();
           formData.append('_method', 'delete');
           axios.post(url, formData).then(function (response) {
-            Swal.fire('Deletado', response.data.msg, 'success');
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: response.data.msg,
+              showConfirmButton: false,
+              timer: 1500
+            });
 
             _this.$emit('carregarLista');
           })["catch"](function (errors) {

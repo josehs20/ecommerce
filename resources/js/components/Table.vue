@@ -52,11 +52,14 @@ export default {
                     formData.append('_method', 'delete')
                     axios.post(url, formData)
                         .then(response => {
-                            Swal.fire(
-                                'Deletado',
-                                response.data.msg,
-                                'success'
-                            )
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: response.data.msg,
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+
                             this.$emit('carregarLista')
                         })
 
