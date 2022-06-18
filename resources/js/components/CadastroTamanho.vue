@@ -1,43 +1,58 @@
 <style>
-    .ip{
-        display: flex;
-        justify-content: center;
-    }
-    .ip input{
-        width: 60%;
-        margin-right: 10px;
-    }
+.ip {
+    display: flex;
+    justify-content: center;
+}
+
+.ip input {
+    width: 60%;
+    margin-right: 10px;
+}
 </style>
 
 <template>
     <div class="container">
         <!-- INSERIR TAMANHOS -->
-         <div class="row justify-content-center">
+        <div class="row justify-content-center">
             <div class="col-md-6">
                 <card-component titulo="Cadastrar tamanhos">
                     <template v-slot:conteudo>
-                        <div class="d-flex ip">
-                            <input class="form-control" type="text" placeholder="Tamanho">
-                            <botao-component titulo="Inserir"></botao-component>
-                        </div>
+                        <form method="POST" @submit.prevent="insereTamanho($event)">
+                        <input type="hidden" name="_token" :value="csrf_token">
+                            <div class="d-flex ip">
+                                <input type="text" class="form-control" id="cadastroTamanho"
+                                    aria-describedby="cadastroTamanho" placeholder="Nome da categoria"
+                                    v-model="cadastroTamanho">
+                                <botao-component type="submit" estilo="btn btn-outline-primary" titulo="Inserir">
+                                </botao-component>
+                            </div>
+                        </form>
                     </template>
                 </card-component>
             </div>
         </div>
-        </br>
+        <br>
         <!-- LISTA DE TAMANHOS -->
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <card-component titulo="Lista de tamanhos">
+                <card-component v-if="!this.tamanhos.length" titulo="Lista de tamanhos">
                     <template v-slot:conteudo>
-                        <div>
-                            <p>36</p>
-                            <p>37</p>
-                            <p>38</p>
-                            <p>39</p>
-                            <p>40</p>
-                            <p>41</p>
-                        </div>                        
+
+                        <div class="alert alert-warning" role="alert">
+                            Nenhum tamanho cadastrada!
+                        </div>
+
+                    </template>
+                </card-component>
+
+                <card-component v-if="this.tamanhos.length" titulo="Lista de tamanhos">
+                    <template v-slot:conteudo>
+                        <table-component @carregarLista="carregarLista" :dados="tamanhos" :titulos="{
+                            id: { titulo: 'nº', tipo: 'texto' },
+                            nome: { titulo: 'Nome', tipo: 'texto' }
+                        }"
+                            :remover="{ visivel: true, titulo: 'Remover', texto: 'Deseja realmente excluir esse tamanho ?', url: '/tamanho' }">
+                        </table-component>
                     </template>
                 </card-component>
             </div>
@@ -46,7 +61,65 @@
 </template>
 
 <script>
-    export default {
-        
+export default {
+    props: ['csrf_token'], //data (semelhante)
+    data() {
+        return {
+            url: '/tamanho',
+            cadastroTamanho: '',
+            tamanhos: '',
+        }
+    },
+
+    methods: {
+
+        insereTamanho(e) {
+            var data = { nome: this.cadastroTamanho }
+
+            axios.post(this.url, data)
+                .then(response => {
+
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: response.data.msg,
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
+
+                })
+                .catch(errors => {
+                    if (errors.response.status == '500') {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'warning',
+                            title: 'Tamanho Já Existe',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+
+                })
+
+            this.carregarLista()
+        },
+
+        carregarLista() {
+
+            axios.get(this.url)
+                .then(response => {
+
+                    this.tamanhos = response.data
+
+                })
+                .catch(errors => {
+
+                })
+        }
+
+    },
+    mounted() {
+        this.carregarLista();
     }
+}
 </script>

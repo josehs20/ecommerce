@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -14,7 +15,8 @@ class CorController extends Controller
      */
     public function index()
     {
-        //
+        $cores = Cor::orderBy('id')->get();
+        return response()->json($cores);
     }
 
     /**
@@ -35,7 +37,9 @@ class CorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cor = Cor::create($request->all());
+
+        return response()->json(['msg' => 'Cor '. $cor->nome . 'criada com sucesso']);
     }
 
     /**
@@ -78,8 +82,10 @@ class CorController extends Controller
      * @param  \App\Models\Cor  $cor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cor $cor)
+    public function destroy($cor)
     {
-        //
+        $cor = Cor::find($cor);
+        $cor->delete();
+        return response()->json(['msg' => 'Cor excluida com sucesso']);
     }
 }

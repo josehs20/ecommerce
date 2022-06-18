@@ -44,10 +44,20 @@
         <!-- LISTA DE CATEGORIAS -->
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <card-component titulo="Lista de categorias">
+                <card-component v-if="!this.categorias.length" titulo="Lista de categorias">
+                    <template v-slot:conteudo>
+
+                        <div class="alert alert-warning" role="alert">
+                            Nenhuma categoria cadastrada!
+                        </div>
+
+                    </template>
+                </card-component>
+
+                <card-component v-if="this.categorias.length" titulo="Lista de categorias">
                     <template v-slot:conteudo>
                         <table-component @carregarLista="carregarLista" :dados="categorias" :titulos="{
-                            id: { titulo: 'nº', tipo: 'texto' },
+                             id: { titulo: 'nº', tipo: 'texto' },
                             nome: { titulo: 'Nome', tipo: 'texto' }
                         }"
                             :remover="{ visivel: true, titulo: 'Remover', texto: 'Deseja realmente excluir essa categoria ?', url: '/categorias' }">
@@ -73,15 +83,29 @@ export default {
 
         insereCategoria(e) {
             var data = { nome: this.categoriaCadastro }
-
+ 
             axios.post(this.url, data)
                 .then(response => {
-                    if (response.msg) {
-                        console.log(response.msg);
-                    }
+                   
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: response.data.msg,
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
                 })
                 .catch(errors => {
-                    console.log(errors);
+                    if (errors.response.status == '500') {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'warning',
+                            title: 'Categoria Já Existe',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+
                 })
 
             this.carregarLista()
@@ -92,6 +116,7 @@ export default {
             axios.get(this.url)
                 .then(response => {
                     this.categorias = response.data
+
                 })
                 .catch(errors => {
                     console.log(errors);

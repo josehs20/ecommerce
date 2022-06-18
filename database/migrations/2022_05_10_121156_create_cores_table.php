@@ -15,7 +15,8 @@ class CreateCoresTable extends Migration
     {
         Schema::create('cores', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
+            $table->string('nome')->unique();
+            $table->string('codigo');
             $table->timestamps();
         });
     }

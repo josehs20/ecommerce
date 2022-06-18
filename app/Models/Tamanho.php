@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Tamanho extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'nome'
+    ];
+
+
+    public function produtos()
+    {
+        return $this->hasMany('App\Models\Produto');
+    }
 }

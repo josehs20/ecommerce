@@ -15,7 +15,8 @@ class TamanhoController extends Controller
      */
     public function index()
     {
-        //
+        $tamanhos = Tamanho::orderBy('id')->get();
+        return response()->json($tamanhos, 200);
     }
 
     /**
@@ -36,7 +37,9 @@ class TamanhoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tamanho = Tamanho::create($request->all());
+        
+        return response()->json(['msg' => 'Tamanho '. $tamanho->nome . ' criado com sucesso'], 200);
     }
 
     /**
@@ -79,8 +82,10 @@ class TamanhoController extends Controller
      * @param  \App\Models\Tamanho  $tamanho
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tamanho $tamanho)
+    public function destroy($tamanho)
     {
-        //
+        $tamanho = Tamanho::find($tamanho);
+        $tamanho->delete();
+        return response()->json(['msg' => 'Tamanho excluido com sucesso']);
     }
 }

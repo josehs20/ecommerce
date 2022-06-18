@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <cadastro-cor-component></cadastro-cor-component>
+    <cadastro-cor-component csrf_token={{ @csrf_token() }}></cadastro-cor-component>
 @endsection

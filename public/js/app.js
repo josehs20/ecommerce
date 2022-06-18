@@ -5348,6 +5348,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['csrf_token'],
   //data (semelhante)
@@ -5364,11 +5374,23 @@ __webpack_require__.r(__webpack_exports__);
         nome: this.categoriaCadastro
       };
       axios.post(this.url, data).then(function (response) {
-        if (response.msg) {
-          console.log(response.msg);
-        }
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: response.data.msg,
+          showConfirmButton: false,
+          timer: 2000
+        });
       })["catch"](function (errors) {
-        console.log(errors);
+        if (errors.response.status == '500') {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'warning',
+            title: 'Categoria Já Existe',
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
       });
       this.carregarLista();
     },
@@ -5447,7 +5469,90 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['csrf_token'],
+  //data (semelhante)
+  data: function data() {
+    return {
+      url: '/cor',
+      corNomeCadastro: '',
+      corCodCadastro: '',
+      cores: ''
+    };
+  },
+  methods: {
+    inserirCor: function inserirCor(e) {
+      var data = {
+        nome: this.corNomeCadastro,
+        codigo: this.corCodCadastro ? this.corCodCadastro : '#000'
+      };
+      axios.post(this.url, data).then(function (response) {
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: response.data.msg,
+          showConfirmButton: false,
+          timer: 2000
+        });
+      })["catch"](function (errors) {
+        if (errors.response.status == '500') {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'warning',
+            title: 'Cor Já Existe',
+            showConfirmButton: false,
+            timer: 2000
+          });
+        }
+      });
+      this.carregarLista();
+    },
+    carregarLista: function carregarLista() {
+      var _this = this;
+
+      axios.get(this.url).then(function (response) {
+        _this.cores = response.data;
+      })["catch"](function (errors) {//console.log(errors);
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.carregarLista();
+  }
+});
 
 /***/ }),
 
@@ -5666,7 +5771,69 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['csrf_token'],
+  //data (semelhante)
+  data: function data() {
+    return {
+      url: '/tamanho',
+      cadastroTamanho: '',
+      tamanhos: ''
+    };
+  },
+  methods: {
+    insereTamanho: function insereTamanho(e) {
+      var data = {
+        nome: this.cadastroTamanho
+      };
+      axios.post(this.url, data).then(function (response) {
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: response.data.msg,
+          showConfirmButton: false,
+          timer: 2000
+        });
+      })["catch"](function (errors) {
+        if (errors.response.status == '500') {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'warning',
+            title: 'Tamanho Já Existe',
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
+      });
+      this.carregarLista();
+    },
+    carregarLista: function carregarLista() {
+      var _this = this;
+
+      axios.get(this.url).then(function (response) {
+        _this.tamanhos = response.data;
+      })["catch"](function (errors) {});
+    }
+  },
+  mounted: function mounted() {
+    this.carregarLista();
+  }
+});
 
 /***/ }),
 
@@ -5857,6 +6024,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
 //
 //
 //
@@ -11118,7 +11287,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.ip{\n    display: flex;\n    justify-content: center;\n}\n.ip input{\n    width: 60%;\n    margin-right: 10px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.ip {\n    display: flex;\n    justify-content: center;\n}\n.ip input {\n    width: 60%;\n    margin-right: 10px;\n}\n#corCodCadastro {\n    width: 30%;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11142,7 +11311,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.ip{\n    display: flex;\n    justify-content: center;\n}\n.ip input{\n    width: 60%;\n    margin-right: 10px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.ip {\n    display: flex;\n    justify-content: center;\n}\n.ip input {\n    width: 60%;\n    margin-right: 10px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -34071,35 +34240,76 @@ var render = function () {
         "div",
         { staticClass: "col-md-6" },
         [
-          _c("card-component", {
-            attrs: { titulo: "Lista de categorias" },
-            scopedSlots: _vm._u([
-              {
-                key: "conteudo",
-                fn: function () {
-                  return [
-                    _c("table-component", {
-                      attrs: {
-                        dados: _vm.categorias,
-                        titulos: {
-                          id: { titulo: "nº", tipo: "texto" },
-                          nome: { titulo: "Nome", tipo: "texto" },
-                        },
-                        remover: {
-                          visivel: true,
-                          titulo: "Remover",
-                          texto: "Deseja realmente excluir essa categoria ?",
-                          url: "/categorias",
-                        },
+          !this.categorias.length
+            ? _c("card-component", {
+                attrs: { titulo: "Lista de categorias" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "conteudo",
+                      fn: function () {
+                        return [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "alert alert-warning",
+                              attrs: { role: "alert" },
+                            },
+                            [
+                              _vm._v(
+                                "\n                        Nenhuma categoria cadastrada!\n                    "
+                              ),
+                            ]
+                          ),
+                        ]
                       },
-                      on: { carregarLista: _vm.carregarLista },
-                    }),
-                  ]
-                },
-                proxy: true,
-              },
-            ]),
-          }),
+                      proxy: true,
+                    },
+                  ],
+                  null,
+                  false,
+                  75780271
+                ),
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          this.categorias.length
+            ? _c("card-component", {
+                attrs: { titulo: "Lista de categorias" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "conteudo",
+                      fn: function () {
+                        return [
+                          _c("table-component", {
+                            attrs: {
+                              dados: _vm.categorias,
+                              titulos: {
+                                id: { titulo: "nº", tipo: "texto" },
+                                nome: { titulo: "Nome", tipo: "texto" },
+                              },
+                              remover: {
+                                visivel: true,
+                                titulo: "Remover",
+                                texto:
+                                  "Deseja realmente excluir essa categoria ?",
+                                url: "/categorias",
+                              },
+                            },
+                            on: { carregarLista: _vm.carregarLista },
+                          }),
+                        ]
+                      },
+                      proxy: true,
+                    },
+                  ],
+                  null,
+                  false,
+                  2627409902
+                ),
+              })
+            : _vm._e(),
         ],
         1
       ),
@@ -34143,17 +34353,133 @@ var render = function () {
                 fn: function () {
                   return [
                     _c(
-                      "div",
-                      { staticClass: "d-flex ip" },
+                      "form",
+                      {
+                        attrs: { method: "POST" },
+                        on: {
+                          submit: function ($event) {
+                            $event.preventDefault()
+                            return _vm.inserirCor($event)
+                          },
+                        },
+                      },
                       [
                         _c("input", {
-                          staticClass: "form-control",
-                          attrs: { type: "text", placeholder: "Cor" },
+                          attrs: { type: "hidden", name: "_token" },
+                          domProps: { value: _vm.csrf_token },
                         }),
                         _vm._v(" "),
-                        _c("botao-component", { attrs: { titulo: "Inserir" } }),
-                      ],
-                      1
+                        _c(
+                          "div",
+                          { staticClass: "d-flex ip" },
+                          [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.corCodCadastro,
+                                  expression: "corCodCadastro",
+                                },
+                              ],
+                              staticClass: "form-control mt-4",
+                              attrs: {
+                                type: "color",
+                                id: "corCodCadastro",
+                                name: "ArcoIris",
+                                list: "arcoIris",
+                              },
+                              domProps: { value: _vm.corCodCadastro },
+                              on: {
+                                input: function ($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.corCodCadastro = $event.target.value
+                                },
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c("datalist", { attrs: { id: "arcoIris" } }, [
+                              _c("option", { attrs: { value: "#FF0000" } }, [
+                                _vm._v("Vermelho"),
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "#FFA500" } }, [
+                                _vm._v("Laranja"),
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "#FFFF00" } }, [
+                                _vm._v("Amarelo"),
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "#008000" } }, [
+                                _vm._v("Verde"),
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "#0000FF" } }, [
+                                _vm._v("Azul"),
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "#4B0082" } }, [
+                                _vm._v("Indigo"),
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "#EE82EE" } }, [
+                                _vm._v("Violeta"),
+                              ]),
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "input-component",
+                              {
+                                attrs: {
+                                  id: "corNomeCadastro",
+                                  "id-help": "corCadastro",
+                                },
+                              },
+                              [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.corNomeCadastro,
+                                      expression: "corNomeCadastro",
+                                    },
+                                  ],
+                                  staticClass: "form-control",
+                                  attrs: {
+                                    required: "",
+                                    type: "text",
+                                    id: "corNomeCadastro",
+                                    "aria-describedby": "corNomeCadastro",
+                                    placeholder: "Nome da cor",
+                                  },
+                                  domProps: { value: _vm.corNomeCadastro },
+                                  on: {
+                                    input: function ($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.corNomeCadastro = $event.target.value
+                                    },
+                                  },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("botao-component", {
+                              attrs: {
+                                type: "submit",
+                                estilo: "btn btn-outline-primary",
+                                titulo: "Inserir",
+                              },
+                            }),
+                          ],
+                          1
+                        ),
+                      ]
                     ),
                   ]
                 },
@@ -34173,32 +34499,76 @@ var render = function () {
         "div",
         { staticClass: "col-md-6" },
         [
-          _c("card-component", {
-            attrs: { titulo: "Lista de cores" },
-            scopedSlots: _vm._u([
-              {
-                key: "conteudo",
-                fn: function () {
-                  return [
-                    _c("div", [
-                      _c("p", [_vm._v("Jeans claro")]),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("Jeans claro")]),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("Jeans escuro")]),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("Jeans escuro")]),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("Jeans escuro")]),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("Jeans escuro")]),
-                    ]),
-                  ]
-                },
-                proxy: true,
-              },
-            ]),
-          }),
+          !this.cores.length
+            ? _c("card-component", {
+                attrs: { titulo: "Lista de cores" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "conteudo",
+                      fn: function () {
+                        return [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "alert alert-warning",
+                              attrs: { role: "alert" },
+                            },
+                            [
+                              _vm._v(
+                                "\n                        Nenhuma cor cadastrada!\n                    "
+                              ),
+                            ]
+                          ),
+                        ]
+                      },
+                      proxy: true,
+                    },
+                  ],
+                  null,
+                  false,
+                  4192561968
+                ),
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          this.cores.length
+            ? _c("card-component", {
+                attrs: { titulo: "Lista de categorias" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "conteudo",
+                      fn: function () {
+                        return [
+                          _c("table-component", {
+                            attrs: {
+                              dados: _vm.cores,
+                              titulos: {
+                                id: { titulo: "nº", tipo: "texto" },
+                                nome: { titulo: "Nome", tipo: "texto" },
+                                codigo: { titulo: "Cor", tipo: "cor" },
+                              },
+                              remover: {
+                                visivel: true,
+                                titulo: "Remover",
+                                texto: "Deseja realmente excluir essa cor ?",
+                                url: "/cor",
+                              },
+                            },
+                            on: { carregarLista: _vm.carregarLista },
+                          }),
+                        ]
+                      },
+                      proxy: true,
+                    },
+                  ],
+                  null,
+                  false,
+                  3498940229
+                ),
+              })
+            : _vm._e(),
         ],
         1
       ),
@@ -34747,17 +35117,64 @@ var render = function () {
                 fn: function () {
                   return [
                     _c(
-                      "div",
-                      { staticClass: "d-flex ip" },
+                      "form",
+                      {
+                        attrs: { method: "POST" },
+                        on: {
+                          submit: function ($event) {
+                            $event.preventDefault()
+                            return _vm.insereTamanho($event)
+                          },
+                        },
+                      },
                       [
                         _c("input", {
-                          staticClass: "form-control",
-                          attrs: { type: "text", placeholder: "Tamanho" },
+                          attrs: { type: "hidden", name: "_token" },
+                          domProps: { value: _vm.csrf_token },
                         }),
                         _vm._v(" "),
-                        _c("botao-component", { attrs: { titulo: "Inserir" } }),
-                      ],
-                      1
+                        _c(
+                          "div",
+                          { staticClass: "d-flex ip" },
+                          [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.cadastroTamanho,
+                                  expression: "cadastroTamanho",
+                                },
+                              ],
+                              staticClass: "form-control",
+                              attrs: {
+                                type: "text",
+                                id: "cadastroTamanho",
+                                "aria-describedby": "cadastroTamanho",
+                                placeholder: "Nome da categoria",
+                              },
+                              domProps: { value: _vm.cadastroTamanho },
+                              on: {
+                                input: function ($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.cadastroTamanho = $event.target.value
+                                },
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c("botao-component", {
+                              attrs: {
+                                type: "submit",
+                                estilo: "btn btn-outline-primary",
+                                titulo: "Inserir",
+                              },
+                            }),
+                          ],
+                          1
+                        ),
+                      ]
                     ),
                   ]
                 },
@@ -34777,32 +35194,76 @@ var render = function () {
         "div",
         { staticClass: "col-md-6" },
         [
-          _c("card-component", {
-            attrs: { titulo: "Lista de tamanhos" },
-            scopedSlots: _vm._u([
-              {
-                key: "conteudo",
-                fn: function () {
-                  return [
-                    _c("div", [
-                      _c("p", [_vm._v("36")]),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("37")]),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("38")]),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("39")]),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("40")]),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("41")]),
-                    ]),
-                  ]
-                },
-                proxy: true,
-              },
-            ]),
-          }),
+          !this.tamanhos.length
+            ? _c("card-component", {
+                attrs: { titulo: "Lista de tamanhos" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "conteudo",
+                      fn: function () {
+                        return [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "alert alert-warning",
+                              attrs: { role: "alert" },
+                            },
+                            [
+                              _vm._v(
+                                "\n                        Nenhum tamanho cadastrada!\n                    "
+                              ),
+                            ]
+                          ),
+                        ]
+                      },
+                      proxy: true,
+                    },
+                  ],
+                  null,
+                  false,
+                  1252381791
+                ),
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          this.tamanhos.length
+            ? _c("card-component", {
+                attrs: { titulo: "Lista de tamanhos" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "conteudo",
+                      fn: function () {
+                        return [
+                          _c("table-component", {
+                            attrs: {
+                              dados: _vm.tamanhos,
+                              titulos: {
+                                id: { titulo: "nº", tipo: "texto" },
+                                nome: { titulo: "Nome", tipo: "texto" },
+                              },
+                              remover: {
+                                visivel: true,
+                                titulo: "Remover",
+                                texto:
+                                  "Deseja realmente excluir esse tamanho ?",
+                                url: "/tamanho",
+                              },
+                            },
+                            on: { carregarLista: _vm.carregarLista },
+                          }),
+                        ]
+                      },
+                      proxy: true,
+                    },
+                  ],
+                  null,
+                  false,
+                  2718856456
+                ),
+              })
+            : _vm._e(),
         ],
         1
       ),
@@ -35102,6 +35563,12 @@ var render = function () {
                 return _c("td", { key: chaveValor }, [
                   _vm.titulos[chaveValor].tipo == "texto"
                     ? _c("span", [_vm._v(_vm._s(valor))])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.titulos[chaveValor].tipo == "cor"
+                    ? _c("span", { style: { backgroundColor: valor } }, [
+                        _vm._v("   "),
+                      ])
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.titulos[chaveValor].tipo == "data"

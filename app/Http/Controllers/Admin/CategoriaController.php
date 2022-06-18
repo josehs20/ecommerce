@@ -38,11 +38,6 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
         $categoria = Categoria::create($request->all());
-
-        if (!$categoria) {
-            return response()->json(['errors' => 'Erro ao cadastrar categoria, tente novamente'], 400);
-        }
-
         return response()->json(['msg' => 'Categoria ' . $categoria->nome . ' criada com sucesso'], 200);
     }
 

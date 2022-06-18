@@ -11,7 +11,9 @@
                 <tr v-for="obj, chave in dadosFiltrados" :key="chave">
 
                     <td v-for="valor, chaveValor in obj" :key="chaveValor">
+
                         <span v-if="titulos[chaveValor].tipo == 'texto'">{{ valor }}</span>
+                        <span v-if="titulos[chaveValor].tipo == 'cor'" :style="{backgroundColor: valor}" >&emsp;&emsp;&emsp;</span>
                         <span v-if="titulos[chaveValor].tipo == 'data'">{{ valor | formataDataTempo }}</span>
                     </td>
 
@@ -34,6 +36,7 @@
 export default {
     props: ['dados', 'titulos', 'visualizar', 'atualizar', 'remover'],
     emits: ['carregarLista'],
+
     methods: {
         modalConfirm(obj, texto, url) {
             var url = url + '/' + String(obj.id);
