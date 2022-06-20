@@ -2,7 +2,7 @@
     .logo {
         display: flex;
         justify-content: center;
-        margin: 20px 0;
+        margin: 20px 0; 
     }
 
     .logo img {
@@ -11,9 +11,10 @@
 
     .pnavbar {
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
         margin: 20px 0;
+        padding-top: 20px;
     }
 
     .pnavbar ul {
@@ -23,11 +24,12 @@
         justify-content: space-between;
         margin: unset !important;
         padding: unset !important;
-        width: 60%;
+        width: 65%;
     }
 
     .pnavbar ul li {
-        letter-spacing: 3px;
+        letter-spacing: 2px;
+        padding-right: 35px;
         color: #000;
         font-weight: bold;
         font-size: 0.85rem
