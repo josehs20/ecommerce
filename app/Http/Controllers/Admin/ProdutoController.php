@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categoria;
+use App\Models\Cor;
 use App\Models\Produto;
+use App\Models\Tamanho;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
@@ -25,9 +28,19 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        return view('admin.produto.create');
-    }
+        $categorias = Categoria::all();
+        $tamanhos = Tamanho::all();
+        $cores = Cor::all();
 
+        $data['categorias'] = $categorias;
+        $data['tamanhos'] =  $tamanhos;
+        $data['cores'] = $cores;
+        $data = json_encode($data);
+
+       // dd($data);
+        return view('admin.produto.create', compact('categorias', 'tamanhos', 'cores', 'data'));
+    }
+    
     /**
      * Store a newly created resource in storage.
      *

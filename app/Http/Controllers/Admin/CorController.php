@@ -39,7 +39,7 @@ class CorController extends Controller
     {
         $cor = Cor::create($request->all());
 
-        return response()->json(['msg' => 'Cor '. $cor->nome . 'criada com sucesso']);
+        return response()->json(['msg' => 'Cor '. $cor->nome . ' criada com sucesso']);
     }
 
     /**

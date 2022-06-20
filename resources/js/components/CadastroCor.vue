@@ -62,7 +62,7 @@
                     </template>
                 </card-component>
 
-                <card-component v-if="this.cores.length" titulo="Lista de categorias">
+                <card-component v-if="this.cores.length" titulo="Lista de cores">
                     <template v-slot:conteudo>
                         <table-component @carregarLista="carregarLista" :dados="cores" :titulos="{
                             id: { titulo: 'nº', tipo: 'texto' },
