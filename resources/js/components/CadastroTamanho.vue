@@ -51,7 +51,9 @@
                             id: { titulo: 'nº', tipo: 'texto' },
                             nome: { titulo: 'Nome', tipo: 'texto' }
                         }"
-                            :remover="{ visivel: true, titulo: 'Remover', texto: 'Deseja realmente excluir esse tamanho ?', url: '/tamanho' }">
+                            :remover="{ visivel: true, titulo: 'Remover', texto: 'Deseja realmente excluir esse tamanho ?', url: '/tamanho' }"
+                            :visualizar="{ visivel: false, titulo: 'Visualizar'}"
+                            :atualizar="{ visivel: false, titulo: 'Atualizar' }">
                         </table-component>
                     </template>
                 </card-component>

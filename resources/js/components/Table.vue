@@ -4,7 +4,8 @@
             <thead>
                 <tr>
                     <th scope="col" v-for="t, key in titulos" :key="key">{{ t.titulo }}</th>
-                    <th scope="col" v-if="remover.visivel"></th>
+                    <th v-if="remover.visivel || visualizar.visivel || atualizar.visivel"></th>
+              
                 </tr>
             </thead>
             <tbody>
@@ -13,14 +14,21 @@
                     <td v-for="valor, chaveValor in obj" :key="chaveValor">
 
                         <span v-if="titulos[chaveValor].tipo == 'texto'">{{ valor }}</span>
-                        <span v-if="titulos[chaveValor].tipo == 'cor'" :style="{backgroundColor: valor}" >&emsp;&emsp;&emsp;</span>
+                        <span v-if="titulos[chaveValor].tipo == 'cor'"
+                            :style="{ backgroundColor: valor }">&emsp;&emsp;&emsp;</span>
                         <span v-if="titulos[chaveValor].tipo == 'data'">{{ valor | formataDataTempo }}</span>
                     </td>
 
-                    <td>
+                    <td style="width: 300px !important;">
                         <botao-component v-if="remover.visivel"
                             @function-evento="modalConfirm(obj, remover.texto, remover.url)" type="button"
-                            estilo="btn btn-outline-danger" :titulo="remover.titulo">
+                            estilo="btn btn-outline-danger mx-1" :titulo="remover.titulo">
+                        </botao-component>
+                        <botao-component v-if="visualizar.visivel" type="button" estilo="btn btn-outline-info"
+                            :titulo="visualizar.titulo">
+                        </botao-component>
+                        <botao-component v-if="atualizar.visivel" type="button" estilo="btn btn-outline-success"
+                            :titulo="atualizar.titulo">
                         </botao-component>
 
                     </td>

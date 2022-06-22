@@ -37,9 +37,9 @@ class TamanhoController extends Controller
      */
     public function store(Request $request)
     {
-        $tamanho = Tamanho::create($request->all());
-        
-        return response()->json(['msg' => 'Tamanho '. $tamanho->nome . ' criado com sucesso'], 200);
+        $tamanho = Tamanho::create(['nome' => strtoupper($request->nome)]);
+
+        return response()->json(['msg' => 'Tamanho ' . $tamanho->nome . ' criado com sucesso'], 200);
     }
 
     /**

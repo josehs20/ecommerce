@@ -57,6 +57,7 @@ Vue.filter('formataDataTempo', function (d) {
 
     return data + ' ' + tempo
 })
+
 const app = new Vue({
     el: '#app',
 });

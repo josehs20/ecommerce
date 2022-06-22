@@ -69,7 +69,9 @@
                             nome: { titulo: 'Nome', tipo: 'texto' },
                             codigo: { titulo: 'Cor', tipo: 'cor' }
                         }"
-                            :remover="{ visivel: true, titulo: 'Remover', texto: 'Deseja realmente excluir essa cor ?', url: '/cor' }">
+                            :remover="{ visivel: true, titulo: 'Remover', texto: 'Deseja realmente excluir essa cor ?', url: '/cor' }"
+                            :visualizar="{ visivel: false, titulo: 'Visualizar'}"
+                            :atualizar="{ visivel: false, titulo: 'Atualizar' }">
                         </table-component>
                     </template>
                 </card-component>
@@ -122,7 +124,6 @@ export default {
             axios.get(this.url)
                 .then(response => {
                     this.cores = response.data
-
                 })
                 .catch(errors => {
                     //console.log(errors);

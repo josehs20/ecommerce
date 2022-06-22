@@ -60,7 +60,9 @@
                              id: { titulo: 'nº', tipo: 'texto' },
                             nome: { titulo: 'Nome', tipo: 'texto' }
                         }"
-                            :remover="{ visivel: true, titulo: 'Remover', texto: 'Deseja realmente excluir essa categoria ?', url: '/categorias' }">
+                            :remover="{ visivel: true, titulo: 'Remover', texto: 'Deseja realmente excluir essa categoria ?', url: '/categorias' }"
+                            :visualizar="{ visivel: false, titulo: 'Visualizar'}"
+                            :atualizar="{ visivel: false, titulo: 'Atualizar' }">
                         </table-component>
                     </template>
                 </card-component>
