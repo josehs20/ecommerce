@@ -14,7 +14,7 @@ class Produto extends Model
         'custo',
         'lucro',
         'cor',
-        'preco',
+        'preco'
     ];
     public function prodTamCors()
     {
