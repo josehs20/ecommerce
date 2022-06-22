@@ -26,6 +26,9 @@ Vue.component('dropdown-component', require('./components/Dropdown.vue').default
 Vue.component('input-component', require('./components/Input.vue').default);
 Vue.component('botao-component', require('./components/Botao.vue').default);
 
+//card do produto
+Vue.component('card-produto-component', require('./components/CardProduto.vue').default);
+
 //cadastros
 Vue.component('cadastro-produto-component', require('./components/CadastroProduto.vue').default);
 Vue.component('cadastro-categoria-component', require('./components/CadastroCategoria.vue').default);
