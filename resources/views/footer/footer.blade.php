@@ -27,7 +27,7 @@
     }
 </style>
 
-<footer>
+<footer id="footer">
     <hr style="margin-top: 100px">
     <br>
     <div>
@@ -39,9 +39,8 @@
 
         <ul class="l e">
             <h4><li>Menu</li></h4>
-            <a href="#paginaprincipal"><li>Página principal</li></a>
-            <a href="#paginaprincipal"><li>Loja</li></a>
-            <a href="#paginaprincipal"><li>Contato</li></a>
+            <a href="/"><li>Página principal</li></a>
+            <a href="{{route('viewloja')}}"><li>Loja</li></a>
         </ul>
 
         <div class="e">
