@@ -26,6 +26,11 @@ class Produto extends Model
         return $this->belongsTo('App\Models\Categoria');
     }
 
+    public function desconto()
+    {
+        return $this->belongsTo('App\Models\Desconto');
+    }
+
     public function imagens()
     {
         return $this->hasMany('App\Models\Imagem');

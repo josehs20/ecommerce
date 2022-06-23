@@ -79,11 +79,9 @@
 
 <template>
     <div>
-        <div class="divprodutos">
-      
+        <div class="divprodutos">      
                 <!-- card do produto-->
-                <div class="cardproduto">
-                    
+                <div class="cardproduto">                    
                     <img src="./../../../public/img/f1.png" class="cardimgtop" alt="Imagem do produto">
                     <div class="cardbody">
                         <h5 class="text-center">Nome do produto</h5>
@@ -106,25 +104,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- card do produto-->
-                <!-- card do produto-->
-                <div class="cardproduto">
-                    <img src="./../../../public/img/f1.png" class="cardimgtop" alt="Imagem do produto">
-                    <div class="cardbody">
-                        <h5 class="text-center">Nome do produto</h5>
-                        <!-- Preços-->
-                        <div class="d-flex justify-content-around">
-                            <p>
-                                R$ 20
-                            </p>
-                        </div>
-                        <!-- botao de ver mais-->
-                        <div class="divvermais">
-                            <a href="#vermais" class="vermais">Ver mais</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- card do produto-->           
+                <!-- card do produto-->          
         </div>
     </div>
 </template>
