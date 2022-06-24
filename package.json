@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "sweetalert2": "^11.4.17",
-        "vue-select2": "^0.2.6"
+        "vue-select2": "^0.2.6",
+        "vuex": "^3.6.2"
     }
 }

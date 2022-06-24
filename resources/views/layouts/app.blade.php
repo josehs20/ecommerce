@@ -141,7 +141,7 @@
         font-size: 1.25rem
     }
 
-    .show {
+    .showBar {
         left: 0
     }
 
@@ -191,7 +191,7 @@
             padding: 1rem 1rem 0 0
         }
 
-        .show {
+        .showBar {
             width: calc(var(--nav-width) + 156px)
         }
 
@@ -227,7 +227,7 @@
             padding: 1rem 1rem 0 0
         }
 
-        .show {
+        .showBar {
             width: calc(var(--nav-width) + 100px)
         }
 
@@ -240,6 +240,7 @@
 
 <body>
     <div id="app">
+     
         @auth
             <header id="header" class="header">
                 <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
@@ -319,7 +320,7 @@
             var headerpd = document.getElementById('header')
             var toggle = document.getElementById('header-toggle')
 
-            nav.classList.toggle('show')
+            nav.classList.toggle('showBar')
             toggle.classList.toggle('bx-x')
             bodypd.classList.toggle('app')
             headerpd.classList.toggle('app')
@@ -338,7 +339,7 @@
                 if (toggle && nav && bodypd && headerpd) {
                     toggle.addEventListener('click', () => {
                         // show navbar
-                        nav.classList.toggle('show')
+                        nav.classList.toggle('showBar')
                         // change icon
                         toggle.classList.toggle('bx-x')
                         toggle.classList.toggle('addpd')

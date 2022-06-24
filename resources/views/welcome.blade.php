@@ -23,7 +23,7 @@
 </head>
 <body>
     
- 
+    
         <!-- NAVBAR  -->
         @include('navbar.navbar')
     

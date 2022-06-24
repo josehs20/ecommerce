@@ -8,6 +8,17 @@ require('./bootstrap');
 
 window.Vue = require('vue').default;
 window.Swal = require('sweetalert2');
+
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+const store = new Vuex.Store({
+    state: {
+        item: {},
+        prodTamCor: {},
+    }
+})
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -24,10 +35,10 @@ Vue.component('home-component', require('./components/Home.vue').default);
 Vue.component('card-component', require('./components/Card.vue').default);
 Vue.component('dropdown-component', require('./components/Dropdown.vue').default);
 Vue.component('input-component', require('./components/Input.vue').default);
-Vue.component('botao-component', require('./components/Botao.vue').default);
-
+Vue.component('modal-produto-component', require('./components/ModalProduto.vue').default);
 //card do produto
 Vue.component('card-produto-component', require('./components/CardProduto.vue').default);
+Vue.component('modal-produto-component', require('./components/ModalProduto.vue').default);
 
 //cadastros
 Vue.component('cadastro-produto-component', require('./components/CadastroProduto.vue').default);
@@ -63,4 +74,5 @@ Vue.filter('formataDataTempo', function (d) {
 
 const app = new Vue({
     el: '#app',
+    store
 });

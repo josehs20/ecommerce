@@ -40,8 +40,9 @@
                                         aria-describedby="corNomeCadastro" placeholder="Nome da cor"
                                         v-model="corNomeCadastro">
                                 </input-component>
-                                <botao-component type="submit" estilo="btn btn-outline-primary" titulo="Inserir">
-                                </botao-component>
+                                
+                                <button type="submit" class="btn btn-outline-primary">Inserir</button>
+
                             </div>
                         </form>
                     </template>
@@ -68,15 +69,15 @@
                             id: { titulo: 'nº', tipo: 'texto' },
                             nome: { titulo: 'Nome', tipo: 'texto' },
                             codigo: { titulo: 'Cor', tipo: 'cor' }
-                        }"
-                            :remover="{ visivel: true, titulo: 'Remover', texto: 'Deseja realmente excluir essa cor ?', url: '/cor' }"
-                            :visualizar="{ visivel: false, titulo: 'Visualizar'}"
+                        }" :remover="{ visivel: true, titulo: 'Remover', texto: 'Deseja realmente excluir essa cor ?', url: '/cor' }"
+                            :visualizar="{ visivel: false, titulo: 'Visualizar' }"
                             :atualizar="{ visivel: false, titulo: 'Atualizar' }">
                         </table-component>
                     </template>
                 </card-component>
             </div>
         </div>
+
     </div>
 </template>
 
@@ -117,7 +118,7 @@ export default {
                     }
 
                 })
-                this.carregarLista()
+            this.carregarLista()
         },
         carregarLista() {
 
@@ -130,7 +131,7 @@ export default {
                 })
         },
     },
-     mounted() {
+    mounted() {
         this.carregarLista();
     }
 }

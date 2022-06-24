@@ -20,8 +20,17 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        $produtos = Produto::orderBy('id')->get();
-        
+        $prods = Produto::with('prodTamCors')->orderBy('id')->get();
+        $i = 0;
+        foreach ($prods as $key => $produto) {
+            $produtos[$i]['produto'] = $produto;
+
+            foreach ($produto->prodTamCors as $key => $ptc) {
+                $produtos[$i]['cores'][] = $ptc->cor;
+                $produtos[$i]['tamanhos'][] = $ptc->tamanho;
+            }
+            $i++;
+        }
         return response()->json($produtos, 200);
     }
 
@@ -60,7 +69,7 @@ class ProdutoController extends Controller
 
         if (!$prod_tam_cor && !$produtoVerify) {
 
-            $produto = Produto::find($request->prodInserido);
+            $produto = Produto::whereRaw("nome like '{$request->nome}'")->first();
 
             if (!$produto) {
 
@@ -80,10 +89,11 @@ class ProdutoController extends Controller
             } else {
 
                 ProdTamCor::create([
-                    'produto_id' => $request->prodInserido,
+                    'produto_id' => $produto->id,
                     'tamanho_id' => $request->tamanho,
                     'cor_id' => $request->cor
                 ]);
+                return response()->json(['msg' => 'Cor e tamanho adicionado para o produto com sucesso', 'prodInserido' => $produto->id, 'existe' => false], 200);
             }
 
             if (!$request->prodInserido && $request->file('imagens')) {
@@ -91,9 +101,7 @@ class ProdutoController extends Controller
                 $this->upload_redimensiona_salva_image_produto($request, $produto);
             }
 
-            $listaProdTamCor = $this->carregaListaProdTamCor($produto->id);
-
-            return response()->json(['listaProdTamCor' =>  $listaProdTamCor, 'msg' => 'Produto cadastrado com sucesso', 'prodInserido' => $produto->id, 'existe' => false], 200);
+            return response()->json(['msg' => 'Produto cadastrado com sucesso', 'prodInserido' => $produto->id, 'existe' => false], 200);
         } else {
             return response()->json(['msg' => 'Produto com a mesma cor e tamanho já existe', 'prodInserido' => $request->prodInserido, 'existe' => true], 200);
         }
@@ -149,9 +157,11 @@ class ProdutoController extends Controller
      * @param  \App\Models\Produto  $produto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Produto $produto)
+    public function destroy($produto)
     {
-        //
+        $produto = Produto::find($produto);
+        $produto->delete();
+        return response()->json(['msg' => 'produto excluido com sucesso']);
     }
 
     public function upload_redimensiona_salva_image_produto($request, $produto)

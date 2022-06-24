@@ -23,16 +23,16 @@
                                 <div class="col-md-9">
 
                                     <input-component id="categoriaCadastro" id-help="categoriaCadastro">
-                                        <input type="text" class="form-control" id="categoriaCadastro"
+                                        <input required type="text" class="form-control" id="categoriaCadastro"
                                             aria-describedby="categoriaCadastro" placeholder="Nome da categoria"
                                             v-model="categoriaCadastro">
                                     </input-component>
 
                                 </div>
                                 <div class="col mt-4">
+                                    
+                                    <button type="submit" class="btn btn-outline-primary">Inserir</button>
 
-                                    <botao-component type="submit" estilo="btn btn-outline-primary" titulo="Inserir">
-                                    </botao-component>
                                 </div>
                             </div>
                         </form>
@@ -57,11 +57,10 @@
                 <card-component v-if="this.categorias.length" titulo="Lista de categorias">
                     <template v-slot:conteudo>
                         <table-component @carregarLista="carregarLista" :dados="categorias" :titulos="{
-                             id: { titulo: 'nº', tipo: 'texto' },
+                            id: { titulo: 'nº', tipo: 'texto' },
                             nome: { titulo: 'Nome', tipo: 'texto' }
-                        }"
-                            :remover="{ visivel: true, titulo: 'Remover', texto: 'Deseja realmente excluir essa categoria ?', url: '/categorias' }"
-                            :visualizar="{ visivel: false, titulo: 'Visualizar'}"
+                        }" :remover="{ visivel: true, titulo: 'Remover', texto: 'Deseja realmente excluir essa categoria ?', url: '/categorias' }"
+                            :visualizar="{ visivel: false, titulo: 'Visualizar' }"
                             :atualizar="{ visivel: false, titulo: 'Atualizar' }">
                         </table-component>
                     </template>
@@ -85,10 +84,10 @@ export default {
 
         insereCategoria(e) {
             var data = { nome: this.categoriaCadastro }
- 
+
             axios.post(this.url, data)
                 .then(response => {
-                   
+
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',

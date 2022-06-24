@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     @if (!count($categorias))
         <div class="container">
             <div class="row justify-content-center">
@@ -66,5 +67,6 @@
     @else
         <cadastro-produto-component selects="{{ $data }}" csrf_token={{ @csrf_token() }}>
         </cadastro-produto-component>
+        
     @endif
 @endsection

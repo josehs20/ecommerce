@@ -2,9 +2,10 @@
 <template>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-8">
                 <card-component titulo="Cadastro de produto">
                     <template v-slot:conteudo>
+
                         <form enctype="multipart/form-data" action="/produto" method="POST"
                             @submit.prevent="inserirProduto($event)">
                             <input type="hidden" name="_token" :value="csrf_token">
@@ -117,8 +118,8 @@
                                 </div>
                                 <div class="col-md-2 d-flex justify-content-center h-20 mt-4">
 
-                                    <botao-component type="submit" estilo="btn btn-outline-primary" titulo="Adicionar">
-                                    </botao-component>
+                                    <button type="submit" class="btn btn-outline-primary">Adicionar</button>
+
                                 </div>
                             </div>
                         </form>
@@ -133,16 +134,23 @@
                 <card-component titulo="Lista de produtos">
                     <template v-slot:conteudo>
                         <!--Lista de produtos -->
-                        <table-component @carregarLista="carregarLista" :dados="produtosLista" :titulos="{
-                            id: { titulo: 'nº', tipo: 'texto' },
-                            nome: { titulo: 'Nome', tipo: 'texto' },
-                            custo: { titulo: 'Custo', tipo: 'texto' },
-                            preco: { titulo: 'Preço', tipo: 'texto' },
-                            lucro: { titulo: 'Lucro', tipo: 'texto', },
-                        }" :remover="{ visivel: true, titulo: 'Remover', texto: 'Deseja realmente excluir essa cor ?', url: '/cor', dataBsToggle: '', dataBsTarget: '' }"
-                            :visualizar="{ visivel: true, titulo: 'Visualizar', dataBsToggle: 'modal', dataBsTarget: 'modalProdutoVisualizar' }"
-                            :atualizar="{ visivel: true, titulo: 'Atualizar' }">
 
+                        <div v-if="!produtosLista.length" class="alert alert-warning" role="alert">
+                            Nenhuma produto cadastrado!
+                        </div>
+
+
+                        <table-component v-if="produtosLista.length" @carregarLista="carregarLista"
+                            :dados="produtosLista" :titulos="{
+                                id: { titulo: 'nº', tipo: 'texto' },
+                                nome: { titulo: 'Nome', tipo: 'texto' },
+                                custo: { titulo: 'Custo', tipo: 'texto' },
+                                preco: { titulo: 'Preço', tipo: 'texto' },
+                                lucro: { titulo: 'Lucro', tipo: 'texto', },
+                            }"
+                            :remover="{ visivel: true, titulo: 'Remover', texto: 'Deseja realmente excluir essa cor ?', url: '/produto' }"
+                            :visualizar="{ visivel: true, titulo: 'Visualizar', dataBsToggle: 'modal', dataBsTarget: '#modalProdutoVisualizar' }"
+                            :atualizar="{ visivel: true, titulo: 'Editar' }">
                         </table-component>
 
                     </template>
@@ -150,9 +158,13 @@
                     <template v-slot:rodape>
 
                     </template>
+
                 </card-component>
             </div>
         </div>
+
+        <modal-produto-component id="modalProdutoVisualizar"></modal-produto-component>
+
     </div>
 </template>
 
@@ -188,7 +200,7 @@ export default {
             for (let i = 0; i < this.imagens.length; i++) {
 
                 formData.append('imagens[]', this.imagens[i])
-                console.log(this.imagens[i]);
+                //console.log(this.imagens[i]);
             }
 
             formData.append('nome', this.nomeProduto)
@@ -203,7 +215,7 @@ export default {
 
             axios.post(this.url, formData, { headers: { 'Content-Type': 'multipart/form-data' } })
                 .then(response => {
-                    console.log(response.data);
+                    // console.log(response.data);
 
                     this.prodInserido = response.data.prodInserido
 
@@ -217,7 +229,7 @@ export default {
                         })
                     } else {
                         this.desabilitaInputs()
-
+                        this.carregarLista();
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
@@ -229,7 +241,7 @@ export default {
                     }
                 })
                 .catch(errors => {
-                    console.log(errors.response);
+                    //console.log(errors.response);
                     Swal.fire({
                         position: 'top-end',
                         icon: 'error',
@@ -288,11 +300,12 @@ export default {
 
             axios.get(this.url)
                 .then(response => {
+               
                     this.produtosLista = response.data
-
+                  
                 })
                 .catch(errors => {
-                    //console.log(errors);
+                    console.log(errors);
                 })
         },
     },

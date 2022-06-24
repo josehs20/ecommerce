@@ -18,13 +18,14 @@
                 <card-component titulo="Cadastrar tamanhos">
                     <template v-slot:conteudo>
                         <form method="POST" @submit.prevent="insereTamanho($event)">
-                        <input type="hidden" name="_token" :value="csrf_token">
+                            <input type="hidden" name="_token" :value="csrf_token">
                             <div class="d-flex ip">
-                                <input type="text" class="form-control" id="cadastroTamanho"
+                                <input required type="text" class="form-control" id="cadastroTamanho"
                                     aria-describedby="cadastroTamanho" placeholder="Nome da categoria"
                                     v-model="cadastroTamanho">
-                                <botao-component type="submit" estilo="btn btn-outline-primary" titulo="Inserir">
-                                </botao-component>
+                                    
+                                <button type="submit" class="btn btn-outline-primary">Inserir</button>
+
                             </div>
                         </form>
                     </template>
@@ -50,9 +51,8 @@
                         <table-component @carregarLista="carregarLista" :dados="tamanhos" :titulos="{
                             id: { titulo: 'nº', tipo: 'texto' },
                             nome: { titulo: 'Nome', tipo: 'texto' }
-                        }"
-                            :remover="{ visivel: true, titulo: 'Remover', texto: 'Deseja realmente excluir esse tamanho ?', url: '/tamanho' }"
-                            :visualizar="{ visivel: false, titulo: 'Visualizar'}"
+                        }" :remover="{ visivel: true, titulo: 'Remover', texto: 'Deseja realmente excluir esse tamanho ?', url: '/tamanho' }"
+                            :visualizar="{ visivel: false, titulo: 'Visualizar' }"
                             :atualizar="{ visivel: false, titulo: 'Atualizar' }">
                         </table-component>
                     </template>
