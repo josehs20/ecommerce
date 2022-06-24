@@ -119,9 +119,30 @@
         overflow: hidden;
         overflow-y: scroll;
     } 
+   
+    #btninicio{
+        display: none
+    }
+    .inicio{
+        position: fixed;
+        z-index: 111;
+        bottom: 40px;
+        right: 40px;
+        background-color: rgba(206, 172, 120, 1);
+        padding: 7px 10px;
+        border-radius: 27px
+    }
+    .inicio a i{
+        color: #000;
+        font-size: 24px;
+        margin-top: 3px
+    }
 
 </style>
 
+<div class="inicio" id="btninicio">
+    <a href="./../#inicio"><i class="fa fa-arrow-circle-up"></i></a>
+</div>
 <div id="app">
     <!-- Carousel -->
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -264,13 +285,18 @@
         </div>
     </div>
 
-    <div class="d">
-        <h1 class="titulo">Promoção</h1>
-        <br>
-        <div>
-            <card-produto-component></card-produto-component>
-        </div>
-    </div>
+    @foreach ($produtos as $prod)
+        @if ($prod->desconto)
+            <div class="d">
+                <h1 class="titulo">Promoção</h1>
+                <br>
+                <div>
+                    <card-produto-component></card-produto-component>
+                </div>
+            </div>
+        @endif
+    @endforeach
+    
 
     <div class="d">
         <h1 class="titulo">Como lavar<br>seu jeans</h1>
@@ -289,6 +315,15 @@
                     alt="Simbolos de como lavar a roupa corretamente">
             </div>
         </div>
-    </div>
-
+    </div>    
 </div>
+
+<script>
+    var btnInicio = document.getElementById('btninicio')
+
+    document.onscroll = function () {
+        (window.pageYOffset >= 270) 
+            ? btnInicio.style.display  = "block"
+            : btnInicio.style.display  = "none"
+    }
+</script>

@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index']);
+Route::get('/loja', [App\Http\Controllers\WelcomeController::class, 'index'])->name('viewloja');
 
 Auth::routes();
 

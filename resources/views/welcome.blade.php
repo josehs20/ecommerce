@@ -21,6 +21,32 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
 </head>
+
+<style>
+    .btnpadrao{
+        border: 1px solid #304148;
+        padding: 7px 15px;
+        border-radius: 5px;
+        background: transparent;
+        letter-spacing: 1px;
+        font-weight: bold;
+        color: #304148
+    }
+    .btnpadrao:hover{
+        background-color: #304148 !important;
+        color: #FFF !important;
+    }
+
+    .btnpadraomobile{
+        background-color: #304148 !important;
+        padding: 7px 15px;
+        border-radius: 5px;
+        letter-spacing: 1px;
+        font-weight: bold;
+        color: #FFF
+    }
+</style>
+
 <body>
     
     
@@ -28,7 +54,11 @@
         @include('navbar.navbar')
     
         <!-- CONTEUDO PRINCIPAL -->
-        @include('pagina-principal.paginaprincipal')
+        @if(Request::segment(1) == '') 
+            @include('pagina-principal.paginaprincipal', ['produtos' => $produtos])
+        @elseif(Request::segment(1) == 'loja') 
+            @include('loja.loja', ['produtos' => $produtos])            
+        @endif
 
         <!-- FOOTER -->
         @include('footer.footer')

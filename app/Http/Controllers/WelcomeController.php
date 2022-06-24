@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class WelcomeController extends Controller
 {
     public function index(){
-        return view('welcome');
+        $produtos = Produto::all();
+        return view('welcome', compact('produtos'));
     }
 }

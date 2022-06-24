@@ -76,6 +76,23 @@
         justify-content: space-around
     }
 
+    .divredessociais{
+        position: absolute;
+        left: 0;
+        top: 100px;
+        width: 100px;
+        margin-left: 20px;
+        display: flex;
+        justify-content: space-around;
+    }
+    .divredessociais a{
+        color: #000;
+        font-size: 21px !important
+    }
+    .divredessociais a:hover{
+        color: #CEAC78
+    }
+
     .nav-link {
         color: #000
     }
@@ -139,7 +156,13 @@
             display: none;
         }
         .divcarrinhomobile{
-            display: flex
+            display: flex;
+            margin-bottom: 20px;
+            margin-left: 10px
+        }
+        .divredessociais{
+            position: unset !important;
+            margin-left: 10px !important;
         }
     }
 
@@ -155,6 +178,8 @@
         text-decoration: none
     }
 </style>
+
+<div id="inicio" style="position: absolute; top: 0;"></div>
 
 <div class="logo">
     <img src="{{ asset('img/logo.png') }}" alt="logo da loja">
@@ -220,6 +245,12 @@
     <div class="" id="line3"></div>
 </div>
 
+<!-- DIV DAS REDES SOCIAIS -->
+<div class="divredessociais">
+    <a target="_blank" href="https://www.instagram.com/danijeansmodas/"><i class="fab fa-instagram"></i></a>
+    <a target="_blank" href="https://pt-br.facebook.com/danijeansmodas/"><i class="fab fa-facebook-square"></i></a>
+</div>
+
 <!-- DIV DO CARRINHO MOBILE -->
 <div class="divcarrinhomobile">
     <div class="divcarrinho">
@@ -276,24 +307,52 @@
 
 <div id="pnavbarmobile" class="pnavbarmobile">
     <ul>
-        <li>Página inicial</li>
-        <li>Loja</li>
-        <li>Contato</li>
+        <a href="/">
+            <li class="@if(Request::segment(1) == '') isactive @endif">Página inicial</li>
+        </a>
+        <a href="{{route('viewloja')}}">
+            <li class="@if(Request::segment(1) == 'loja') isactive @endif">Loja</li>
+        </a>
+        <!-- Botao para abrir o modal -->
+        <a type="button" class="abrirmodal" data-bs-toggle="modal" data-bs-target="#exampleModalContato">         
+            <li class="@if(Request::segment(1) == 'contato') isactive @endif">Contato</li>           
+        </a>
     </ul>
 </div>
 
 <div class="pnavbar">
     <ul>
-        <a href="#paginainicial">
+        <a href="/">
             <li class="@if(Request::segment(1) == '') isactive @endif">Página inicial</li>
         </a>
-        <a href="#loja">
+        <a href="{{route('viewloja')}}">
             <li class="@if(Request::segment(1) == 'loja') isactive @endif">Loja</li>
         </a>
-        <a href="#contato">
-            <li class="@if(Request::segment(1) == 'contato') isactive @endif">Contato</li>
+        <!-- Botao para abrir o modal -->
+        <a type="button" class="abrirmodal" data-bs-toggle="modal" data-bs-target="#exampleModalContato">         
+            <li class="@if(Request::segment(1) == 'contato') isactive @endif">Contato</li>           
         </a>
+        <!-- Botao para abrir o modal -->
+        
     </ul>
+</div>
+
+<!-- Modal do contato -->
+<div class="modal fade" id="exampleModalContato" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">Contato</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size: 1.1rem">
+                    Email: danijeansmodas@gmail.com <br>
+                    Cel: (22) 99832-1545
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
