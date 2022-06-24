@@ -8465,6 +8465,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /***/ }),
 
@@ -15997,7 +15999,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.divvermais {\r\n    position: relative;\r\n    bottom: 120px;\r\n    left: 0;\r\n    width: 100%;\r\n    display: flex;\r\n    justify-content: center;\n}\n.vermais {\r\n    background-color: #cda981 !important;\r\n    padding: 5px 20px;\r\n    border-radius: 7px;\r\n    text-decoration: none;\r\n    color: #fff !important;\r\n    font-weight: bold;\r\n    opacity: 0;\r\n    transition: opacity .5s linear;\n}\n@media (max-width: 700px){\n.vermais{\r\n        opacity: 1;\n}\n}\n.cardproduto {\r\n    position: relative;\r\n    width: 250px;\r\n    height: 320px;\r\n    margin: 10px;\n}\n.cardbody {\r\n    margin-top: 7px;\n}\n.cardimgtop {\r\n    width: 245px;\r\n    height: 250px;\r\n    opacity: 1;\r\n    transition: opacity .2s linear;\n}\n.cardproduto:hover .cardimgtop {\r\n    opacity: 0.8;\n}\n.cardproduto:hover .vermais {\r\n    opacity: 1 !important;\n}\n.divprodutos {   \r\n    display: flex;\r\n    padding: 10px;\r\n    height: 410px;\r\n    overflow-x: scroll;\n}\n.empromocao{\r\n    background-color: rgb(89, 250, 89);\r\n    position: absolute;\r\n    top: 0;\r\n    padding: 5px 20px;\n}\n.empromocao h5{\r\n    font-size: 0.7rem;\r\n    font-weight: bold;\r\n    margin: 0 !important;\r\n    letter-spacing: 2px;\n}\n.precoantigo{\r\n    color: red;\n}\n.preconovo{\r\n    font-weight: bold;\r\n    color: green;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.divvermais {\r\n    position: relative;\r\n    bottom: 120px;\r\n    left: 0;\r\n    width: 100%;\r\n    display: flex;\r\n    justify-content: center;\n}\n.vermais {\r\n    background-color: #cda981 !important;\r\n    padding: 5px 20px;\r\n    border-radius: 7px;\r\n    text-decoration: none;\r\n    color: #fff !important;\r\n    font-weight: bold;\r\n    opacity: 0;\r\n    transition: opacity .5s linear;\n}\n@media (max-width: 700px){\n.vermais{\r\n        opacity: 1;\n}\n}\n.cardproduto {\r\n    position: relative;\r\n    width: 250px;\r\n    height: 320px;\r\n    margin: 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 5px;\n}\n.cardbody {\r\n    margin-top: 7px;\n}\n.cardimgtop {\r\n    width: 248px;\r\n    height: 250px;\r\n    opacity: 1;\r\n    transition: opacity .2s linear;\n}\n.cardproduto:hover .cardimgtop {\r\n    opacity: 0.8;\n}\n.cardproduto:hover .vermais {\r\n    opacity: 1 !important;\n}\n.divprodutos {   \r\n    display: flex;\r\n    padding: 10px;\r\n    height: 410px;\r\n    overflow-x: scroll;\n}\n.empromocao{\r\n    background-color: rgb(89, 250, 89);\r\n    position: absolute;\r\n    top: 0;\r\n    padding: 5px 20px;\n}\n.empromocao h5{\r\n    font-size: 0.7rem;\r\n    font-weight: bold;\r\n    margin: 0 !important;\r\n    letter-spacing: 2px;\n}\n.precoantigo{\r\n    color: red;\n}\n.preconovo{\r\n    font-weight: bold;\r\n    color: green;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

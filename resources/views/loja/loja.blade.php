@@ -41,6 +41,16 @@
     .b{
         display: none;
     }
+
+    .form-select{
+        width: 200px;
+        float: right
+    }
+
+    .exibicaodeprodutos{
+        margin-top: 46px;
+        padding: 0 20px;
+    }
     
     @media(max-width: 970px) {
         main aside {
@@ -58,6 +68,16 @@
             justify-content: center;
             width: 100% !important;
             height: fit-content;
+        }
+        .form-select{
+            float: unset;
+            width: 100%;
+            margin-top: 10px
+        }
+        .exibicaodeprodutos{
+            border: 1px solid black;
+            margin-top: 10px;
+            height: 50px;
         }
     }
 </style>
@@ -172,14 +192,25 @@
 
     </aside>
 
-    <!-- PRODUTOS FILTRADOS OU NAO  -->
+    <!-- EXIBIR PRODUTOS  -->
     <div>
         <!-- ABRIR MODAL MOBILE -->
         <button type="button" class="btnpadraomobile b" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <i class="fa fa-filter" style="margin-right: 10px"></i>
             <p style="margin: 0 !important">Filtrar</p>
         </button>
+
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Ordenar por</option>
+            <option value="1">Menor preço</option>
+            <option value="2">Maior preço</option>
+        </select>
+
+        <div id="app" class="exibicaodeprodutos">
+            <card-produto-component></card-produto-component>
+        </div>
     </div>
+    <!-- EXIBIR PRODUTOS TERMINA AQUI -->
 
 
     <!-- MODAL PARA FILTRO NO MOBILE -->

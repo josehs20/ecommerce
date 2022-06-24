@@ -28,6 +28,8 @@
     width: 250px;
     height: 320px;
     margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 .cardbody {
@@ -35,7 +37,7 @@
 }
 
 .cardimgtop {
-    width: 245px;
+    width: 248px;
     height: 250px;
     opacity: 1;
     transition: opacity .2s linear;
