@@ -144,7 +144,7 @@
             margin: 0 10px !important;
         }
         .toggle-menu{
-            display: block
+            display: block;
         }
         .pnavbar{
             display: none
@@ -158,7 +158,8 @@
         .divcarrinhomobile{
             display: flex;
             margin-bottom: 20px;
-            margin-left: 10px
+            margin-left: 10px;
+            width: fit-content;
         }
         .divredessociais{
             position: unset !important;

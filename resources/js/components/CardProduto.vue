@@ -25,9 +25,9 @@
 }
 .cardproduto {
     position: relative;
-    width: 250px;
+    width: 245px;
     height: 320px;
-    margin: 10px;
+    margin: 10px 7px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
@@ -37,7 +37,7 @@
 }
 
 .cardimgtop {
-    width: 248px;
+    width: 243px;
     height: 250px;
     opacity: 1;
     transition: opacity .2s linear;
@@ -51,11 +51,34 @@
     opacity: 1 !important;
 }
 
+/* PARA PROMOÇÃO NA VIEW PAGINA PRINCIPAL EXIBIR ESSA DIV */
 .divprodutos {   
     display: flex;
     padding: 10px;
-    height: 410px;
+    height: 400px;
     overflow-x: scroll;
+}
+
+/* NA VIEW LOJA EXIBIR ESSA DIV */
+.divprodutosviewloja{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 900px){
+    .cardproduto {      
+        width: 170px; 
+        height: 220px;  
+        margin: 10px 3px;    
+    }
+    .cardimgtop {
+        width: 168px;
+        height: 150px;
+    }    
+    .divprodutos {        
+        height: 280px;        
+    }
 }
 
 .empromocao{
@@ -81,7 +104,7 @@
 
 <template>
     <div>
-        <div class="divprodutos dragscroll">      
+        <div :class="classedocard + ' dragscroll'">      
                 <!-- card do produto-->
                 <div class="cardproduto">                    
                     <img src="./../../../public/img/f1.png" class="cardimgtop" alt="Imagem do produto">
@@ -237,5 +260,7 @@
 </template>
 
 <script>
-
+    export default {
+        props: ['classedocard']
+    }
 </script>

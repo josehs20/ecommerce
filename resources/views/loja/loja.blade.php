@@ -53,15 +53,20 @@
     }
     
     @media(max-width: 970px) {
+        main {
+            width: 100%;
+            padding: 10px 10px;
+            justify-content: center;
+        }
+        main > div{
+            width: 100%;
+        }
         main aside {
             display: none
         }
         .filtromobile{
             display: block;
             width: 100%;
-        }
-        main>div {
-            width: 100% !important;
         }
         .b {
             display: flex !important;
@@ -76,7 +81,7 @@
         }
         .exibicaodeprodutos{
             margin-top: 10px;
-            height: 50px;
+            padding: 0;
         }
     }
 </style>
@@ -206,7 +211,7 @@
         </select>
 
         <div id="app" class="exibicaodeprodutos">
-            <card-produto-component></card-produto-component>
+            <card-produto-component classedocard="divprodutosviewloja"></card-produto-component>
         </div>
     </div>
     <!-- EXIBIR PRODUTOS TERMINA AQUI -->
