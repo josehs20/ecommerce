@@ -285,18 +285,9 @@
         </div>
     </div>
 
-    @foreach ($produtos as $prod)
-        @if ($prod->desconto)
-            <div class="d">
-                <h1 class="titulo">Promoção</h1>
-                <br>
-                <div>
-                    <card-produto-component></card-produto-component>
-                </div>
-            </div>
-        @endif
-    @endforeach
-    
+    <!-- CASO EXISTA ALGUM PRODUTO COM PROMOÇÃO -->
+    <produto-promocao-component></produto-promocao-component>
+    <!-- -------------------------------------- -->
 
     <div class="d">
         <h1 class="titulo">Como lavar<br>seu jeans</h1>

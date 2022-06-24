@@ -75,7 +75,6 @@
             margin-top: 10px
         }
         .exibicaodeprodutos{
-            border: 1px solid black;
             margin-top: 10px;
             height: 50px;
         }

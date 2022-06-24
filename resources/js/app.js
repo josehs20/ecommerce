@@ -40,6 +40,9 @@ Vue.component('modal-produto-component', require('./components/ModalProduto.vue'
 Vue.component('card-produto-component', require('./components/CardProduto.vue').default);
 Vue.component('modal-produto-component', require('./components/ModalProduto.vue').default);
 
+//promoção do produto
+Vue.component('produto-promocao-component', require('./components/ProdutoPromocao.vue').default);
+
 //cadastros
 Vue.component('cadastro-produto-component', require('./components/CadastroProduto.vue').default);
 Vue.component('cadastro-categoria-component', require('./components/CadastroCategoria.vue').default);

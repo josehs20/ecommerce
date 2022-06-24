@@ -8467,6 +8467,131 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 
@@ -8848,7 +8973,9 @@ Vue.component('input-component', (__webpack_require__(/*! ./components/Input.vue
 Vue.component('modal-produto-component', (__webpack_require__(/*! ./components/ModalProduto.vue */ "./resources/js/components/ModalProduto.vue")["default"])); //card do produto
 
 Vue.component('card-produto-component', (__webpack_require__(/*! ./components/CardProduto.vue */ "./resources/js/components/CardProduto.vue")["default"]));
-Vue.component('modal-produto-component', (__webpack_require__(/*! ./components/ModalProduto.vue */ "./resources/js/components/ModalProduto.vue")["default"])); //cadastros
+Vue.component('modal-produto-component', (__webpack_require__(/*! ./components/ModalProduto.vue */ "./resources/js/components/ModalProduto.vue")["default"])); //promoção do produto
+
+Vue.component('produto-promocao-component', (__webpack_require__(/*! ./components/ProdutoPromocao.vue */ "./resources/js/components/ProdutoPromocao.vue")["default"])); //cadastros
 
 Vue.component('cadastro-produto-component', (__webpack_require__(/*! ./components/CadastroProduto.vue */ "./resources/js/components/CadastroProduto.vue")["default"]));
 Vue.component('cadastro-categoria-component', (__webpack_require__(/*! ./components/CadastroCategoria.vue */ "./resources/js/components/CadastroCategoria.vue")["default"]));
@@ -39760,6 +39887,43 @@ component.options.__file = "resources/js/components/ModalProduto.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/ProdutoPromocao.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/ProdutoPromocao.vue ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ProdutoPromocao_vue_vue_type_template_id_0bfa6960___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProdutoPromocao.vue?vue&type=template&id=0bfa6960& */ "./resources/js/components/ProdutoPromocao.vue?vue&type=template&id=0bfa6960&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _ProdutoPromocao_vue_vue_type_template_id_0bfa6960___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ProdutoPromocao_vue_vue_type_template_id_0bfa6960___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ProdutoPromocao.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/Table.vue":
 /*!*******************************************!*\
   !*** ./resources/js/components/Table.vue ***!
@@ -40247,6 +40411,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ModalProduto_vue_vue_type_template_id_6c814d77___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ModalProduto_vue_vue_type_template_id_6c814d77___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ModalProduto.vue?vue&type=template&id=6c814d77& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ModalProduto.vue?vue&type=template&id=6c814d77&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/ProdutoPromocao.vue?vue&type=template&id=0bfa6960&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/ProdutoPromocao.vue?vue&type=template&id=0bfa6960& ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProdutoPromocao_vue_vue_type_template_id_0bfa6960___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProdutoPromocao_vue_vue_type_template_id_0bfa6960___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProdutoPromocao_vue_vue_type_template_id_0bfa6960___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ProdutoPromocao.vue?vue&type=template&id=0bfa6960& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProdutoPromocao.vue?vue&type=template&id=0bfa6960&");
 
 
 /***/ }),
@@ -41728,7 +41909,197 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("div", { staticClass: "divprodutos" }, [
+      _c("div", { staticClass: "divprodutos dragscroll" }, [
+        _c("div", { staticClass: "cardproduto" }, [
+          _c("img", {
+            staticClass: "cardimgtop",
+            attrs: {
+              src: __webpack_require__(/*! ./../../../public/img/f1.png */ "./public/img/f1.png"),
+              alt: "Imagem do produto",
+            },
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "cardbody" }, [
+            _c("h5", { staticClass: "text-center" }, [
+              _vm._v("Nome do produto"),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "d-flex justify-content-around" }, [
+              _c("p", { staticClass: "precoantigo" }, [
+                _c("s", [_vm._v("R$ 19,90")]),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "preconovo" }, [
+                _vm._v(
+                  "\n                            R$ 15\n                        "
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "divvermais" }, [
+              _c("a", { staticClass: "vermais", attrs: { href: "#vermais" } }, [
+                _vm._v("Ver mais"),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "empromocao" }, [
+              _c("h5", [_vm._v("EM PROMOÇÃO")]),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "cardproduto" }, [
+          _c("img", {
+            staticClass: "cardimgtop",
+            attrs: {
+              src: __webpack_require__(/*! ./../../../public/img/f1.png */ "./public/img/f1.png"),
+              alt: "Imagem do produto",
+            },
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "cardbody" }, [
+            _c("h5", { staticClass: "text-center" }, [
+              _vm._v("Nome do produto"),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "d-flex justify-content-around" }, [
+              _c("p", { staticClass: "precoantigo" }, [
+                _c("s", [_vm._v("R$ 19,90")]),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "preconovo" }, [
+                _vm._v(
+                  "\n                            R$ 15\n                        "
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "divvermais" }, [
+              _c("a", { staticClass: "vermais", attrs: { href: "#vermais" } }, [
+                _vm._v("Ver mais"),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "empromocao" }, [
+              _c("h5", [_vm._v("EM PROMOÇÃO")]),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "cardproduto" }, [
+          _c("img", {
+            staticClass: "cardimgtop",
+            attrs: {
+              src: __webpack_require__(/*! ./../../../public/img/f1.png */ "./public/img/f1.png"),
+              alt: "Imagem do produto",
+            },
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "cardbody" }, [
+            _c("h5", { staticClass: "text-center" }, [
+              _vm._v("Nome do produto"),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "d-flex justify-content-around" }, [
+              _c("p", { staticClass: "precoantigo" }, [
+                _c("s", [_vm._v("R$ 19,90")]),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "preconovo" }, [
+                _vm._v(
+                  "\n                            R$ 15\n                        "
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "divvermais" }, [
+              _c("a", { staticClass: "vermais", attrs: { href: "#vermais" } }, [
+                _vm._v("Ver mais"),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "empromocao" }, [
+              _c("h5", [_vm._v("EM PROMOÇÃO")]),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "cardproduto" }, [
+          _c("img", {
+            staticClass: "cardimgtop",
+            attrs: {
+              src: __webpack_require__(/*! ./../../../public/img/f1.png */ "./public/img/f1.png"),
+              alt: "Imagem do produto",
+            },
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "cardbody" }, [
+            _c("h5", { staticClass: "text-center" }, [
+              _vm._v("Nome do produto"),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "d-flex justify-content-around" }, [
+              _c("p", { staticClass: "precoantigo" }, [
+                _c("s", [_vm._v("R$ 19,90")]),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "preconovo" }, [
+                _vm._v(
+                  "\n                            R$ 15\n                        "
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "divvermais" }, [
+              _c("a", { staticClass: "vermais", attrs: { href: "#vermais" } }, [
+                _vm._v("Ver mais"),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "empromocao" }, [
+              _c("h5", [_vm._v("EM PROMOÇÃO")]),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "cardproduto" }, [
+          _c("img", {
+            staticClass: "cardimgtop",
+            attrs: {
+              src: __webpack_require__(/*! ./../../../public/img/f1.png */ "./public/img/f1.png"),
+              alt: "Imagem do produto",
+            },
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "cardbody" }, [
+            _c("h5", { staticClass: "text-center" }, [
+              _vm._v("Nome do produto"),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "d-flex justify-content-around" }, [
+              _c("p", { staticClass: "precoantigo" }, [
+                _c("s", [_vm._v("R$ 19,90")]),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "preconovo" }, [
+                _vm._v(
+                  "\n                            R$ 15\n                        "
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "divvermais" }, [
+              _c("a", { staticClass: "vermais", attrs: { href: "#vermais" } }, [
+                _vm._v("Ver mais"),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "empromocao" }, [
+              _c("h5", [_vm._v("EM PROMOÇÃO")]),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
         _c("div", { staticClass: "cardproduto" }, [
           _c("img", {
             staticClass: "cardimgtop",
@@ -42040,6 +42411,39 @@ var render = function () {
         ]),
       ]
     ),
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProdutoPromocao.vue?vue&type=template&id=0bfa6960&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProdutoPromocao.vue?vue&type=template&id=0bfa6960& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "d" }, [
+      _c("h1", { staticClass: "titulo" }, [_vm._v("Promoção")]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", [_c("card-produto-component")], 1),
+    ]),
   ])
 }
 var staticRenderFns = []

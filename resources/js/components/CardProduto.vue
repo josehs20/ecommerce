@@ -81,8 +81,133 @@
 
 <template>
     <div>
-        <div class="divprodutos">      
+        <div class="divprodutos dragscroll">      
                 <!-- card do produto-->
+                <div class="cardproduto">                    
+                    <img src="./../../../public/img/f1.png" class="cardimgtop" alt="Imagem do produto">
+                    <div class="cardbody">
+                        <h5 class="text-center">Nome do produto</h5>
+                        <!-- Preços-->
+                        <div class="d-flex justify-content-around">
+                            <p class="precoantigo">
+                                <s>R$ 19,90</s>
+                            </p>
+                            <p class="preconovo">
+                                R$ 15
+                            </p>
+                        </div>
+                        <!-- botao de ver mais-->
+                        <div class="divvermais">
+                            <a href="#vermais" class="vermais">Ver mais</a>
+                        </div>
+                        <!-- indicador de promocao -->
+                        <div class="empromocao">
+                            <h5>EM PROMOÇÃO</h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- card do produto-->
+                 <!-- card do produto-->
+                <div class="cardproduto">                    
+                    <img src="./../../../public/img/f1.png" class="cardimgtop" alt="Imagem do produto">
+                    <div class="cardbody">
+                        <h5 class="text-center">Nome do produto</h5>
+                        <!-- Preços-->
+                        <div class="d-flex justify-content-around">
+                            <p class="precoantigo">
+                                <s>R$ 19,90</s>
+                            </p>
+                            <p class="preconovo">
+                                R$ 15
+                            </p>
+                        </div>
+                        <!-- botao de ver mais-->
+                        <div class="divvermais">
+                            <a href="#vermais" class="vermais">Ver mais</a>
+                        </div>
+                        <!-- indicador de promocao -->
+                        <div class="empromocao">
+                            <h5>EM PROMOÇÃO</h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- card do produto-->
+                 <!-- card do produto-->
+                <div class="cardproduto">                    
+                    <img src="./../../../public/img/f1.png" class="cardimgtop" alt="Imagem do produto">
+                    <div class="cardbody">
+                        <h5 class="text-center">Nome do produto</h5>
+                        <!-- Preços-->
+                        <div class="d-flex justify-content-around">
+                            <p class="precoantigo">
+                                <s>R$ 19,90</s>
+                            </p>
+                            <p class="preconovo">
+                                R$ 15
+                            </p>
+                        </div>
+                        <!-- botao de ver mais-->
+                        <div class="divvermais">
+                            <a href="#vermais" class="vermais">Ver mais</a>
+                        </div>
+                        <!-- indicador de promocao -->
+                        <div class="empromocao">
+                            <h5>EM PROMOÇÃO</h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- card do produto-->
+                 <!-- card do produto-->
+                <div class="cardproduto">                    
+                    <img src="./../../../public/img/f1.png" class="cardimgtop" alt="Imagem do produto">
+                    <div class="cardbody">
+                        <h5 class="text-center">Nome do produto</h5>
+                        <!-- Preços-->
+                        <div class="d-flex justify-content-around">
+                            <p class="precoantigo">
+                                <s>R$ 19,90</s>
+                            </p>
+                            <p class="preconovo">
+                                R$ 15
+                            </p>
+                        </div>
+                        <!-- botao de ver mais-->
+                        <div class="divvermais">
+                            <a href="#vermais" class="vermais">Ver mais</a>
+                        </div>
+                        <!-- indicador de promocao -->
+                        <div class="empromocao">
+                            <h5>EM PROMOÇÃO</h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- card do produto-->
+                 <!-- card do produto-->
+                <div class="cardproduto">                    
+                    <img src="./../../../public/img/f1.png" class="cardimgtop" alt="Imagem do produto">
+                    <div class="cardbody">
+                        <h5 class="text-center">Nome do produto</h5>
+                        <!-- Preços-->
+                        <div class="d-flex justify-content-around">
+                            <p class="precoantigo">
+                                <s>R$ 19,90</s>
+                            </p>
+                            <p class="preconovo">
+                                R$ 15
+                            </p>
+                        </div>
+                        <!-- botao de ver mais-->
+                        <div class="divvermais">
+                            <a href="#vermais" class="vermais">Ver mais</a>
+                        </div>
+                        <!-- indicador de promocao -->
+                        <div class="empromocao">
+                            <h5>EM PROMOÇÃO</h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- card do produto-->
+                 <!-- card do produto-->
                 <div class="cardproduto">                    
                     <img src="./../../../public/img/f1.png" class="cardimgtop" alt="Imagem do produto">
                     <div class="cardbody">
