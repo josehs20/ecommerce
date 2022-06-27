@@ -8359,6 +8359,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var parse_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! parse-json */ "./node_modules/parse-json/index.js");
+/* harmony import */ var parse_json__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(parse_json__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -8498,130 +8500,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['classedocard']
+  props: ['classedocard', 'prod'],
+  methods: {
+    data: function data() {
+      return {
+        prod: parse_json__WEBPACK_IMPORTED_MODULE_0___default()(this.prod)
+      };
+    }
+  }
 });
 
 /***/ }),
@@ -8806,6 +8694,52 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['id', 'titulo']
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProdutoPromocao.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProdutoPromocao.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['produtos'],
+  data: function data() {
+    return {
+      produtoscompromocao: []
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.produtos.forEach(function (produto) {
+      if (produto.desconto_id) {
+        _this.produtoscompromocao.push(produto);
+      }
+    });
+  }
 });
 
 /***/ }),
@@ -39927,15 +39861,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _ProdutoPromocao_vue_vue_type_template_id_0bfa6960___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProdutoPromocao.vue?vue&type=template&id=0bfa6960& */ "./resources/js/components/ProdutoPromocao.vue?vue&type=template&id=0bfa6960&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _ProdutoPromocao_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProdutoPromocao.vue?vue&type=script&lang=js& */ "./resources/js/components/ProdutoPromocao.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ProdutoPromocao_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _ProdutoPromocao_vue_vue_type_template_id_0bfa6960___WEBPACK_IMPORTED_MODULE_0__.render,
   _ProdutoPromocao_vue_vue_type_template_id_0bfa6960___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -40168,6 +40104,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ModalProduto_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ModalProduto.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ModalProduto.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ModalProduto_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/ProdutoPromocao.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/ProdutoPromocao.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProdutoPromocao_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ProdutoPromocao.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ProdutoPromocao.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProdutoPromocao_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -41926,19 +41878,50 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { class: _vm.classedocard + " dragscroll" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _vm._m(2),
-      _vm._v(" "),
-      _vm._m(3),
-      _vm._v(" "),
-      _vm._m(4),
-      _vm._v(" "),
-      _vm._m(5),
-    ]),
+    _c(
+      "div",
+      { class: _vm.classedocard + " dragscroll" },
+      _vm._l(_vm.prod, function (prod, chave) {
+        return _c(
+          "div",
+          { key: chave, staticClass: "cardproduto", attrs: { value: prod.id } },
+          [
+            _c("img", {
+              staticClass: "cardimgtop",
+              attrs: {
+                src: __webpack_require__(/*! ./../../../public/img/f1.png */ "./public/img/f1.png"),
+                alt: "Imagem do produto",
+              },
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "cardbody" }, [
+              _c("h5", { staticClass: "text-center" }, [
+                _vm._v(_vm._s(prod.nome)),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "d-flex justify-content-around" }, [
+                _c("p", [
+                  _vm._v(
+                    "\n                            R$ " +
+                      _vm._s(prod.preco) +
+                      "\n                        "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
+              _vm._m(0, true),
+              _vm._v(" "),
+              prod.desconto_id
+                ? _c("div", { staticClass: "empromocao" }, [
+                    _c("h5", [_vm._v("EM PROMOÇÃO")]),
+                  ])
+                : _vm._e(),
+            ]),
+          ]
+        )
+      }),
+      0
+    ),
   ])
 }
 var staticRenderFns = [
@@ -41946,239 +41929,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "cardproduto" }, [
-      _c("img", {
-        staticClass: "cardimgtop",
-        attrs: {
-          src: __webpack_require__(/*! ./../../../public/img/f1.png */ "./public/img/f1.png"),
-          alt: "Imagem do produto",
-        },
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "cardbody" }, [
-        _c("h5", { staticClass: "text-center" }, [_vm._v("Nome do produto")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "d-flex justify-content-around" }, [
-          _c("p", { staticClass: "precoantigo" }, [
-            _c("s", [_vm._v("R$ 19,90")]),
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "preconovo" }, [
-            _vm._v(
-              "\n                            R$ 15\n                        "
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "divvermais" }, [
-          _c("a", { staticClass: "vermais", attrs: { href: "#vermais" } }, [
-            _vm._v("Ver mais"),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "empromocao" }, [
-          _c("h5", [_vm._v("EM PROMOÇÃO")]),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "cardproduto" }, [
-      _c("img", {
-        staticClass: "cardimgtop",
-        attrs: {
-          src: __webpack_require__(/*! ./../../../public/img/f1.png */ "./public/img/f1.png"),
-          alt: "Imagem do produto",
-        },
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "cardbody" }, [
-        _c("h5", { staticClass: "text-center" }, [_vm._v("Nome do produto")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "d-flex justify-content-around" }, [
-          _c("p", { staticClass: "precoantigo" }, [
-            _c("s", [_vm._v("R$ 19,90")]),
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "preconovo" }, [
-            _vm._v(
-              "\n                            R$ 15\n                        "
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "divvermais" }, [
-          _c("a", { staticClass: "vermais", attrs: { href: "#vermais" } }, [
-            _vm._v("Ver mais"),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "empromocao" }, [
-          _c("h5", [_vm._v("EM PROMOÇÃO")]),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "cardproduto" }, [
-      _c("img", {
-        staticClass: "cardimgtop",
-        attrs: {
-          src: __webpack_require__(/*! ./../../../public/img/f1.png */ "./public/img/f1.png"),
-          alt: "Imagem do produto",
-        },
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "cardbody" }, [
-        _c("h5", { staticClass: "text-center" }, [_vm._v("Nome do produto")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "d-flex justify-content-around" }, [
-          _c("p", { staticClass: "precoantigo" }, [
-            _c("s", [_vm._v("R$ 19,90")]),
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "preconovo" }, [
-            _vm._v(
-              "\n                            R$ 15\n                        "
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "divvermais" }, [
-          _c("a", { staticClass: "vermais", attrs: { href: "#vermais" } }, [
-            _vm._v("Ver mais"),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "empromocao" }, [
-          _c("h5", [_vm._v("EM PROMOÇÃO")]),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "cardproduto" }, [
-      _c("img", {
-        staticClass: "cardimgtop",
-        attrs: {
-          src: __webpack_require__(/*! ./../../../public/img/f1.png */ "./public/img/f1.png"),
-          alt: "Imagem do produto",
-        },
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "cardbody" }, [
-        _c("h5", { staticClass: "text-center" }, [_vm._v("Nome do produto")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "d-flex justify-content-around" }, [
-          _c("p", { staticClass: "precoantigo" }, [
-            _c("s", [_vm._v("R$ 19,90")]),
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "preconovo" }, [
-            _vm._v(
-              "\n                            R$ 15\n                        "
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "divvermais" }, [
-          _c("a", { staticClass: "vermais", attrs: { href: "#vermais" } }, [
-            _vm._v("Ver mais"),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "empromocao" }, [
-          _c("h5", [_vm._v("EM PROMOÇÃO")]),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "cardproduto" }, [
-      _c("img", {
-        staticClass: "cardimgtop",
-        attrs: {
-          src: __webpack_require__(/*! ./../../../public/img/f1.png */ "./public/img/f1.png"),
-          alt: "Imagem do produto",
-        },
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "cardbody" }, [
-        _c("h5", { staticClass: "text-center" }, [_vm._v("Nome do produto")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "d-flex justify-content-around" }, [
-          _c("p", { staticClass: "precoantigo" }, [
-            _c("s", [_vm._v("R$ 19,90")]),
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "preconovo" }, [
-            _vm._v(
-              "\n                            R$ 15\n                        "
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "divvermais" }, [
-          _c("a", { staticClass: "vermais", attrs: { href: "#vermais" } }, [
-            _vm._v("Ver mais"),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "empromocao" }, [
-          _c("h5", [_vm._v("EM PROMOÇÃO")]),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "cardproduto" }, [
-      _c("img", {
-        staticClass: "cardimgtop",
-        attrs: {
-          src: __webpack_require__(/*! ./../../../public/img/f1.png */ "./public/img/f1.png"),
-          alt: "Imagem do produto",
-        },
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "cardbody" }, [
-        _c("h5", { staticClass: "text-center" }, [_vm._v("Nome do produto")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "d-flex justify-content-around" }, [
-          _c("p", { staticClass: "precoantigo" }, [
-            _c("s", [_vm._v("R$ 19,90")]),
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "preconovo" }, [
-            _vm._v(
-              "\n                            R$ 15\n                        "
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "divvermais" }, [
-          _c("a", { staticClass: "vermais", attrs: { href: "#vermais" } }, [
-            _vm._v("Ver mais"),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "empromocao" }, [
-          _c("h5", [_vm._v("EM PROMOÇÃO")]),
-        ]),
+    return _c("div", { staticClass: "divvermais" }, [
+      _c("a", { staticClass: "vermais", attrs: { href: "#vermais" } }, [
+        _vm._v("Ver mais"),
       ]),
     ])
   },
@@ -42488,7 +42241,10 @@ var render = function () {
         "div",
         [
           _c("card-produto-component", {
-            attrs: { classedocard: "divprodutos" },
+            attrs: {
+              classedocard: "divprodutos",
+              prod: _vm.produtoscompromocao,
+            },
           }),
         ],
         1

@@ -286,7 +286,9 @@
     </div>
 
     <!-- CASO EXISTA ALGUM PRODUTO COM PROMOÇÃO -->
-    <produto-promocao-component></produto-promocao-component>
+    <produto-promocao-component
+        :produtos="{{json_encode($produtos)}}"
+    ></produto-promocao-component>
     <!-- -------------------------------------- -->
 
     <div class="d">

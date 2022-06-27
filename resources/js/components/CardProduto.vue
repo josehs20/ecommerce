@@ -105,18 +105,21 @@
 <template>
     <div>
         <div :class="classedocard + ' dragscroll'">      
-                <!-- card do produto-->
-                <div class="cardproduto">                    
+                <!-- card do produto-->              
+                <div class="cardproduto" v-for="prod, chave in prod" :key="chave" :value="prod.id">     
                     <img src="./../../../public/img/f1.png" class="cardimgtop" alt="Imagem do produto">
                     <div class="cardbody">
-                        <h5 class="text-center">Nome do produto</h5>
+                        <h5 class="text-center">{{prod.nome}}</h5>
                         <!-- Preços-->
                         <div class="d-flex justify-content-around">
-                            <p class="precoantigo">
+                            <!-- <p class="precoantigo">
                                 <s>R$ 19,90</s>
                             </p>
                             <p class="preconovo">
                                 R$ 15
+                            </p> -->
+                            <p>
+                                R$ {{prod.preco}}
                             </p>
                         </div>
                         <!-- botao de ver mais-->
@@ -124,143 +127,27 @@
                             <a href="#vermais" class="vermais">Ver mais</a>
                         </div>
                         <!-- indicador de promocao -->
-                        <div class="empromocao">
+                        <div v-if="prod.desconto_id" class="empromocao">
                             <h5>EM PROMOÇÃO</h5>
                         </div>
                     </div>
                 </div>
-                <!-- card do produto-->
-                 <!-- card do produto-->
-                <div class="cardproduto">                    
-                    <img src="./../../../public/img/f1.png" class="cardimgtop" alt="Imagem do produto">
-                    <div class="cardbody">
-                        <h5 class="text-center">Nome do produto</h5>
-                        <!-- Preços-->
-                        <div class="d-flex justify-content-around">
-                            <p class="precoantigo">
-                                <s>R$ 19,90</s>
-                            </p>
-                            <p class="preconovo">
-                                R$ 15
-                            </p>
-                        </div>
-                        <!-- botao de ver mais-->
-                        <div class="divvermais">
-                            <a href="#vermais" class="vermais">Ver mais</a>
-                        </div>
-                        <!-- indicador de promocao -->
-                        <div class="empromocao">
-                            <h5>EM PROMOÇÃO</h5>
-                        </div>
-                    </div>
-                </div>
-                <!-- card do produto-->
-                 <!-- card do produto-->
-                <div class="cardproduto">                    
-                    <img src="./../../../public/img/f1.png" class="cardimgtop" alt="Imagem do produto">
-                    <div class="cardbody">
-                        <h5 class="text-center">Nome do produto</h5>
-                        <!-- Preços-->
-                        <div class="d-flex justify-content-around">
-                            <p class="precoantigo">
-                                <s>R$ 19,90</s>
-                            </p>
-                            <p class="preconovo">
-                                R$ 15
-                            </p>
-                        </div>
-                        <!-- botao de ver mais-->
-                        <div class="divvermais">
-                            <a href="#vermais" class="vermais">Ver mais</a>
-                        </div>
-                        <!-- indicador de promocao -->
-                        <div class="empromocao">
-                            <h5>EM PROMOÇÃO</h5>
-                        </div>
-                    </div>
-                </div>
-                <!-- card do produto-->
-                 <!-- card do produto-->
-                <div class="cardproduto">                    
-                    <img src="./../../../public/img/f1.png" class="cardimgtop" alt="Imagem do produto">
-                    <div class="cardbody">
-                        <h5 class="text-center">Nome do produto</h5>
-                        <!-- Preços-->
-                        <div class="d-flex justify-content-around">
-                            <p class="precoantigo">
-                                <s>R$ 19,90</s>
-                            </p>
-                            <p class="preconovo">
-                                R$ 15
-                            </p>
-                        </div>
-                        <!-- botao de ver mais-->
-                        <div class="divvermais">
-                            <a href="#vermais" class="vermais">Ver mais</a>
-                        </div>
-                        <!-- indicador de promocao -->
-                        <div class="empromocao">
-                            <h5>EM PROMOÇÃO</h5>
-                        </div>
-                    </div>
-                </div>
-                <!-- card do produto-->
-                 <!-- card do produto-->
-                <div class="cardproduto">                    
-                    <img src="./../../../public/img/f1.png" class="cardimgtop" alt="Imagem do produto">
-                    <div class="cardbody">
-                        <h5 class="text-center">Nome do produto</h5>
-                        <!-- Preços-->
-                        <div class="d-flex justify-content-around">
-                            <p class="precoantigo">
-                                <s>R$ 19,90</s>
-                            </p>
-                            <p class="preconovo">
-                                R$ 15
-                            </p>
-                        </div>
-                        <!-- botao de ver mais-->
-                        <div class="divvermais">
-                            <a href="#vermais" class="vermais">Ver mais</a>
-                        </div>
-                        <!-- indicador de promocao -->
-                        <div class="empromocao">
-                            <h5>EM PROMOÇÃO</h5>
-                        </div>
-                    </div>
-                </div>
-                <!-- card do produto-->
-                 <!-- card do produto-->
-                <div class="cardproduto">                    
-                    <img src="./../../../public/img/f1.png" class="cardimgtop" alt="Imagem do produto">
-                    <div class="cardbody">
-                        <h5 class="text-center">Nome do produto</h5>
-                        <!-- Preços-->
-                        <div class="d-flex justify-content-around">
-                            <p class="precoantigo">
-                                <s>R$ 19,90</s>
-                            </p>
-                            <p class="preconovo">
-                                R$ 15
-                            </p>
-                        </div>
-                        <!-- botao de ver mais-->
-                        <div class="divvermais">
-                            <a href="#vermais" class="vermais">Ver mais</a>
-                        </div>
-                        <!-- indicador de promocao -->
-                        <div class="empromocao">
-                            <h5>EM PROMOÇÃO</h5>
-                        </div>
-                    </div>
-                </div>
-                <!-- card do produto-->          
+                <!-- card do produto-->      
         </div>
     </div>
 </template>
 
 <script>
+import parseJson from 'parse-json'
+
     export default {
-        props: ['classedocard']
+        props: ['classedocard', 'prod'],
+        methods: {
+            data() {
+                return {
+                    prod: parseJson(this.prod)
+                }
+            }
+        }
     }
 </script>

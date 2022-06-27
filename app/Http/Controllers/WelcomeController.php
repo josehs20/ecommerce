@@ -7,8 +7,13 @@ use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
 {
+    public function __construct(Produto $produto)
+    {
+        $this->produto = $produto;
+    }
+    
     public function index(){
-        $produtos = Produto::all();
+        $produtos = $this->produto->all();
         return view('welcome', compact('produtos'));
     }
 }

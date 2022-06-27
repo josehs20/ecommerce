@@ -211,7 +211,10 @@
         </select>
 
         <div id="app" class="exibicaodeprodutos">
-            <card-produto-component classedocard="divprodutosviewloja"></card-produto-component>
+            <card-produto-component 
+                :prod="{{json_encode($produtos)}}"
+                classedocard="divprodutosviewloja">
+            </card-produto-component>
         </div>
     </div>
     <!-- EXIBIR PRODUTOS TERMINA AQUI -->
