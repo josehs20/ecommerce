@@ -47,22 +47,12 @@
     }
 </style>
 
-<body>
-    
-    
+<body>  
         <!-- NAVBAR  -->
         @include('navbar.navbar')
-    
-        <!-- CONTEUDO PRINCIPAL -->
-        @if(Request::segment(1) == '') 
-            @include('pagina-principal.paginaprincipal', ['produtos' => $produtos])
-        @elseif(Request::segment(2) == 'show')
-                @include('loja.individualproduto', ['id' => $id])   
-        @elseif(Request::segment(1) == 'loja') 
-            @include('loja.loja', ['produtos' => $produtos])    
-        @endif
 
-        @yield('c')
+        <!-- CONTEUDO PRINCIPAL -->
+        @yield('conteudo')        
 
         <!-- FOOTER -->
         @include('footer.footer')

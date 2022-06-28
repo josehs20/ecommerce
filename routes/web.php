@@ -19,9 +19,13 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index']);
-Route::get('/loja', [App\Http\Controllers\WelcomeController::class, 'index'])->name('viewloja');
-Route::get('/loja/show/{id}', [App\Http\Controllers\WelcomeController::class, 'show'])->name('viewlojashow');
-Route::get('/loja/carregaProduto/{data}', [App\Http\Controllers\WelcomeController::class, 'carregaProduto']);
+
+//controller loja
+Route::get('/loja', [App\Http\Controllers\LojaController::class, 'index'])->name('viewloja');
+Route::get('/loja/show/{id}', [App\Http\Controllers\LojaController::class, 'show'])->name('viewlojashow');
+Route::get('/loja/carregaProduto/{data}', [App\Http\Controllers\LojaController::class, 'carregaProduto']);
+
+//controller carrinho
 Route::get('/carrinho', [App\Http\Controllers\CarrinhoController::class, 'index'])->name('viewcarrinho');
 
 Auth::routes();
