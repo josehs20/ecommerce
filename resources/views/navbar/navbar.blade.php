@@ -190,7 +190,7 @@
     <div class="divcarrinho">
         <!-- CARRINHO DE COMPRAS -->
         <div class="nav-item carrinhodecompras">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route('viewcarrinho') }}">
                 <i class="fa fa-shopping-cart"></i>
                 <span>10</span>
             </a>
@@ -257,7 +257,7 @@
     <div class="divcarrinho">
         <!-- CARRINHO DE COMPRAS -->
         <div class="nav-item carrinhodecompras">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route('viewcarrinho') }}">
                 <i class="fa fa-shopping-cart"></i>
                 <span>10</span>
             </a>

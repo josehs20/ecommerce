@@ -62,6 +62,8 @@
             @include('loja.loja', ['produtos' => $produtos])    
         @endif
 
+        @yield('c')
+
         <!-- FOOTER -->
         @include('footer.footer')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/dragscroll/0.0.8/dragscroll.min.js"></script>

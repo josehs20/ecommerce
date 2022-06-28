@@ -41,6 +41,9 @@ Vue.component('card-produto-component', require('./components/CardProduto.vue').
 Vue.component('modal-produto-component', require('./components/ModalProduto.vue').default);
 Vue.component('individual-produto-component', require('./components/IndividualProduto.vue').default);
 
+//CARRINHO
+Vue.component('carrinho-component', require('./components/Carrinho.vue').default);
+
 //promoção do produto
 Vue.component('produto-promocao-component', require('./components/ProdutoPromocao.vue').default);
 
