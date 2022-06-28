@@ -315,7 +315,7 @@
             <li class="@if(Request::segment(1) == 'loja') isactive @endif">Loja</li>
         </a>
         <!-- Botao para abrir o modal -->
-        <a type="button" class="abrirmodal" data-bs-toggle="modal" data-bs-target="#exampleModalContato">         
+        <a class="abrirmodal" data-bs-toggle="modal" data-bs-target="#exampleModalContato">         
             <li class="@if(Request::segment(1) == 'contato') isactive @endif">Contato</li>           
         </a>
     </ul>
@@ -330,7 +330,7 @@
             <li class="@if(Request::segment(1) == 'loja') isactive @endif">Loja</li>
         </a>
         <!-- Botao para abrir o modal -->
-        <a type="button" class="abrirmodal" data-bs-toggle="modal" data-bs-target="#exampleModalContato">         
+        <a style="background-color: transparent !important; cursor: pointer" class="abrirmodal" data-bs-toggle="modal" data-bs-target="#exampleModalContato">         
             <li class="@if(Request::segment(1) == 'contato') isactive @endif">Contato</li>           
         </a>
         <!-- Botao para abrir o modal -->

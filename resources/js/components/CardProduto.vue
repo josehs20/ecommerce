@@ -124,7 +124,7 @@
                         </div>
                         <!-- botao de ver mais-->
                         <div class="divvermais">
-                            <a href="#vermais" class="vermais">Ver mais</a>
+                            <a :href="'/loja/show/' + prod.id" class="vermais">Ver mais</a>
                         </div>
                         <!-- indicador de promocao -->
                         <div v-if="prod.desconto_id" class="empromocao">

@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index']);
 Route::get('/loja', [App\Http\Controllers\WelcomeController::class, 'index'])->name('viewloja');
+Route::get('/loja/show/{id}', [App\Http\Controllers\WelcomeController::class, 'show'])->name('viewlojashow');
+Route::get('/loja/carregaProduto/{data}', [App\Http\Controllers\WelcomeController::class, 'carregaProduto']);
 
 Auth::routes();
 

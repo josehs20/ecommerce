@@ -56,8 +56,10 @@
         <!-- CONTEUDO PRINCIPAL -->
         @if(Request::segment(1) == '') 
             @include('pagina-principal.paginaprincipal', ['produtos' => $produtos])
+        @elseif(Request::segment(2) == 'show')
+                @include('loja.individualproduto', ['id' => $id])   
         @elseif(Request::segment(1) == 'loja') 
-            @include('loja.loja', ['produtos' => $produtos])            
+            @include('loja.loja', ['produtos' => $produtos])    
         @endif
 
         <!-- FOOTER -->

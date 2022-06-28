@@ -16,4 +16,13 @@ class WelcomeController extends Controller
         $produtos = $this->produto->all();
         return view('welcome', compact('produtos'));
     }
+
+    public function show($id){
+        $p = $this->produto->find($id);
+        return view('welcome', compact('id'));
+    }
+
+    public function carregaProduto($data){
+        return $this->produto->find($data);
+    }
 }
