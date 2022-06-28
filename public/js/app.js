@@ -8500,6 +8500,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['classedocard', 'prod'],
@@ -8824,13 +8825,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['id'],
@@ -8848,7 +8842,7 @@ __webpack_require__.r(__webpack_exports__);
       };
       axios__WEBPACK_IMPORTED_MODULE_0___default().get('/loja/carregaProduto/' + data.id).then(function (response) {
         _this.data = response.data;
-        console.log(_this.data);
+        console.log(_this.data.imagens[0].nome);
       })["catch"]();
     },
     abrirfechar: function abrirfechar(idicone, iddiv) {
@@ -16666,16 +16660,6 @@ module.exports = function (str) {
 	return str.replace(matchOperatorsRe, '\\$&');
 };
 
-
-/***/ }),
-
-/***/ "./public/img/f1.png":
-/*!***************************!*\
-  !*** ./public/img/f1.png ***!
-  \***************************/
-/***/ ((module) => {
-
-module.exports = "/images/f1.png?aeda0f37cb64f3578d73f5a2c230a62e";
 
 /***/ }),
 
@@ -42422,7 +42406,7 @@ var render = function () {
             _c("img", {
               staticClass: "cardimgtop",
               attrs: {
-                src: __webpack_require__(/*! ./../../../public/img/f1.png */ "./public/img/f1.png"),
+                src: "./../" + prod.imagens[0].nome,
                 alt: "Imagem do produto",
               },
             }),
@@ -42840,7 +42824,68 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "individualprod" }, [
-    _vm._m(0),
+    _c(
+      "div",
+      { staticClass: "imagensdoproduto" },
+      [
+        _vm._l(_vm.data.imagens, function (img, chave) {
+          return _c(
+            "div",
+            {
+              key: chave,
+              staticClass: "listadeprodutos",
+              attrs: { value: img.id },
+            },
+            [
+              _c("img", {
+                attrs: { src: "./../../../" + img.nome, alt: "..." },
+              }),
+            ]
+          )
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "slidedeprodutos" }, [
+          _c(
+            "div",
+            {
+              staticClass: "carousel slide",
+              attrs: {
+                id: "carouselExampleControls",
+                "data-bs-ride": "carousel",
+              },
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "carousel-inner" },
+                _vm._l(_vm.data.imagens, function (img, chave) {
+                  return _c(
+                    "div",
+                    {
+                      key: chave,
+                      staticClass: "carousel-item active",
+                      attrs: { value: img.id },
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "d-block w-100",
+                        attrs: { src: "./../../../" + img.nome, alt: "..." },
+                      }),
+                    ]
+                  )
+                }),
+                0
+              ),
+              _vm._v(" "),
+              _vm._m(0),
+              _vm._v(" "),
+              _vm._m(1),
+            ]
+          ),
+        ]),
+      ],
+      2
+    ),
     _vm._v(" "),
     _c("div", { staticClass: "descricaodoproduto" }, [
       _c("h1", [_vm._v(_vm._s(_vm.data.nome))]),
@@ -42865,11 +42910,11 @@ var render = function () {
       _vm._v(" "),
       _c("h5", [_vm._v("Quantidade: ")]),
       _vm._v(" "),
-      _vm._m(1),
+      _vm._m(2),
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _vm._m(2),
+      _vm._m(3),
       _vm._v(" "),
       _c("div", { staticClass: "informacoesdoproduto" }, [
         _c("br"),
@@ -42893,7 +42938,7 @@ var render = function () {
           ]
         ),
         _vm._v(" "),
-        _vm._m(3),
+        _vm._m(4),
         _vm._v(" "),
         _c("hr"),
         _vm._v(" "),
@@ -42914,7 +42959,7 @@ var render = function () {
           ]
         ),
         _vm._v(" "),
-        _vm._m(4),
+        _vm._m(5),
         _vm._v(" "),
         _c("hr"),
       ]),
@@ -42926,111 +42971,49 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "imagensdoproduto" }, [
-      _c("div", { staticClass: "listadeprodutos" }, [
-        _c("img", {
-          attrs: { src: __webpack_require__(/*! ./../../../public/img/f1.png */ "./public/img/f1.png"), alt: "..." },
+    return _c(
+      "button",
+      {
+        staticClass: "carousel-control-prev",
+        attrs: {
+          type: "button",
+          "data-bs-target": "#carouselExampleControls",
+          "data-bs-slide": "prev",
+        },
+      },
+      [
+        _c("span", {
+          staticClass: "carousel-control-prev-icon",
+          attrs: { "aria-hidden": "true" },
         }),
         _vm._v(" "),
-        _c("img", {
-          attrs: { src: __webpack_require__(/*! ./../../../public/img/f2.png */ "./public/img/f2.png"), alt: "..." },
+        _c("span", { staticClass: "visually-hidden" }, [_vm._v("Previous")]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "carousel-control-next",
+        attrs: {
+          type: "button",
+          "data-bs-target": "#carouselExampleControls",
+          "data-bs-slide": "next",
+        },
+      },
+      [
+        _c("span", {
+          staticClass: "carousel-control-next-icon",
+          attrs: { "aria-hidden": "true" },
         }),
         _vm._v(" "),
-        _c("img", {
-          attrs: { src: __webpack_require__(/*! ./../../../public/img/f3.png */ "./public/img/f3.png"), alt: "..." },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "slidedeprodutos" }, [
-        _c(
-          "div",
-          {
-            staticClass: "carousel slide",
-            attrs: {
-              id: "carouselExampleControls",
-              "data-bs-ride": "carousel",
-            },
-          },
-          [
-            _c("div", { staticClass: "carousel-inner" }, [
-              _c("div", { staticClass: "carousel-item active" }, [
-                _c("img", {
-                  staticClass: "d-block w-100",
-                  attrs: {
-                    src: __webpack_require__(/*! ./../../../public/img/f1.png */ "./public/img/f1.png"),
-                    alt: "...",
-                  },
-                }),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "carousel-item" }, [
-                _c("img", {
-                  staticClass: "d-block w-100",
-                  attrs: {
-                    src: __webpack_require__(/*! ./../../../public/img/f2.png */ "./public/img/f2.png"),
-                    alt: "...",
-                  },
-                }),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "carousel-item" }, [
-                _c("img", {
-                  staticClass: "d-block w-100",
-                  attrs: {
-                    src: __webpack_require__(/*! ./../../../public/img/f3.png */ "./public/img/f3.png"),
-                    alt: "...",
-                  },
-                }),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "carousel-control-prev",
-                attrs: {
-                  type: "button",
-                  "data-bs-target": "#carouselExampleControls",
-                  "data-bs-slide": "prev",
-                },
-              },
-              [
-                _c("span", {
-                  staticClass: "carousel-control-prev-icon",
-                  attrs: { "aria-hidden": "true" },
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "visually-hidden" }, [
-                  _vm._v("Previous"),
-                ]),
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "carousel-control-next",
-                attrs: {
-                  type: "button",
-                  "data-bs-target": "#carouselExampleControls",
-                  "data-bs-slide": "next",
-                },
-              },
-              [
-                _c("span", {
-                  staticClass: "carousel-control-next-icon",
-                  attrs: { "aria-hidden": "true" },
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "visually-hidden" }, [
-                  _vm._v("Next"),
-                ]),
-              ]
-            ),
-          ]
-        ),
-      ]),
-    ])
+        _c("span", { staticClass: "visually-hidden" }, [_vm._v("Next")]),
+      ]
+    )
   },
   function () {
     var _vm = this

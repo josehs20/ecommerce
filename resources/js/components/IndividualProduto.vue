@@ -83,24 +83,17 @@
         <!-- IMAGENS DO PRODUTO -->
         <div class="imagensdoproduto">
 
-            <div class="listadeprodutos">
-                <img src="./../../../public/img/f1.png" alt="..." />
-                <img src="./../../../public/img/f2.png" alt="..." />
-                <img src="./../../../public/img/f3.png" alt="..." />
+            <div class="listadeprodutos" v-for="img, chave in data.imagens" :key="chave" :value="img.id">
+                <img :src="'./../../../'+img.nome" alt="..." />
             </div>
             <!-- SLIDE DO PRODUTOS-->
             <div class="slidedeprodutos">
                 <div id="carouselExampleControls" class="carousel slide"
                     data-bs-ride="carousel">
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="./../../../public/img/f1.png" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="./../../../public/img/f2.png" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="./../../../public/img/f3.png" class="d-block w-100" alt="...">
+                        <div class="carousel-item active"
+                        v-for="img, chave in data.imagens" :key="chave" :value="img.id">
+                            <img :src="'./../../../'+img.nome" class="d-block w-100" alt="...">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -208,7 +201,7 @@ export default {
             axios.get('/loja/carregaProduto/' + data.id)
                 .then(response => {
                     this.data = response.data
-                    console.log(this.data);
+                    console.log(this.data.imagens[0].nome);
                 })
                 .catch()
         },
@@ -228,7 +221,7 @@ export default {
         }
     },
     mounted() {
-        this.carregadados()
+        this.carregadados()    
     }
 }
 </script>

@@ -13,7 +13,7 @@ class WelcomeController extends Controller
     }
     
     public function index(){
-        $produtos = $this->produto->all();
+        $produtos = $this->produto->with('imagens')->get();
         return view('pagina-principal.paginaprincipal', compact('produtos'));
     }
 

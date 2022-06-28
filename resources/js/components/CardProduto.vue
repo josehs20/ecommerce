@@ -105,9 +105,10 @@
 <template>
     <div>
         <div :class="classedocard + ' dragscroll'">      
-                <!-- card do produto-->              
-                <div class="cardproduto" v-for="prod, chave in prod" :key="chave" :value="prod.id">     
-                    <img src="./../../../public/img/f1.png" class="cardimgtop" alt="Imagem do produto">
+                <!-- card do produto-->    
+                <div class="cardproduto" v-for="prod, chave in prod" :key="chave" :value="prod.id">   
+                  
+                    <img :src="'./../'+prod.imagens[0].nome" class="cardimgtop" alt="Imagem do produto">
                     <div class="cardbody">
                         <h5 class="text-center">{{prod.nome}}</h5>
                         <!-- Preços-->
