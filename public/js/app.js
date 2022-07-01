@@ -9081,6 +9081,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['dados', 'titulos', 'nomedaview', 'botao']
 });
@@ -9140,6 +9155,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -16649,7 +16679,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.divvermais {\r\n    position: relative;\r\n    bottom: 120px;\r\n    left: 0;\r\n    width: 100%;\r\n    display: flex;\r\n    justify-content: center;\n}\n.vermais {\r\n    background-color: #cda981 !important;\r\n    padding: 5px 20px;\r\n    border-radius: 7px;\r\n    text-decoration: none;\r\n    color: #fff !important;\r\n    font-weight: bold;\r\n    opacity: 0;\r\n    transition: opacity .5s linear;\n}\n@media (max-width: 700px){\n.vermais{\r\n        opacity: 1;\n}\n}\n.cardproduto {\r\n    position: relative;\r\n    width: 245px;\r\n    height: 320px;\r\n    margin: 10px 7px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 5px;\n}\n.cardbody {\r\n    margin-top: 7px;\n}\n.cardimgtop {\r\n    width: 243px;\r\n    height: 250px;\r\n    opacity: 1;\r\n    transition: opacity .2s linear;\n}\n.cardproduto:hover .cardimgtop {\r\n    opacity: 0.8;\n}\n.cardproduto:hover .vermais {\r\n    opacity: 1 !important;\n}\r\n\r\n/* PARA PROMOÇÃO NA VIEW PAGINA PRINCIPAL EXIBIR ESSA DIV */\n.divprodutos {   \r\n    display: flex;\r\n    padding: 10px;\r\n    height: 400px;\r\n    overflow-x: scroll;\n}\r\n\r\n/* NA VIEW LOJA EXIBIR ESSA DIV */\n.divprodutosviewloja{\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-wrap: wrap;\n}\n@media (max-width: 900px){\n.cardproduto {      \r\n        width: 170px; \r\n        height: 220px;  \r\n        margin: 10px 3px;\n}\n.cardimgtop {\r\n        width: 168px;\r\n        height: 150px;\n}\n.divprodutos {        \r\n        height: 280px;\n}\n}\n.empromocao{\r\n    background-color: rgb(89, 250, 89);\r\n    position: absolute;\r\n    top: 0;\r\n    padding: 5px 20px;\n}\n.empromocao h5{\r\n    font-size: 0.7rem;\r\n    font-weight: bold;\r\n    margin: 0 !important;\r\n    letter-spacing: 2px;\n}\n.precoantigo{\r\n    color: red;\n}\n.preconovo{\r\n    font-weight: bold;\r\n    color: green;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.divvermais {\r\n    position: relative;\r\n    bottom: 120px;\r\n    left: 0;\r\n    width: 100%;\r\n    display: flex;\r\n    justify-content: center;\n}\n.vermais {\r\n    background-color: #cda981 !important;\r\n    padding: 5px 20px;\r\n    border-radius: 7px;\r\n    text-decoration: none;\r\n    color: #fff !important;\r\n    font-weight: bold;\r\n    opacity: 0;\r\n    transition: opacity .5s linear;\n}\n@media (max-width: 700px){\n.vermais{\r\n        opacity: 1;\n}\n}\n.cardproduto {\r\n    position: relative;\r\n    width: 245px;\r\n    height: 320px;\r\n    margin: 10px 7px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 5px;\n}\n.cardbody {\r\n    margin-top: 7px;\n}\n.cardimgtop {\r\n    width: 243px;\r\n    height: 250px;\r\n    opacity: 1;\r\n    transition: opacity .2s linear;\n}\n.cardproduto:hover .cardimgtop {\r\n    opacity: 0.8;\n}\n.cardproduto:hover .vermais {\r\n    opacity: 1 !important;\n}\r\n\r\n/* PARA PROMOÇÃO NA VIEW PAGINA PRINCIPAL EXIBIR ESSA DIV */\n.divprodutos {   \r\n    display: flex;\r\n    padding: 10px;\r\n    min-height: 420px;\r\n    overflow-x: scroll;\n}\r\n\r\n/* NA VIEW LOJA EXIBIR ESSA DIV */\n.divprodutosviewloja{\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-wrap: wrap;\n}\n@media (max-width: 900px){\n.cardproduto {      \r\n        width: 170px; \r\n        height: 220px;  \r\n        margin: 10px 3px;\n}\n.cardimgtop {\r\n        width: 168px;\r\n        height: 150px;\n}\n.divprodutos {        \r\n        height: 280px;\n}\n}\n.empromocao{\r\n    background-color: rgb(89, 250, 89);\r\n    position: absolute;\r\n    top: 0;\r\n    padding: 5px 20px;\n}\n.empromocao h5{\r\n    font-size: 0.7rem;\r\n    font-weight: bold;\r\n    margin: 0 !important;\r\n    letter-spacing: 2px;\n}\n.precoantigo{\r\n    color: red;\n}\n.preconovo{\r\n    font-weight: bold;\r\n    color: green;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -16745,7 +16775,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.card {\r\n    width: 48%;\n}\n.card-header {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\n}\n.card-header h4 {\r\n    margin: 0 !important;\n}\n.card-enderecos{\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.card-e {\r\n    width: 48% !important;\n}\n.card-header {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\n}\n.card-header h4 {\r\n    margin: 0 !important;\n}\n.card-enderecos {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\n}\n.dnb{\r\n    display: flex;\r\n    justify-content: space-between;\n}\n.cb p{\r\n    font-size: 1.05rem;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -16769,7 +16799,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.dados {\r\n    width: 100%;\r\n    padding: 0 30px\n}\n.dados>div {\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-wrap: wrap;\n}\n.dadoscampos {\r\n    width: 50%;\n}\n@media (max-width: 900px){\n.dadoscampos {\r\n        width: 100%\n}\n}\n.dadoscampos>div {\r\n    margin-bottom: 20px;\n}\n.nomebotao{\r\n    display: flex;\r\n    justify-content: space-between !important;\r\n    flex-wrap: wrap;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.dados {\r\n    width: 100%;\r\n    padding: 0 30px\n}\n.dados>div {\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-wrap: wrap;\n}\n.dadoscampos {\r\n    width: 50%;\n}\n.dadoscampos p {\r\n    font-size: 1.05rem;\n}\n@media (max-width: 900px) {\n.dadoscampos {\r\n        width: 100%\n}\n}\n.dadoscampos>div {\r\n    margin-bottom: 20px;\n}\n.nomebotao {\r\n    display: flex;\r\n    justify-content: space-between !important;\r\n    flex-wrap: wrap;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -44075,49 +44105,63 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "card-enderecos" },
-    _vm._l(_vm.dados, function (dado, chave) {
-      return _c(
-        "div",
-        { key: chave, staticClass: "card", attrs: { value: dado.id } },
-        [
-          _c("div", { staticClass: "card-header" }, [
-            _c("h4", [_vm._v(_vm._s(dado.rua))]),
-            _vm._v(" "),
-            _c("button", { staticClass: "btn btn-outline-success" }, [
-              _vm._v(_vm._s(_vm.botao)),
+  return _c("div", [
+    _c("div", { staticClass: "dnb" }, [
+      _c("h3", [_vm._v(_vm._s(_vm.nomedaview))]),
+      _vm._v(" "),
+      _c("button", { staticClass: "btnPadrao" }, [
+        _vm._v("Adicionar endereço"),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "card-enderecos" },
+      _vm._l(_vm.dados, function (dado, chave) {
+        return _c(
+          "div",
+          { key: chave, staticClass: "card card-e", attrs: { value: dado.id } },
+          [
+            _c("div", { staticClass: "card-header" }, [
+              _c("h4", [_vm._v(_vm._s(dado.rua))]),
+              _vm._v(" "),
+              _c("button", { staticClass: "btn btn-outline-success" }, [
+                _vm._v(_vm._s(_vm.botao)),
+              ]),
             ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c(
-              "div",
-              { staticClass: "row" },
-              _vm._l(_vm.titulos, function (titulo, chave) {
-                return dado[chave]
-                  ? _c("p", { key: chave, attrs: { value: titulo.id } }, [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(titulo.label) +
-                          ": " +
-                          _vm._s(dado[chave]) +
-                          "\n                "
-                      ),
-                    ])
-                  : _c("p", [_vm._v(_vm._s(titulo.label) + " não cadastrada")])
-              }),
-              0
-            ),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-footer" }),
-        ]
-      )
-    }),
-    0
-  )
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body cb" }, [
+              _c(
+                "div",
+                { staticClass: "row" },
+                _vm._l(_vm.titulos, function (titulo, chave) {
+                  return dado[chave]
+                    ? _c("p", { key: chave, attrs: { value: titulo.id } }, [
+                        _c("b", [_vm._v(_vm._s(titulo.label) + ":")]),
+                        _vm._v(
+                          " " + _vm._s(dado[chave]) + "\n                    "
+                        ),
+                      ])
+                    : _c("p", [
+                        _c("b", [_vm._v(_vm._s(titulo.label) + ":")]),
+                        _vm._v(" não cadastrada"),
+                      ])
+                }),
+                0
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-footer" }),
+          ]
+        )
+      }),
+      0
+    ),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -44202,39 +44246,50 @@ var render = function () {
       _c("br"),
       _vm._v(" "),
       _c("div", [
-        _c(
-          "div",
-          { staticClass: "dadoscampos" },
-          _vm._l(_vm.titulos, function (titulo, chave) {
-            return _c("div", { key: chave, attrs: { value: titulo.id } }, [
-              _vm.dados[chave]
-                ? _c(
-                    "label",
-                    {
-                      staticClass: "form-label",
-                      attrs: { for: "inputUsuario" },
-                    },
-                    [_vm._v(_vm._s(titulo.label))]
-                  )
-                : _c("div", [
-                    _c("h5", [
-                      _vm._v(_vm._s(titulo.label) + " não cadastrado."),
-                    ]),
-                    _vm._v(" "),
-                    _c("h6", [_vm._v("Clique em editar para cadastrar.")]),
-                  ]),
-              _vm._v(" "),
-              _vm.dados[chave]
-                ? _c("input", {
-                    staticClass: "form-control",
-                    attrs: { type: "text", id: "inputUsuario", disabled: "" },
-                    domProps: { value: _vm.dados[chave] },
-                  })
-                : _vm._e(),
-            ])
-          }),
-          0
-        ),
+        _c("div", { staticClass: "dadoscampos" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-header" }, [
+              _c("h4", [_vm._v(_vm._s(_vm.dados.name))]),
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "card-body" },
+              _vm._l(_vm.titulos, function (titulo, chave) {
+                return _c(
+                  "div",
+                  {
+                    key: chave,
+                    staticClass: "row",
+                    attrs: { value: titulo.id },
+                  },
+                  [
+                    _vm.dados[chave]
+                      ? _c("p", [
+                          _c("b", [_vm._v(_vm._s(titulo.label) + ":")]),
+                          _vm._v(
+                            " " +
+                              _vm._s(_vm.dados[chave]) +
+                              "\n                            "
+                          ),
+                        ])
+                      : _c("div", [
+                          _c("p", { staticStyle: { margin: "0" } }, [
+                            _c("b", [_vm._v(_vm._s(titulo.label) + ":")]),
+                            _vm._v(" não cadastrado."),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Clique em editar para cadastrar.")]),
+                        ]),
+                  ]
+                )
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-footer" }),
+          ]),
+        ]),
       ]),
     ]),
   ])

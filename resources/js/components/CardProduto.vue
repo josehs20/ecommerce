@@ -55,7 +55,7 @@
 .divprodutos {   
     display: flex;
     padding: 10px;
-    height: 400px;
+    min-height: 420px;
     overflow-x: scroll;
 }
 

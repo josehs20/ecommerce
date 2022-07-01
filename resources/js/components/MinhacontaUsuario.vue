@@ -13,7 +13,12 @@
 .dadoscampos {
     width: 50%;
 }
-@media (max-width: 900px){
+
+.dadoscampos p {
+    font-size: 1.05rem;
+}
+
+@media (max-width: 900px) {
     .dadoscampos {
         width: 100%
     }
@@ -23,7 +28,7 @@
     margin-bottom: 20px;
 }
 
-.nomebotao{
+.nomebotao {
     display: flex;
     justify-content: space-between !important;
     flex-wrap: wrap;
@@ -36,21 +41,31 @@
             <div class="nomebotao">
                 <h3>{{ nomedaview }}</h3>
                 <div>
-                    <button class="btn btn-outline-success">{{botao}}</button>
+                    <button class="btn btn-outline-success">{{ botao }}</button>
                 </div>
-            </div>  
+            </div>
             <hr>
             <br>
             <div>
                 <div class="dadoscampos">
-                    <div v-for="titulo, chave in titulos" :value="titulo.id" :key="chave">
-                        <label v-if="dados[chave]" for="inputUsuario" class="form-label">{{ titulo.label }}</label>
-                        <div v-else>
-                            <h5>{{titulo.label}} não cadastrado.</h5>
-                            <h6>Clique em editar para cadastrar.</h6>
-                        </div>                
-                        <input v-if="dados[chave]"
-                         type="text" id="inputUsuario" class="form-control" :value="dados[chave]" disabled />
+                    <div  class="card">
+                        <div class="card-header">
+                            <h4>{{dados.name}}</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row" v-for="titulo, chave in titulos" :value="titulo.id" :key="chave">
+                                <p v-if="dados[chave]">
+                                    <b>{{ titulo.label }}:</b> {{ dados[chave] }}
+                                </p>
+                                <div v-else>
+                                    <p style="margin: 0"><b>{{ titulo.label }}:</b> não cadastrado.</p>
+                                    <p>Clique em editar para cadastrar.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -60,6 +75,6 @@
 
 <script>
 export default {
-    props: ['dados','nomedaview', 'titulos', 'botao'],
+    props: ['dados', 'nomedaview', 'titulos', 'botao'],
 }
 </script>

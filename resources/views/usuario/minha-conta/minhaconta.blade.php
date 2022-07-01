@@ -24,7 +24,11 @@
         justify-content: center
     }
     .list-group a{
-        margin-bottom: 5px
+        margin-bottom: 5px;
+    }
+    .act{
+        background-color: #ceac78 !important; 
+        color: #FFF !important
     }
 </style>
 
@@ -34,10 +38,18 @@
         <!-- MENUS -->
         <aside class="menu">
             <ul class="list-group">
-                <a href="{{route('meusdados')}}"><li class="list-group-item list-group-item-action">Meus dados</li></a>
-                <a href="{{route('enderecos')}}"><li class="list-group-item list-group-item-action">Endereços</li></a>
-                <a href="{{route('cartoes')}}"><li class="list-group-item list-group-item-action">Meus cartões</li></a>
-                <a href="{{route('seguranca')}}"><li class="list-group-item list-group-item-action">Segurança</li></a>
+                <a href="{{route('meusdados')}}">
+                    <li class="list-group-item list-group-item-action @if(Request::segment(2) == 'meusdados') act @endif">Meus dados</li>
+                </a>
+                <a href="{{route('enderecos')}}">
+                    <li class="list-group-item list-group-item-action @if(Request::segment(2) == 'enderecos') act @endif"">Endereços</li>
+                </a>
+                <a href="{{route('cartoes')}}">
+                    <li class="list-group-item list-group-item-action @if(Request::segment(2) == 'cartoes') act @endif"">Meus cartões</li>
+                </a>
+                <a href="{{route('seguranca')}}">
+                    <li class="list-group-item list-group-item-action @if(Request::segment(2) == 'seguranca') act @endif"">Segurança</li>
+                </a>
             </ul>
         </aside>
 

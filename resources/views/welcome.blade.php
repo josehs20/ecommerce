@@ -45,6 +45,16 @@
         font-weight: bold;
         color: #FFF
     }
+
+    p{
+        font-size: 1rem !important;
+    }
+    a{
+        font-size: 1rem !important;
+    }
+    li{
+        font-size: 1rem !important;
+    }
 </style>
 
 <body>  
