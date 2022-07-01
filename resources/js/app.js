@@ -29,16 +29,17 @@ const store = new Vuex.Store({
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('home-component', require('./components/Home.vue').default);
 Vue.component('card-component', require('./components/Card.vue').default);
 Vue.component('dropdown-component', require('./components/Dropdown.vue').default);
 Vue.component('input-component', require('./components/Input.vue').default);
 Vue.component('modal-produto-component', require('./components/ModalProduto.vue').default);
-//card do produto
+
+//componentes produto
 Vue.component('card-produto-component', require('./components/CardProduto.vue').default);
 Vue.component('modal-produto-component', require('./components/ModalProduto.vue').default);
+Vue.component('formulario-produto-component', require('./components/FormularioProduto.vue').default);
 
 //cadastros
 Vue.component('cadastro-produto-component', require('./components/CadastroProduto.vue').default);

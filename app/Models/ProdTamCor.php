@@ -23,12 +23,12 @@ class ProdTamCor extends Model
 
     public function tamanho()
     {
-        return $this->belongsTo('App\Models\Tamanho');
+        return $this->hasOne('App\Models\Tamanho','id', 'tamanho_id');
     }
 
     public function cor()
     {
-        return $this->belongsTo('App\Models\Cor');
+        return $this->hasOne('App\Models\Cor', 'id', 'cor_id');
     }
 
     public function estoque()

@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Estoque extends Model
 {
     use HasFactory;
+    protected $table = 'estoque';
+    protected $fillable = ['quantidade', 'prod_tam_cor_id'];
+
+    public function prodTamCor()
+    {
+        return $this->belongsTo('App\Models\ProdTamCor');
+    }
 }
