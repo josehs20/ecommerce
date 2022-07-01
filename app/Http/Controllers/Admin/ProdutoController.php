@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Categoria;
 use App\Models\Cor;
+use App\Models\Estoque;
 use App\Models\ProdTamCor;
 use App\Models\Produto;
 use App\Models\Tamanho;
@@ -20,17 +21,40 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        $prods = Produto::with('prodTamCors')->orderBy('id')->get();
-        $i = 0;
-        foreach ($prods as $key => $produto) {
-            $produtos[$i]['produto'] = $produto;
+        $produtos = [];
+        $estoque = Estoque::with('prodTamcor')->get();
 
-            foreach ($produto->prodTamCors as $key => $ptc) {
-                $produtos[$i]['cores'][] = $ptc->cor;
-                $produtos[$i]['tamanhos'][] = $ptc->tamanho;
-            }
-            $i++;
+        foreach ($estoque as $key => $e) {
+            $produtos[$e->prodTamCor->produto->id][] =
+                [
+                    $e->prodTamCor->produto, [
+                        'tamanho' => $e->prodTamCor->tamanho->nome,
+                        'cor' => $e->prodTamCor->cor->nome,
+                        'estoque' => $e->quantidade
+                    ]
+                ];
         }
+        //dd($produtos);
+        //         foreach ($estoque as $key => $e) {
+        //             $prodTamCor = ProdTamCor::where('produto_id', $e->prodTamCor->produto->id)
+        //             $produtos[$i]['produto'][$e->prodTamCor->produto->id] = $e;
+        // dd($e->prodTamCor->produto->id);
+        // foreach ($produto->prodTamCors as $key => $ptc) {
+        //     $produtos[$i]['cores'][] = $ptc->cor;
+        //     $produtos[$i]['tamanhos'][] = $ptc->tamanho;
+        // }
+
+        //}
+
+        // foreach ($prods as $key => $produto) {
+        //     $produtos[$i]['produto'] = $produto;
+
+        //     foreach ($produto->prodTamCors as $key => $ptc) {
+        //         $produtos[$i]['cores'][] = $ptc->cor;
+        //         $produtos[$i]['tamanhos'][] = $ptc->tamanho;
+        //     }
+        //     $i++;
+        // }
         return response()->json($produtos, 200);
     }
 
@@ -62,17 +86,15 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        $produtoVerify = !$request->prodInserido ? Produto::whereRaw("nome like '{$request->nome}'")->first() : false;
+        $produto = Produto::with('prodTamCors')->whereRaw("nome like '{$request->nome}'")->first();
 
-        $prod_tam_cor = ProdTamCor::where('produto_id', $request->prodInserido)
+        $prod_tam_cor = ProdTamCor::where('produto_id', $produto ? $produto->id : '')
             ->where('tamanho_id', $request->tamanho)->where('cor_id', $request->cor)->first();
 
-        if (!$prod_tam_cor && !$produtoVerify) {
-
-            $produto = Produto::whereRaw("nome like '{$request->nome}'")->first();
+        if (!$prod_tam_cor) {
 
             if (!$produto) {
-
+        
                 $produto = Categoria::find($request->categoria_id)
                     ->produtos()->create([
                         'nome'  =>  $request->nome,
@@ -81,27 +103,31 @@ class ProdutoController extends Controller
                         'lucro' =>  $request->lucro,
                     ]);
 
-                ProdTamCor::create([
+                $prod_tam_cor =  ProdTamCor::create([
                     'produto_id' => $produto->id,
                     'tamanho_id' => $request->tamanho,
                     'cor_id' => $request->cor
                 ]);
+
+                $prod_tam_cor->estoque()->create(['quantidade' => $request->estoqueProduto]);
+
+                if ($request->file('imagens')) {
+
+                    $this->upload_redimensiona_salva_image_produto($request, $produto);
+
+                }
+
+                return response()->json(['msg' => 'Produto cadastrado com sucesso', 'prodInserido' => $produto->id, 'existe' => false], 200);
             } else {
 
-                ProdTamCor::create([
+                $prod_tam_cor = ProdTamCor::create([
                     'produto_id' => $produto->id,
                     'tamanho_id' => $request->tamanho,
                     'cor_id' => $request->cor
                 ]);
+                $prod_tam_cor->estoque()->create(['quantidade' => $request->estoqueProduto]);
                 return response()->json(['msg' => 'Cor e tamanho adicionado para o produto com sucesso', 'prodInserido' => $produto->id, 'existe' => false], 200);
             }
-
-            if (!$request->prodInserido && $request->file('imagens')) {
-
-                $this->upload_redimensiona_salva_image_produto($request, $produto);
-            }
-
-            return response()->json(['msg' => 'Produto cadastrado com sucesso', 'prodInserido' => $produto->id, 'existe' => false], 200);
         } else {
             return response()->json(['msg' => 'Produto com a mesma cor e tamanho já existe', 'prodInserido' => $request->prodInserido, 'existe' => true], 200);
         }
@@ -131,12 +157,14 @@ class ProdutoController extends Controller
      * @param  \App\Models\Produto  $produto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Produto $produto)
+    public function edit($produto)
     {
-        // $produto = Produto::find($id);
-        // $categorias =  Categoria::all();
-        // $tamanhos = Tamanho::all();
-        // $cores = Cor::all();
+        $data['produto'] = Produto::find($produto);
+        $data['categorias'] = Categoria::all();
+        $data['tamanhos'] = Tamanho::all();
+        $data['cores'] = Cor::all();
+        $data = json_encode($data);
+        return view('admin.produto.edit', compact('data'));
     }
 
     /**

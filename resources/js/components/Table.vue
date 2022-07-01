@@ -30,9 +30,9 @@
                                     visualizar.titulo
                             }}</button>
 
-                        <button v-if="atualizar.visivel" type="button" class="btn btn-outline-success">{{
+                        <a v-if="atualizar.visivel" :href="atualizar.url+'/'+obj.id+'/edit'" type="button" class="btn btn-outline-success">{{
                                 atualizar.titulo
-                        }}</button>
+                        }}</a>
 
                     </td>
                 </tr>
@@ -53,29 +53,34 @@ export default {
         }
     },
     computed: {
-
         dadosFiltrados() {
+
 
             let campos = Object.keys(this.titulos)
             let dadosFiltrados = []
 
-            if (this.dados[0]['produto']) {
+            if (this.dados.count) {
+                var produtos = this.dados.produtos
 
-                this.dados.map(item => {
-                    //console.log(item['produto']);
+                produtos = Object.keys(produtos)
+                    .map(function (key) {
+                        return produtos[key][0][0];
+                    })
+
+                produtos.map(item => {
+
                     let itemFiltrado = {}
-                    this.itensDados[item['produto']['id']] = { cores: {}, tamanhos: {} }
+
                     campos.forEach(campo => {
                         //atribuindo valor a abjeto
-                        itemFiltrado[campo] = item['produto'][campo] //utilizar a sintaxe de array para atribuir valores a objetos
+                        itemFiltrado[campo] = item[campo] //utilizar a sintaxe de array para atribuir valores a objetos
                     })
-                    // console.log(item['cores']);
-                    this.itensDados[item['produto']['id']]['cores'] = item['cores']
-                    this.itensDados[item['produto']['id']]['tamanhos'] = item['tamanhos']
                     //adicionando objeto ao array
                     dadosFiltrados.push(itemFiltrado)
+
                 })
 
+                // console.log(dadosFiltrados);
                 return dadosFiltrados //retorne um array de objetos 
 
             } else {
@@ -97,11 +102,16 @@ export default {
     },
     methods: {
         setStore(obj) {
-            // console.log(obj.id);
-            // console.log(this.itensDados[obj.id]);
-            this.$store.state.item.dados = obj
-            this.$store.state.item.prodTamCor       
-            console.log(this.$store.state.item);
+
+            this.$store.state.item = this.dados.produtos[obj.id][0][0]
+            var ptc = this.dados.produtos[obj.id]
+
+                 ptc = Object.keys(ptc)
+                    .map(function (key) {
+                        return ptc[key][1];
+                    })
+
+            this.$store.state.prodTamCor = ptc
         },
 
         modalConfirm(obj, texto, url) {
