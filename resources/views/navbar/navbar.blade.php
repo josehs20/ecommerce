@@ -222,7 +222,7 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a href="#" class="dropdown-item"> Perfil </a>
+                        <a href="{{ route('meusdados') }}" class="dropdown-item"> Minha conta </a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                                                          document.getElementById('logout-form').submit();">
@@ -289,7 +289,7 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a href="#" class="dropdown-item"> Perfil </a>
+                        <a href="{{ route('meusdados') }}" class="dropdown-item"> Minha conta </a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                                                          document.getElementById('logout-form').submit();">

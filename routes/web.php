@@ -28,6 +28,13 @@ Route::get('/loja/carregaProduto/{data}', [App\Http\Controllers\LojaController::
 //controller carrinho
 Route::get('/carrinho', [App\Http\Controllers\CarrinhoController::class, 'index'])->name('viewcarrinho');
 
+// minha conta do usuario comum com todas as configurações
+Route::get('/minhaconta', [App\Http\Controllers\UsuarioController::class, 'index']);
+Route::get('/minhaconta/meusdados', [App\Http\Controllers\Usuario\MeusdadosController::class, 'index'])->name('meusdados');
+Route::get('/minhaconta/enderecos', [App\Http\Controllers\Usuario\EnderecosController::class, 'index'])->name('enderecos');
+Route::get('/minhaconta/seguranca', [App\Http\Controllers\UsuarioController::class, 'menu'])->name('seguranca');
+Route::get('/minhaconta/cartoes', [App\Http\Controllers\UsuarioController::class, 'menu'])->name('cartoes');
+
 Auth::routes();
 
 //grupo de rotas para admin

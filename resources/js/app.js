@@ -47,6 +47,12 @@ Vue.component('carrinho-component', require('./components/Carrinho.vue').default
 //promoção do produto
 Vue.component('produto-promocao-component', require('./components/ProdutoPromocao.vue').default);
 
+//view de minha conta do usuario
+Vue.component('minhaconta-component', require('./components/MinhacontaUsuario.vue').default);
+Vue.component('meusdados-component', require('./components/Meusdados.vue').default);
+Vue.component('enderecos-component', require('./components/Enderecos.vue').default);
+Vue.component('meus-enderecos-component', require('./components/MeusEnderecos.vue').default);
+
 //cadastros
 Vue.component('cadastro-produto-component', require('./components/CadastroProduto.vue').default);
 Vue.component('cadastro-categoria-component', require('./components/CadastroCategoria.vue').default);
