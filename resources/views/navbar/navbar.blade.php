@@ -144,7 +144,7 @@
             margin: 0 10px !important;
         }
         .toggle-menu{
-            display: block
+            display: block;
         }
         .pnavbar{
             display: none
@@ -158,7 +158,8 @@
         .divcarrinhomobile{
             display: flex;
             margin-bottom: 20px;
-            margin-left: 10px
+            margin-left: 10px;
+            width: fit-content;
         }
         .divredessociais{
             position: unset !important;
@@ -189,7 +190,7 @@
     <div class="divcarrinho">
         <!-- CARRINHO DE COMPRAS -->
         <div class="nav-item carrinhodecompras">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route('viewcarrinho') }}">
                 <i class="fa fa-shopping-cart"></i>
                 <span>10</span>
             </a>
@@ -221,7 +222,7 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a href="#" class="dropdown-item"> Perfil </a>
+                        <a href="{{ route('meusdados') }}" class="dropdown-item"> Minha conta </a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                                                          document.getElementById('logout-form').submit();">
@@ -256,7 +257,7 @@
     <div class="divcarrinho">
         <!-- CARRINHO DE COMPRAS -->
         <div class="nav-item carrinhodecompras">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route('viewcarrinho') }}">
                 <i class="fa fa-shopping-cart"></i>
                 <span>10</span>
             </a>
@@ -288,7 +289,7 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a href="#" class="dropdown-item"> Perfil </a>
+                        <a href="{{ route('meusdados') }}" class="dropdown-item"> Minha conta </a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                                                          document.getElementById('logout-form').submit();">
@@ -314,7 +315,7 @@
             <li class="@if(Request::segment(1) == 'loja') isactive @endif">Loja</li>
         </a>
         <!-- Botao para abrir o modal -->
-        <a type="button" class="abrirmodal" data-bs-toggle="modal" data-bs-target="#exampleModalContato">         
+        <a class="abrirmodal" data-bs-toggle="modal" data-bs-target="#exampleModalContato">         
             <li class="@if(Request::segment(1) == 'contato') isactive @endif">Contato</li>           
         </a>
     </ul>
@@ -329,7 +330,7 @@
             <li class="@if(Request::segment(1) == 'loja') isactive @endif">Loja</li>
         </a>
         <!-- Botao para abrir o modal -->
-        <a type="button" class="abrirmodal" data-bs-toggle="modal" data-bs-target="#exampleModalContato">         
+        <a style="background-color: transparent !important; cursor: pointer" class="abrirmodal" data-bs-toggle="modal" data-bs-target="#exampleModalContato">         
             <li class="@if(Request::segment(1) == 'contato') isactive @endif">Contato</li>           
         </a>
         <!-- Botao para abrir o modal -->

@@ -39,6 +39,19 @@ Vue.component('modal-produto-component', require('./components/ModalProduto.vue'
 //componentes produto
 Vue.component('card-produto-component', require('./components/CardProduto.vue').default);
 Vue.component('modal-produto-component', require('./components/ModalProduto.vue').default);
+Vue.component('individual-produto-component', require('./components/IndividualProduto.vue').default);
+
+//CARRINHO
+Vue.component('carrinho-component', require('./components/Carrinho.vue').default);
+
+//promoção do produto
+Vue.component('produto-promocao-component', require('./components/ProdutoPromocao.vue').default);
+
+//view de minha conta do usuario
+Vue.component('minhaconta-component', require('./components/MinhacontaUsuario.vue').default);
+Vue.component('meusdados-component', require('./components/Meusdados.vue').default);
+Vue.component('enderecos-component', require('./components/Enderecos.vue').default);
+Vue.component('meus-enderecos-component', require('./components/MeusEnderecos.vue').default);
 Vue.component('formulario-produto-component', require('./components/FormularioProduto.vue').default);
 
 //cadastros

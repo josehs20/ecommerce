@@ -19,7 +19,21 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index']);
-Route::get('/loja', [App\Http\Controllers\WelcomeController::class, 'index'])->name('viewloja');
+
+//controller loja
+Route::get('/loja', [App\Http\Controllers\LojaController::class, 'index'])->name('viewloja');
+Route::get('/loja/show/{id}', [App\Http\Controllers\LojaController::class, 'show'])->name('viewlojashow');
+Route::get('/loja/carregaProduto/{data}', [App\Http\Controllers\LojaController::class, 'carregaProduto']);
+
+//controller carrinho
+Route::get('/carrinho', [App\Http\Controllers\CarrinhoController::class, 'index'])->name('viewcarrinho');
+
+// minha conta do usuario comum com todas as configurações
+Route::get('/minhaconta', [App\Http\Controllers\UsuarioController::class, 'index']);
+Route::get('/minhaconta/meusdados', [App\Http\Controllers\Usuario\MeusdadosController::class, 'index'])->name('meusdados');
+Route::get('/minhaconta/enderecos', [App\Http\Controllers\Usuario\EnderecosController::class, 'index'])->name('enderecos');
+Route::get('/minhaconta/seguranca', [App\Http\Controllers\UsuarioController::class, 'menu'])->name('seguranca');
+Route::get('/minhaconta/cartoes', [App\Http\Controllers\UsuarioController::class, 'menu'])->name('cartoes');
 
 Auth::routes();
 

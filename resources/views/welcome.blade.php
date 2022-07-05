@@ -45,23 +45,27 @@
         font-weight: bold;
         color: #FFF
     }
+
+    p{
+        font-size: 1rem !important;
+    }
+    a{
+        font-size: 1rem !important;
+    }
+    li{
+        font-size: 1rem !important;
+    }
 </style>
 
-<body>
-    
-    
+<body>  
         <!-- NAVBAR  -->
         @include('navbar.navbar')
-    
+
         <!-- CONTEUDO PRINCIPAL -->
-        @if(Request::segment(1) == '') 
-            @include('pagina-principal.paginaprincipal', ['produtos' => $produtos])
-        @elseif(Request::segment(1) == 'loja') 
-            @include('loja.loja', ['produtos' => $produtos])            
-        @endif
+        @yield('conteudo')        
 
         <!-- FOOTER -->
         @include('footer.footer')
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dragscroll/0.0.8/dragscroll.min.js"></script>
 </body>
 </html>
