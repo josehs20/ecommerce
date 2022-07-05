@@ -19,7 +19,7 @@
                         <span v-if="titulos[chaveValor].tipo == 'data'">{{ valor | formataDataTempo }}</span>
                     </td>
 
-                    <td style="width: 270px !important;">
+                    <td style="width: 250px !important;">
                         <button type="button" v-if="remover.visivel"
                             @click="modalConfirm(obj, remover.texto, remover.url)"
                             class="btn btn-outline-danger mx-1">{{ remover.titulo }}</button>
@@ -30,9 +30,10 @@
                                     visualizar.titulo
                             }}</button>
 
-                        <a v-if="atualizar.visivel" :href="atualizar.url+'/'+obj.id+'/edit'" type="button" class="btn btn-outline-success">{{
-                                atualizar.titulo
-                        }}</a>
+                        <a v-if="atualizar.visivel" :href="atualizar.url + '/' + obj.id + '/edit'" type="button"
+                            class="btn btn-outline-success">{{
+                                    atualizar.titulo
+                            }}</a>
 
                     </td>
                 </tr>
@@ -52,13 +53,15 @@ export default {
             itensDados: {}
         }
     },
+    // mounted() {
+    //     console.log(this.dados);
+    // },
     computed: {
         dadosFiltrados() {
 
 
             let campos = Object.keys(this.titulos)
             let dadosFiltrados = []
-
             if (this.dados.count) {
                 var produtos = this.dados.produtos
 
@@ -106,16 +109,17 @@ export default {
             this.$store.state.item = this.dados.produtos[obj.id][0][0]
             var ptc = this.dados.produtos[obj.id]
 
-                 ptc = Object.keys(ptc)
-                    .map(function (key) {
-                        return ptc[key][1];
-                    })
+            ptc = Object.keys(ptc)
+                .map(function (key) {
+                    return ptc[key][1];
+                })
 
             this.$store.state.prodTamCor = ptc
         },
 
         modalConfirm(obj, texto, url) {
             var url = url + '/' + String(obj.id);
+
             Swal.fire({
                 title: 'Excluir',
                 text: texto,
@@ -148,6 +152,8 @@ export default {
                 }
             })
         }
+
+
     },
 }
 </script>

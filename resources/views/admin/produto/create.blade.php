@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
-    @if (!count($categorias))
+    @if (!count($data['selects']['categorias']))
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
@@ -24,7 +23,7 @@
                 </div>
             </div>
         </div>
-    @elseif(!count($tamanhos))
+    @elseif(!count($data['selects']['tamanhos']))
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -44,7 +43,7 @@
                 </div>
             </div>
         </div>
-    @elseif(!count($cores))
+    @elseif(!count($data['selects']['cores']))
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -65,7 +64,7 @@
             </div>
         </div>
     @else
-        <cadastro-produto-component selects="{{ $data }}" csrf_token={{ @csrf_token() }}>
+        <cadastro-produto-component data="{{ json_encode($data) }}" csrf_token={{ @csrf_token() }}>
         </cadastro-produto-component>
         
     @endif

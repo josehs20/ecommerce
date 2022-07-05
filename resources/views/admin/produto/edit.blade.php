@@ -2,8 +2,8 @@
 
 @section('content')
 
-        <formulario-produto-component data="{{ $data }}" csrf_token={{ @csrf_token() }}>
-        </formulario-produto-component>
+          <cadastro-produto-component data="{{ $data }}" csrf_token={{ @csrf_token() }}>
+        </cadastro-produto-component>
         
    
 @endsection

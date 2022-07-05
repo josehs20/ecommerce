@@ -79,8 +79,15 @@ class EstoqueController extends Controller
      * @param  \App\Models\Estoque  $estoque
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Estoque $estoque)
+    public function destroy($estoque)
     {
-        //
+        /*estoque é referenciado pelo id prod_tam_cor
+        para saber qual tamanho ou cor zerar ou deletar*/
+        $estoque = Estoque::find($estoque);
+        $estoque->prodTamCor->where('produto_id', $estoque->prodTamCor->produto->id)->count();
+
+        dd($estoque->prodTamCor->where('produto_id', $estoque->prodTamCor->produto->id)->count());
+        $estoque->prodTamCor->where('produto_id', $estoque->prodTamCor->produto->id)->count();
+        return response()->json(['msg' => 'tamanho e cor excluido com sucesso']);
     }
 }

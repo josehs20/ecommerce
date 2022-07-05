@@ -42,6 +42,7 @@ Vue.component('modal-produto-component', require('./components/ModalProduto.vue'
 Vue.component('formulario-produto-component', require('./components/FormularioProduto.vue').default);
 
 //cadastros
+// Vue.component('atualiza-produto-component', require('./components/AtualizaProduto.vue').default);
 Vue.component('cadastro-produto-component', require('./components/CadastroProduto.vue').default);
 Vue.component('cadastro-categoria-component', require('./components/CadastroCategoria.vue').default);
 Vue.component('cadastro-cor-component', require('./components/CadastroCor.vue').default);

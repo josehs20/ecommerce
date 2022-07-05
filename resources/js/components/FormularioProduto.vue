@@ -4,14 +4,21 @@
             <div class="col-md-6">
                 <input-component titulo="Produto" id="nomeProduto" id-help="nomeProdutoHelp"
                     texto-ajuda="Informe o nome do produto">
-                    <input required type="text" class="form-control disabledInsert" id="nomeProduto"
+                    <input v-if="!dados.produto" required type="text" class="form-control disabledInsert"
+                        id="nomeProduto" aria-describedby="nomeProdutoHelp" placeholder="Nome do Produto"
+                        v-model="data.nomeProduto">
+
+                    <input v-else type="text" class="form-control disabledInsert" id="nomeProduto"
                         aria-describedby="nomeProdutoHelp" placeholder="Nome do Produto" v-model="data.nomeProduto">
                 </input-component>
             </div>
             <div class="col-md-2">
                 <input-component titulo="Custo" id="custoProduto" id-help="custoProduto"
                     texto-ajuda="Informe o nome do produto">
-                    <input required type="number" class="form-control disabledInsert" id="custoProduto"
+                    <input v-if="!dados.produto" required type="number" class="form-control disabledInsert"
+                        id="custoProduto" aria-describedby="custoProduto" @change="calculaLucro($event)"
+                        placeholder="Custo" v-model="data.custoProduto">
+                    <input v-else required type="number" class="form-control disabledInsert" id="custoProduto"
                         aria-describedby="custoProduto" @change="calculaLucro($event)" placeholder="Custo"
                         v-model="data.custoProduto">
                 </input-component>
@@ -19,7 +26,10 @@
             <div class="col-md-2">
                 <input-component titulo="Preço" id="precoProduto" id-help="precoProduto"
                     texto-ajuda="Informe o nome do produto">
-                    <input required type="number" class="form-control disabledInsert" id="precoProduto"
+                    <input v-if="!dados.produto" required type="number" class="form-control disabledInsert"
+                        id="precoProduto" aria-describedby="precoProduto" @change="calculaLucro($event)"
+                        placeholder="Preço" v-model="data.precoProduto">
+                    <input v-else required type="number" class="form-control disabledInsert" id="precoProduto"
                         aria-describedby="precoProduto" @change="calculaLucro($event)" placeholder="Preço"
                         v-model="data.precoProduto">
                 </input-component>
@@ -40,13 +50,15 @@
             <div class="col-md-4">
                 <input-component titulo="Categoria" id="categoriaProduto" id-help="categoriaProduto">
 
-                    <select required v-model="data.selectCategoria" id="categoriaProdutoSelect"
+                    <select v-if="!dados.produto" required v-model="data.selectCategoria" id="categoriaProdutoSelect"
                         class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                        <option v-for="item, key in categorias" :key="key" :value="item.id">{{
+                        <option v-for="item, key in dados.selects.categorias" :key="key" :value="item.id">{{
                                 item.nome
                         }}</option>
 
                     </select>
+                    <input v-else readonly required type="text" class="form-control disabledInsert" id="nomeProduto"
+                        aria-describedby="nomeProdutoHelp" v-model="data.selectCategoria">
                 </input-component>
             </div>
             <div class="col-md-6">
@@ -61,7 +73,6 @@
                             {{ item.name }}</li>
 
                     </ul>
-
                 </div>
             </div>
         </div>
@@ -73,7 +84,7 @@
 
                     <select required class="form-select" v-model="data.selectCor" aria-label="Default select example">
 
-                        <option v-for="item, key in cores" :value="item.id" :key="key">
+                        <option v-for="item, key in dados.selects.cores" :value="item.id" :key="key">
                             {{ item.nome }}
                         </option>
                     </select>
@@ -85,7 +96,7 @@
 
                     <select required v-model="data.selectTamanho" class="form-select"
                         aria-label="Default select example">
-                        <option v-for="item, key in tamanhos" :value="item.id" :key="key">
+                        <option v-for="item, key in dados.selects.tamanhos" :value="item.id" :key="key">
                             {{ item.nome }}
                         </option>
                     </select>
@@ -102,7 +113,7 @@
             </div>
             <div class="col-md-2 d-flex justify-content-center h-20 mt-4">
 
-                <button @click="setDados('functionEvento')" class="btn btn-outline-primary">Adicionar</button>
+                <button @click="setDados()" class="btn btn-outline-primary">Adicionar</button>
 
 
             </div>
@@ -114,32 +125,37 @@
 import parseJson from 'parse-json';
 
 export default {
-    props: ['selects', 'functionEvento'],
+    props: ['dados', 'functionEvento'],
     emits: ['inserirProduto', 'atualizarProduto'],
 
     data() {
         return {
             data: {
                 url: '/produto',
-                produtosLista: '',       
-                nomeProduto: '',
-                precoProduto: '',
-                custoProduto: '',
-                lucroProduto: '',
-                selectCategoria: '',
+                produtosLista: '',
+                nomeProduto: this.dados.produto ? this.dados.produto.nome : '',
+                precoProduto: this.dados.produto ? this.dados.produto.preco : '',
+                custoProduto: this.dados.produto ? this.dados.produto.custo : '',
+                lucroProduto: this.dados.produto ? this.dados.produto.lucro : '',
+                selectCategoria: this.dados.produto ? this.dados.produto.categoria : '',
                 imagens: [],
                 selectCor: '',
                 selectTamanho: '',
                 estoqueProduto: '',
 
             },
-            categorias: parseJson(this.selects).categorias,
-            cores: parseJson(this.selects).cores,
-            tamanhos: parseJson(this.selects).tamanhos,
         }
     },
+    
     methods: {
+      
+        setDados() {
 
+            this.$emit(this.functionEvento, this.data)
+
+            //console.log(this.functionEvento);
+
+        },
         desabilitaInputs() {
             var inputsDisable = document.querySelectorAll('.disabledInsert');
 
@@ -148,9 +164,6 @@ export default {
             });
             document.getElementById('imagensProdutoValue').style.display = 'none'
             document.getElementById('categoriaProdutoSelect').disabled = true
-        },
-        setDados() {         
-            this.$emit('inserirProduto', this.data)  
         },
         calculaLucro(e) {
             var preco = this.data.precoProduto
@@ -190,7 +203,5 @@ export default {
         },
 
     },
-
-
 }
 </script>

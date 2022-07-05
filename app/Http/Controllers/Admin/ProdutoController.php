@@ -65,17 +65,11 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        $categorias = Categoria::all();
-        $tamanhos = Tamanho::all();
-        $cores = Cor::all();
-
-        $data['categorias'] = $categorias;
-        $data['tamanhos'] =  $tamanhos;
-        $data['cores'] = $cores;
-        $data = json_encode($data);
-
-        // dd($data);
-        return view('admin.produto.create', compact('categorias', 'tamanhos', 'cores', 'data'));
+        $data['selects']['categorias'] = Categoria::get()->toArray();
+        $data['selects']['tamanhos'] =  Tamanho::get()->toArray();
+        $data['selects']['cores'] = Cor::get()->toArray();
+ 
+        return view('admin.produto.create', compact('data'));
     }
 
     /**
@@ -94,7 +88,7 @@ class ProdutoController extends Controller
         if (!$prod_tam_cor) {
 
             if (!$produto) {
-        
+
                 $produto = Categoria::find($request->categoria_id)
                     ->produtos()->create([
                         'nome'  =>  $request->nome,
@@ -114,7 +108,6 @@ class ProdutoController extends Controller
                 if ($request->file('imagens')) {
 
                     $this->upload_redimensiona_salva_image_produto($request, $produto);
-
                 }
 
                 return response()->json(['msg' => 'Produto cadastrado com sucesso', 'prodInserido' => $produto->id, 'existe' => false], 200);
@@ -159,11 +152,22 @@ class ProdutoController extends Controller
      */
     public function edit($produto)
     {
-        $data['produto'] = Produto::find($produto);
-        $data['categorias'] = Categoria::all();
-        $data['tamanhos'] = Tamanho::all();
-        $data['cores'] = Cor::all();
+        $produto = Produto::find($produto);
+
+        $data['produto'] = $produto->toArray();
+
+        $data['produto']['categoria'] = $produto->categoria->nome;
+        //dd($produto->prodTamCors->where('produto_id' $produto->id));
+       // foreach ($produto->prodTamCors as $ptc) {
+
+           // $data['produto']['ptc'][] = ['tam' => $produto->prodTamCors->where('produto_id' $produto->)->toArray(), 'cor' => $ptc->cor->nome, 'estoque' => $ptc->estoque->quantidade, 'id' => $ptc->estoque->id];
+       // }
+
+        $data['selects']['tamanhos'] = Tamanho::get()->toArray();
+        $data['selects']['cores'] = Cor::get()->toArray();
+
         $data = json_encode($data);
+
         return view('admin.produto.edit', compact('data'));
     }
 

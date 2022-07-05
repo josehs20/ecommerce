@@ -7870,6 +7870,61 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var parse_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! parse-json */ "./node_modules/parse-json/index.js");
 /* harmony import */ var parse_json__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(parse_json__WEBPACK_IMPORTED_MODULE_1__);
+var _methods;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -7957,13 +8012,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['csrf_token', 'selects'],
+  props: ['csrf_token', 'data'],
   data: function data() {
     return {
       // data: '',
       url: '/produto',
       produtosLista: '',
       prodInserido: '',
+      produto: '',
       // nomeProduto: '',
       // precoProduto: '',
       // custoProduto: '',
@@ -7973,12 +8029,20 @@ __webpack_require__.r(__webpack_exports__);
       // selectCor: '',
       // selectTamanho: '',
       // estoqueProduto: '',
-      categorias: parse_json__WEBPACK_IMPORTED_MODULE_1___default()(this.selects).categorias,
-      cores: parse_json__WEBPACK_IMPORTED_MODULE_1___default()(this.selects).cores,
-      tamanhos: parse_json__WEBPACK_IMPORTED_MODULE_1___default()(this.selects).tamanhos
+      dados: parse_json__WEBPACK_IMPORTED_MODULE_1___default()(this.data) //     selects: {
+      //         categorias: parseJson(this.data).categorias,
+      //         cores: parseJson(this.data).cores,
+      //         tamanhos: parseJson(this.data).tamanhos,
+      //     },
+      //     produto: parseJson(this.data).produto
+      // },
+
     };
   },
-  methods: {
+  methods: (_methods = {
+    atualizarProduto: function atualizarProduto() {
+      console.log('atualizarProduto');
+    },
     inserirProduto: function inserirProduto(data) {
       var _this = this;
 
@@ -8016,12 +8080,13 @@ __webpack_require__.r(__webpack_exports__);
           _this.carregarLista(); //pega niveis de componentes filho para acessar dados e methos...
 
 
-          _this.$children.find(function (component) {
+          var componenteFilho = _this.$children.find(function (component) {
             return component.$options.name === "card-component";
           }).$children.find(function (component) {
             return component.$options.name === "formulario-produto-component";
-          }).desabilitaInputs();
+          });
 
+          componenteFilho.desabilitaInputs();
           Swal.fire({
             position: 'top-end',
             icon: 'success',
@@ -8044,23 +8109,86 @@ __webpack_require__.r(__webpack_exports__);
 
         return errors;
       });
-    },
-    eventoInserirProduto: function eventoInserirProduto(e, data) {},
-    carregarLista: function carregarLista() {
-      var _this2 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.url).then(function (response) {
-        _this2.produtosLista = {
-          count: 0
-        };
-        _this2.produtosLista['produtos'] = response.data;
-        _this2.produtosLista['count'] = Object.keys(response.data).length;
-        console.log(_this2.produtosLista);
-      })["catch"](function (errors) {
-        console.log(errors);
-      });
     }
-  },
+  }, _defineProperty(_methods, "atualizarProduto", function atualizarProduto(data) {
+    var _this2 = this;
+
+    var formData = new FormData();
+
+    for (var i = 0; i < data.imagens.length; i++) {
+      formData.append('imagens[]', data.imagens[i]);
+    }
+
+    formData.append('nome', data.nomeProduto);
+    formData.append('custo', data.custoProduto);
+    formData.append('preco', data.precoProduto);
+    formData.append('lucro', data.lucroProduto);
+    formData.append('cor', data.selectCor);
+    formData.append('tamanho', data.selectTamanho);
+    formData.append('estoqueProduto', data.estoqueProduto);
+    formData.append('categoria_id', data.selectCategoria);
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post(this.url, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    }).then(function (response) {
+      _this2.prodInserido = response.data.prodInserido;
+      console.log(response.data);
+
+      if (response.data.existe === true) {
+        Swal.fire({
+          position: 'top-end',
+          icon: 'warning',
+          title: response.data.msg,
+          showConfirmButton: false,
+          timer: 3000
+        });
+      } else {
+        _this2.carregarLista(); //pega niveis de componentes filho para acessar dados e methos...
+
+
+        var componenteFilho = _this2.$children.find(function (component) {
+          return component.$options.name === "card-component";
+        }).$children.find(function (component) {
+          return component.$options.name === "formulario-produto-component";
+        });
+
+        componenteFilho.desabilitaInputs();
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: response.data.msg,
+          text: 'Voce pode continuar adicionando cor, tamanho e estoque para este produto',
+          showConfirmButton: false,
+          timer: 5000
+        });
+      }
+    })["catch"](function (errors) {
+      if (errors) {
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: 'Não foi possível, tente novamente',
+          showConfirmButton: false,
+          timer: 2000
+        }); // $store.state.d = true;
+      }
+
+      return errors;
+    });
+  }), _defineProperty(_methods, "eventoInserirProduto", function eventoInserirProduto(e, data) {}), _defineProperty(_methods, "carregarLista", function carregarLista() {
+    var _this3 = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.url).then(function (response) {
+      _this3.produtosLista = {
+        count: 0
+      };
+      _this3.produtosLista['produtos'] = response.data;
+      _this3.produtosLista['count'] = Object.keys(response.data).length; //console.log(this.produtosLista);
+    })["catch"](function (errors) {
+      console.log(errors);
+    });
+  }), _methods),
   mounted: function mounted() {
     this.carregarLista();
   }
@@ -8558,31 +8686,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['selects', 'functionEvento'],
+  props: ['dados', 'functionEvento'],
   emits: ['inserirProduto', 'atualizarProduto'],
   data: function data() {
     return {
       data: {
         url: '/produto',
         produtosLista: '',
-        nomeProduto: '',
-        precoProduto: '',
-        custoProduto: '',
-        lucroProduto: '',
-        selectCategoria: '',
+        nomeProduto: this.dados.produto ? this.dados.produto.nome : '',
+        precoProduto: this.dados.produto ? this.dados.produto.preco : '',
+        custoProduto: this.dados.produto ? this.dados.produto.custo : '',
+        lucroProduto: this.dados.produto ? this.dados.produto.lucro : '',
+        selectCategoria: this.dados.produto ? this.dados.produto.categoria : '',
         imagens: [],
         selectCor: '',
         selectTamanho: '',
         estoqueProduto: ''
-      },
-      categorias: parse_json__WEBPACK_IMPORTED_MODULE_0___default()(this.selects).categorias,
-      cores: parse_json__WEBPACK_IMPORTED_MODULE_0___default()(this.selects).cores,
-      tamanhos: parse_json__WEBPACK_IMPORTED_MODULE_0___default()(this.selects).tamanhos
+      }
     };
   },
   methods: {
+    setDados: function setDados() {
+      this.$emit(this.functionEvento, this.data); //console.log(this.functionEvento);
+    },
     desabilitaInputs: function desabilitaInputs() {
       var inputsDisable = document.querySelectorAll('.disabledInsert');
       inputsDisable.forEach(function (element) {
@@ -8590,9 +8729,6 @@ __webpack_require__.r(__webpack_exports__);
       });
       document.getElementById('imagensProdutoValue').style.display = 'none';
       document.getElementById('categoriaProdutoSelect').disabled = true;
-    },
-    setDados: function setDados() {
-      this.$emit('inserirProduto', this.data);
     },
     calculaLucro: function calculaLucro(e) {
       var preco = this.data.precoProduto;
@@ -8795,6 +8931,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['dados', 'titulos', 'visualizar', 'atualizar', 'remover'],
   emits: ['carregarLista'],
@@ -8803,6 +8940,9 @@ __webpack_require__.r(__webpack_exports__);
       itensDados: {}
     };
   },
+  // mounted() {
+  //     console.log(this.dados);
+  // },
   computed: {
     dadosFiltrados: function dadosFiltrados() {
       var campos = Object.keys(this.titulos);
@@ -8932,6 +9072,7 @@ Vue.component('modal-produto-component', (__webpack_require__(/*! ./components/M
 Vue.component('card-produto-component', (__webpack_require__(/*! ./components/CardProduto.vue */ "./resources/js/components/CardProduto.vue")["default"]));
 Vue.component('modal-produto-component', (__webpack_require__(/*! ./components/ModalProduto.vue */ "./resources/js/components/ModalProduto.vue")["default"]));
 Vue.component('formulario-produto-component', (__webpack_require__(/*! ./components/FormularioProduto.vue */ "./resources/js/components/FormularioProduto.vue")["default"])); //cadastros
+// Vue.component('atualiza-produto-component', require('./components/AtualizaProduto.vue').default);
 
 Vue.component('cadastro-produto-component', (__webpack_require__(/*! ./components/CadastroProduto.vue */ "./resources/js/components/CadastroProduto.vue")["default"]));
 Vue.component('cadastro-categoria-component', (__webpack_require__(/*! ./components/CadastroCategoria.vue */ "./resources/js/components/CadastroCategoria.vue")["default"]));
@@ -40928,134 +41069,282 @@ var render = function () {
     { staticClass: "container" },
     [
       _c("div", { staticClass: "row justify-content-center" }, [
-        _c(
-          "div",
-          { staticClass: "col-md-8" },
-          [
-            _c("card-component", {
-              attrs: { titulo: "Cadastro de produto" },
-              scopedSlots: _vm._u([
-                {
-                  key: "conteudo",
-                  fn: function () {
-                    return [
-                      _c(
-                        "form",
+        _c("div", { staticClass: "col-md-8" }, [
+          !_vm.dados.produto
+            ? _c(
+                "div",
+                [
+                  _c("card-component", {
+                    attrs: { titulo: "Cadastro de produto" },
+                    scopedSlots: _vm._u(
+                      [
                         {
-                          attrs: {
-                            enctype: "multipart/form-data",
-                            action: "/produto",
-                            method: "POST",
-                          },
-                          on: {
-                            submit: function ($event) {
-                              $event.preventDefault()
-                              return _vm.eventoInserirProduto($event)
-                            },
-                          },
-                        },
-                        [
-                          _c("input", {
-                            attrs: { type: "hidden", name: "_token" },
-                            domProps: { value: _vm.csrf_token },
-                          }),
-                          _vm._v(" "),
-                          _c("formulario-produto-component", {
-                            attrs: {
-                              functionEvento: "inserirProduto",
-                              selects: _vm.selects,
-                            },
-                            on: { inserirProduto: _vm.inserirProduto },
-                          }),
-                        ],
-                        1
-                      ),
-                    ]
-                  },
-                  proxy: true,
-                },
-                {
-                  key: "rodape",
-                  fn: function () {
-                    return undefined
-                  },
-                  proxy: true,
-                },
-              ]),
-            }),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("card-component", {
-              attrs: { titulo: "Lista de produtos" },
-              scopedSlots: _vm._u([
-                {
-                  key: "conteudo",
-                  fn: function () {
-                    return [
-                      !_vm.produtosLista.count
-                        ? _c(
-                            "div",
-                            {
-                              staticClass: "alert alert-warning",
-                              attrs: { role: "alert" },
-                            },
-                            [
-                              _vm._v(
-                                "\n                        Nenhuma produto cadastrado!\n                    "
+                          key: "conteudo",
+                          fn: function () {
+                            return [
+                              _c(
+                                "form",
+                                {
+                                  attrs: {
+                                    enctype: "multipart/form-data",
+                                    action: "/produto",
+                                    method: "POST",
+                                  },
+                                  on: {
+                                    submit: function ($event) {
+                                      $event.preventDefault()
+                                      return _vm.eventoInserirProduto($event)
+                                    },
+                                  },
+                                },
+                                [
+                                  _c("input", {
+                                    attrs: { type: "hidden", name: "_token" },
+                                    domProps: { value: _vm.csrf_token },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("formulario-produto-component", {
+                                    attrs: {
+                                      functionEvento: "inserirProduto",
+                                      dados: _vm.dados,
+                                    },
+                                    on: { inserirProduto: _vm.inserirProduto },
+                                  }),
+                                ],
+                                1
                               ),
                             ]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.produtosLista.count
-                        ? _c("table-component", {
-                            attrs: {
-                              dados: _vm.produtosLista,
-                              titulos: {
-                                id: { titulo: "nº", tipo: "texto" },
-                                nome: { titulo: "Nome", tipo: "texto" },
-                                custo: { titulo: "Custo", tipo: "texto" },
-                                preco: { titulo: "Preço", tipo: "texto" },
-                                lucro: { titulo: "Lucro", tipo: "texto" },
+                          },
+                          proxy: true,
+                        },
+                        {
+                          key: "rodape",
+                          fn: function () {
+                            return undefined
+                          },
+                          proxy: true,
+                        },
+                      ],
+                      null,
+                      false,
+                      3907972491
+                    ),
+                  }),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("card-component", {
+                    attrs: { titulo: "Lista de produtos" },
+                    scopedSlots: _vm._u(
+                      [
+                        {
+                          key: "conteudo",
+                          fn: function () {
+                            return [
+                              !_vm.produtosLista.count
+                                ? _c(
+                                    "div",
+                                    {
+                                      staticClass: "alert alert-warning",
+                                      attrs: { role: "alert" },
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                            Nenhuma produto cadastrado!\n                        "
+                                      ),
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.produtosLista.count
+                                ? _c("table-component", {
+                                    attrs: {
+                                      dados: _vm.produtosLista,
+                                      titulos: {
+                                        id: { titulo: "nº", tipo: "texto" },
+                                        nome: { titulo: "Nome", tipo: "texto" },
+                                        custo: {
+                                          titulo: "Custo",
+                                          tipo: "texto",
+                                        },
+                                        preco: {
+                                          titulo: "Preço",
+                                          tipo: "texto",
+                                        },
+                                        lucro: {
+                                          titulo: "Lucro",
+                                          tipo: "texto",
+                                        },
+                                      },
+                                      remover: {
+                                        visivel: true,
+                                        titulo: "Remover",
+                                        texto:
+                                          "Deseja realmente excluir ess3 produto ?",
+                                        url: "/produto",
+                                      },
+                                      visualizar: {
+                                        visivel: true,
+                                        titulo: "Visualizar",
+                                        dataBsToggle: "modal",
+                                        dataBsTarget: "#modalProdutoVisualizar",
+                                      },
+                                      atualizar: {
+                                        visivel: true,
+                                        titulo: "Editar",
+                                        url: "/produto",
+                                      },
+                                    },
+                                    on: { carregarLista: _vm.carregarLista },
+                                  })
+                                : _vm._e(),
+                            ]
+                          },
+                          proxy: true,
+                        },
+                        {
+                          key: "rodape",
+                          fn: function () {
+                            return undefined
+                          },
+                          proxy: true,
+                        },
+                      ],
+                      null,
+                      false,
+                      3516505736
+                    ),
+                  }),
+                ],
+                1
+              )
+            : _c(
+                "div",
+                [
+                  _c("card-component", {
+                    attrs: { titulo: "Atualziar produto" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "conteudo",
+                        fn: function () {
+                          return [
+                            _c(
+                              "form",
+                              {
+                                attrs: {
+                                  enctype: "multipart/form-data",
+                                  action: _vm.url + "/" + _vm.dados.produto.id,
+                                  method: "POST",
+                                },
+                                on: {
+                                  submit: function ($event) {
+                                    $event.preventDefault()
+                                    return _vm.eventoInserirProduto($event)
+                                  },
+                                },
                               },
-                              remover: {
-                                visivel: true,
-                                titulo: "Remover",
-                                texto: "Deseja realmente excluir essa cor ?",
-                                url: "/produto",
-                              },
-                              visualizar: {
-                                visivel: true,
-                                titulo: "Visualizar",
-                                dataBsToggle: "modal",
-                                dataBsTarget: "#modalProdutoVisualizar",
-                              },
-                              atualizar: {
-                                visivel: true,
-                                titulo: "Editar",
-                                url: "/produto",
-                              },
-                            },
-                            on: { carregarLista: _vm.carregarLista },
-                          })
-                        : _vm._e(),
-                    ]
-                  },
-                  proxy: true,
-                },
-                {
-                  key: "rodape",
-                  fn: function () {
-                    return undefined
-                  },
-                  proxy: true,
-                },
-              ]),
-            }),
-          ],
-          1
-        ),
+                              [
+                                _c("input", {
+                                  attrs: { type: "hidden", name: "_token" },
+                                  domProps: { value: _vm.csrf_token },
+                                }),
+                                _vm._v(" "),
+                                _c("formulario-produto-component", {
+                                  attrs: {
+                                    functionEvento: "atualizarProduto",
+                                    dados: _vm.dados,
+                                  },
+                                  on: {
+                                    atualizarProduto: _vm.atualizarProduto,
+                                  },
+                                }),
+                              ],
+                              1
+                            ),
+                          ]
+                        },
+                        proxy: true,
+                      },
+                    ]),
+                  }),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("card-component", {
+                    attrs: { titulo: "Produto" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "conteudo",
+                        fn: function () {
+                          return [
+                            !_vm.dados.produto
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "alert alert-warning",
+                                    attrs: { role: "alert" },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                            Nenhuma produto cadastrado!\n                        "
+                                    ),
+                                  ]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.dados.produto
+                              ? _c("table-component", {
+                                  attrs: {
+                                    dados: _vm.dados.produto.ptc,
+                                    titulos: {
+                                      id: { titulo: "nº", tipo: "texto" },
+                                      cor: { titulo: "Cor", tipo: "texto" },
+                                      tam: { titulo: "Tamanho", tipo: "texto" },
+                                      estoque: {
+                                        titulo: "Estoque",
+                                        tipo: "texto",
+                                      },
+                                      // lucro: { titulo: 'Lucro', tipo: 'texto', },
+                                    },
+                                    remover: {
+                                      visivel: true,
+                                      titulo: "Remover",
+                                      texto:
+                                        "Deseja realmente excluir esse tamanho e cor deste produto ?",
+                                      url: "/estoque",
+                                    },
+                                    visualizar: {
+                                      visivel: false,
+                                      titulo: "Visualizar",
+                                      dataBsToggle: "modal",
+                                      dataBsTarget: "",
+                                    },
+                                    atualizar: {
+                                      visivel: true,
+                                      titulo: "Editar",
+                                      url: "/produto",
+                                    },
+                                  },
+                                  on: { carregarLista: _vm.carregarLista },
+                                })
+                              : _vm._e(),
+                          ]
+                        },
+                        proxy: true,
+                      },
+                      {
+                        key: "rodape",
+                        fn: function () {
+                          return undefined
+                        },
+                        proxy: true,
+                      },
+                    ]),
+                  }),
+                ],
+                1
+              ),
+        ]),
       ]),
       _vm._v(" "),
       _c("modal-produto-component", {
@@ -41555,33 +41844,60 @@ var render = function () {
               },
             },
             [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.data.nomeProduto,
-                    expression: "data.nomeProduto",
-                  },
-                ],
-                staticClass: "form-control disabledInsert",
-                attrs: {
-                  required: "",
-                  type: "text",
-                  id: "nomeProduto",
-                  "aria-describedby": "nomeProdutoHelp",
-                  placeholder: "Nome do Produto",
-                },
-                domProps: { value: _vm.data.nomeProduto },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.data, "nomeProduto", $event.target.value)
-                  },
-                },
-              }),
+              !_vm.dados.produto
+                ? _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.data.nomeProduto,
+                        expression: "data.nomeProduto",
+                      },
+                    ],
+                    staticClass: "form-control disabledInsert",
+                    attrs: {
+                      required: "",
+                      type: "text",
+                      id: "nomeProduto",
+                      "aria-describedby": "nomeProdutoHelp",
+                      placeholder: "Nome do Produto",
+                    },
+                    domProps: { value: _vm.data.nomeProduto },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.data, "nomeProduto", $event.target.value)
+                      },
+                    },
+                  })
+                : _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.data.nomeProduto,
+                        expression: "data.nomeProduto",
+                      },
+                    ],
+                    staticClass: "form-control disabledInsert",
+                    attrs: {
+                      type: "text",
+                      id: "nomeProduto",
+                      "aria-describedby": "nomeProdutoHelp",
+                      placeholder: "Nome do Produto",
+                    },
+                    domProps: { value: _vm.data.nomeProduto },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.data, "nomeProduto", $event.target.value)
+                      },
+                    },
+                  }),
             ]
           ),
         ],
@@ -41603,36 +41919,67 @@ var render = function () {
               },
             },
             [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.data.custoProduto,
-                    expression: "data.custoProduto",
-                  },
-                ],
-                staticClass: "form-control disabledInsert",
-                attrs: {
-                  required: "",
-                  type: "number",
-                  id: "custoProduto",
-                  "aria-describedby": "custoProduto",
-                  placeholder: "Custo",
-                },
-                domProps: { value: _vm.data.custoProduto },
-                on: {
-                  change: function ($event) {
-                    return _vm.calculaLucro($event)
-                  },
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.data, "custoProduto", $event.target.value)
-                  },
-                },
-              }),
+              !_vm.dados.produto
+                ? _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.data.custoProduto,
+                        expression: "data.custoProduto",
+                      },
+                    ],
+                    staticClass: "form-control disabledInsert",
+                    attrs: {
+                      required: "",
+                      type: "number",
+                      id: "custoProduto",
+                      "aria-describedby": "custoProduto",
+                      placeholder: "Custo",
+                    },
+                    domProps: { value: _vm.data.custoProduto },
+                    on: {
+                      change: function ($event) {
+                        return _vm.calculaLucro($event)
+                      },
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.data, "custoProduto", $event.target.value)
+                      },
+                    },
+                  })
+                : _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.data.custoProduto,
+                        expression: "data.custoProduto",
+                      },
+                    ],
+                    staticClass: "form-control disabledInsert",
+                    attrs: {
+                      required: "",
+                      type: "number",
+                      id: "custoProduto",
+                      "aria-describedby": "custoProduto",
+                      placeholder: "Custo",
+                    },
+                    domProps: { value: _vm.data.custoProduto },
+                    on: {
+                      change: function ($event) {
+                        return _vm.calculaLucro($event)
+                      },
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.data, "custoProduto", $event.target.value)
+                      },
+                    },
+                  }),
             ]
           ),
         ],
@@ -41654,36 +42001,67 @@ var render = function () {
               },
             },
             [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.data.precoProduto,
-                    expression: "data.precoProduto",
-                  },
-                ],
-                staticClass: "form-control disabledInsert",
-                attrs: {
-                  required: "",
-                  type: "number",
-                  id: "precoProduto",
-                  "aria-describedby": "precoProduto",
-                  placeholder: "Preço",
-                },
-                domProps: { value: _vm.data.precoProduto },
-                on: {
-                  change: function ($event) {
-                    return _vm.calculaLucro($event)
-                  },
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.data, "precoProduto", $event.target.value)
-                  },
-                },
-              }),
+              !_vm.dados.produto
+                ? _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.data.precoProduto,
+                        expression: "data.precoProduto",
+                      },
+                    ],
+                    staticClass: "form-control disabledInsert",
+                    attrs: {
+                      required: "",
+                      type: "number",
+                      id: "precoProduto",
+                      "aria-describedby": "precoProduto",
+                      placeholder: "Preço",
+                    },
+                    domProps: { value: _vm.data.precoProduto },
+                    on: {
+                      change: function ($event) {
+                        return _vm.calculaLucro($event)
+                      },
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.data, "precoProduto", $event.target.value)
+                      },
+                    },
+                  })
+                : _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.data.precoProduto,
+                        expression: "data.precoProduto",
+                      },
+                    ],
+                    staticClass: "form-control disabledInsert",
+                    attrs: {
+                      required: "",
+                      type: "number",
+                      id: "precoProduto",
+                      "aria-describedby": "precoProduto",
+                      placeholder: "Preço",
+                    },
+                    domProps: { value: _vm.data.precoProduto },
+                    on: {
+                      change: function ($event) {
+                        return _vm.calculaLucro($event)
+                      },
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.data, "precoProduto", $event.target.value)
+                      },
+                    },
+                  }),
             ]
           ),
         ],
@@ -41753,52 +42131,84 @@ var render = function () {
               },
             },
             [
-              _c(
-                "select",
-                {
-                  directives: [
+              !_vm.dados.produto
+                ? _c(
+                    "select",
                     {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.data.selectCategoria,
-                      expression: "data.selectCategoria",
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.data.selectCategoria,
+                          expression: "data.selectCategoria",
+                        },
+                      ],
+                      staticClass: "form-select form-select-lg mb-3",
+                      attrs: {
+                        required: "",
+                        id: "categoriaProdutoSelect",
+                        "aria-label": ".form-select-lg example",
+                      },
+                      on: {
+                        change: function ($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function (o) {
+                              return o.selected
+                            })
+                            .map(function (o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.data,
+                            "selectCategoria",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        },
+                      },
                     },
-                  ],
-                  staticClass: "form-select form-select-lg mb-3",
-                  attrs: {
-                    required: "",
-                    id: "categoriaProdutoSelect",
-                    "aria-label": ".form-select-lg example",
-                  },
-                  on: {
-                    change: function ($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function (o) {
-                          return o.selected
-                        })
-                        .map(function (o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.data,
-                        "selectCategoria",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
+                    _vm._l(_vm.dados.selects.categorias, function (item, key) {
+                      return _c(
+                        "option",
+                        { key: key, domProps: { value: item.id } },
+                        [_vm._v(_vm._s(item.nome))]
                       )
-                    },
-                  },
-                },
-                _vm._l(_vm.categorias, function (item, key) {
-                  return _c(
-                    "option",
-                    { key: key, domProps: { value: item.id } },
-                    [_vm._v(_vm._s(item.nome))]
+                    }),
+                    0
                   )
-                }),
-                0
-              ),
+                : _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.data.selectCategoria,
+                        expression: "data.selectCategoria",
+                      },
+                    ],
+                    staticClass: "form-control disabledInsert",
+                    attrs: {
+                      readonly: "",
+                      required: "",
+                      type: "text",
+                      id: "nomeProduto",
+                      "aria-describedby": "nomeProdutoHelp",
+                    },
+                    domProps: { value: _vm.data.selectCategoria },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.data,
+                          "selectCategoria",
+                          $event.target.value
+                        )
+                      },
+                    },
+                  }),
             ]
           ),
         ],
@@ -41908,7 +42318,7 @@ var render = function () {
                     },
                   },
                 },
-                _vm._l(_vm.cores, function (item, key) {
+                _vm._l(_vm.dados.selects.cores, function (item, key) {
                   return _c(
                     "option",
                     { key: key, domProps: { value: item.id } },
@@ -41979,7 +42389,7 @@ var render = function () {
                     },
                   },
                 },
-                _vm._l(_vm.tamanhos, function (item, key) {
+                _vm._l(_vm.dados.selects.tamanhos, function (item, key) {
                   return _c(
                     "option",
                     { key: key, domProps: { value: item.id } },
@@ -42059,7 +42469,7 @@ var render = function () {
               staticClass: "btn btn-outline-primary",
               on: {
                 click: function ($event) {
-                  return _vm.setDados("functionEvento")
+                  return _vm.setDados()
                 },
               },
             },
@@ -42309,7 +42719,7 @@ var render = function () {
                 ])
               }),
               _vm._v(" "),
-              _c("td", { staticStyle: { width: "270px !important" } }, [
+              _c("td", { staticStyle: { width: "250px !important" } }, [
                 _vm.remover.visivel
                   ? _c(
                       "button",
