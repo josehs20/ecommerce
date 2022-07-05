@@ -2,6 +2,7 @@
 .ip {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .ip input {
@@ -10,7 +11,14 @@
 }
 
 #corCodCadastro {
-    width: 30%;
+    width: 17%;
+}
+.inputI{
+    margin-bottom: 23px;
+}
+
+.btn{
+    height: fit-content;
 }
 </style>
 
@@ -19,7 +27,35 @@
         <!-- INSERIR CORES -->
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <card-component titulo="Cadastrar cores">
+                <colapse-component titulo="Cadastrado de cores">
+                    <template v-slot:conteudo>
+                        <form method="POST" @submit.prevent="inserirCor($event)">
+                            <input type="hidden" name="_token" :value="csrf_token">
+                            <div class="d-flex ip">
+                                <input v-model="corCodCadastro" class="form-control" type="color"
+                                    id="corCodCadastro" name="ArcoIris" list="arcoIris">
+                                <datalist id="arcoIris">
+                                    <option value="#FF0000">Vermelho</option>
+                                    <option value="#FFA500">Laranja</option>
+                                    <option value="#FFFF00">Amarelo</option>
+                                    <option value="#008000">Verde</option>
+                                    <option value="#0000FF">Azul</option>
+                                    <option value="#4B0082">Indigo</option>
+                                    <option value="#EE82EE">Violeta</option>
+                                </datalist>
+                                <input-component id="corNomeCadastro" id-help="corCadastro">
+                                    <input required type="text" class="form-control inputI" id="corNomeCadastro"
+                                        aria-describedby="corNomeCadastro" placeholder="Nome da cor"
+                                        v-model="corNomeCadastro">
+                                </input-component>
+
+                                <button type="submit" class="btn btn-outline-primary">Inserir</button>
+
+                            </div>
+                        </form>
+                    </template>
+                </colapse-component>
+                <!-- <card-component titulo="Cadastrar cores">
                     <template v-slot:conteudo>
                         <form method="POST" @submit.prevent="inserirCor($event)">
                             <input type="hidden" name="_token" :value="csrf_token">
@@ -40,13 +76,13 @@
                                         aria-describedby="corNomeCadastro" placeholder="Nome da cor"
                                         v-model="corNomeCadastro">
                                 </input-component>
-                                
+
                                 <button type="submit" class="btn btn-outline-primary">Inserir</button>
 
                             </div>
                         </form>
                     </template>
-                </card-component>
+                </card-component> -->
             </div>
         </div>
         <br>
