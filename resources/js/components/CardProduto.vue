@@ -25,9 +25,11 @@
 }
 .cardproduto {
     position: relative;
-    width: 250px;
+    width: 245px;
     height: 320px;
-    margin: 10px;
+    margin: 10px 7px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 .cardbody {
@@ -35,7 +37,7 @@
 }
 
 .cardimgtop {
-    width: 245px;
+    width: 243px;
     height: 250px;
     opacity: 1;
     transition: opacity .2s linear;
@@ -49,11 +51,34 @@
     opacity: 1 !important;
 }
 
+/* PARA PROMOÇÃO NA VIEW PAGINA PRINCIPAL EXIBIR ESSA DIV */
 .divprodutos {   
     display: flex;
     padding: 10px;
-    height: 410px;
+    min-height: 420px;
     overflow-x: scroll;
+}
+
+/* NA VIEW LOJA EXIBIR ESSA DIV */
+.divprodutosviewloja{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 900px){
+    .cardproduto {      
+        width: 170px; 
+        height: 220px;  
+        margin: 10px 3px;    
+    }
+    .cardimgtop {
+        width: 168px;
+        height: 150px;
+    }    
+    .divprodutos {        
+        height: 280px;        
+    }
 }
 
 .empromocao{
@@ -79,36 +104,51 @@
 
 <template>
     <div>
-        <div class="divprodutos">      
-                <!-- card do produto-->
-                <div class="cardproduto">                    
-                    <img src="./../../../public/img/f1.png" class="cardimgtop" alt="Imagem do produto">
+        <div :class="classedocard + ' dragscroll'">      
+                <!-- card do produto-->    
+                <div class="cardproduto" v-for="prod, chave in prod" :key="chave" :value="prod.id">   
+                  
+                    <img :src="'./../'+prod.imagens[0].nome" class="cardimgtop" alt="Imagem do produto">
                     <div class="cardbody">
-                        <h5 class="text-center">Nome do produto</h5>
+                        <h5 class="text-center">{{prod.nome}}</h5>
                         <!-- Preços-->
                         <div class="d-flex justify-content-around">
-                            <p class="precoantigo">
+                            <!-- <p class="precoantigo">
                                 <s>R$ 19,90</s>
                             </p>
                             <p class="preconovo">
                                 R$ 15
+                            </p> -->
+                            <p>
+                                R$ {{prod.preco}}
                             </p>
                         </div>
                         <!-- botao de ver mais-->
                         <div class="divvermais">
-                            <a href="#vermais" class="vermais">Ver mais</a>
+                            <a :href="'/loja/show/' + prod.id" class="vermais">Ver mais</a>
                         </div>
                         <!-- indicador de promocao -->
-                        <div class="empromocao">
+                        <div v-if="prod.desconto_id" class="empromocao">
                             <h5>EM PROMOÇÃO</h5>
                         </div>
                     </div>
                 </div>
-                <!-- card do produto-->          
+                <!-- card do produto-->      
         </div>
     </div>
 </template>
 
 <script>
+import parseJson from 'parse-json'
 
+    export default {
+        props: ['classedocard', 'prod'],
+        methods: {
+            data() {
+                return {
+                    prod: parseJson(this.prod)
+                }
+            }
+        }
+    }
 </script>
