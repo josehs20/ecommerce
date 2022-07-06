@@ -55,6 +55,9 @@ Route::middleware('admin')->group(function () {
 
     //estoque
     Route::resource('/estoque', App\Http\Controllers\Admin\EstoqueController::class);
+
+    //promocao
+    Route::resource('/promocao', App\Http\Controllers\Admin\PromocaoController::class);
 });
 
 

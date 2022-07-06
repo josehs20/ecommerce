@@ -37,6 +37,9 @@ Vue.component('dropdown-component', require('./components/Dropdown.vue').default
 Vue.component('input-component', require('./components/Input.vue').default);
 Vue.component('modal-produto-component', require('./components/ModalProduto.vue').default);
 
+//Colapse ou dropdown
+Vue.component('colapse-component', require('./components/Colapse.vue').default);
+
 //componentes produto
 Vue.component('card-produto-component', require('./components/CardProduto.vue').default);
 Vue.component('modal-produto-component', require('./components/ModalProduto.vue').default);
@@ -61,6 +64,9 @@ Vue.component('cadastro-produto-component', require('./components/CadastroProdut
 Vue.component('cadastro-categoria-component', require('./components/CadastroCategoria.vue').default);
 Vue.component('cadastro-cor-component', require('./components/CadastroCor.vue').default);
 Vue.component('cadastro-tamanho-component', require('./components/CadastroTamanho.vue').default);
+
+//Cadastro de promocao
+Vue.component('cadastro-promocao-component', require('./components/CadastroPromocao.vue').default);
 
 
 //tabelas
