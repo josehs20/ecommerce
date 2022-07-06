@@ -64,6 +64,9 @@ Vue.component('cadastro-categoria-component', require('./components/CadastroCate
 Vue.component('cadastro-cor-component', require('./components/CadastroCor.vue').default);
 Vue.component('cadastro-tamanho-component', require('./components/CadastroTamanho.vue').default);
 
+//Cadastro de promocao
+Vue.component('cadastro-promocao-component', require('./components/CadastroPromocao.vue').default);
+
 
 //tabelas
 Vue.component('table-component', require('./components/Table.vue').default);

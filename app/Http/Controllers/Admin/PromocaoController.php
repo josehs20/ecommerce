@@ -14,9 +14,17 @@ class PromocaoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        dd($request->all());
+
+        if($request->search){
+            $unidades = Produto::where('nome', 'LIKE', '%'.$request->search.'%')->get();
+        } else {
+            $unidades = [];
+        }
+
+        
     }
 
     /**
@@ -26,8 +34,15 @@ class PromocaoController extends Controller
      */
     public function create( Request $request )
     {
-        $unidades = Produto::where('nome', 'LIKE', '%'.$request->search.'%')->get();
-        return view('admin.promocao.create', compact('unidades'));
+
+        // dd($request->all());
+        
+        // if($request->search){
+        //     $unidades = Produto::where('nome', 'LIKE', '%'.$request->search.'%')->get();
+        // } else {
+        //     $unidades = [];
+        // }
+        return view('admin.promocao.create');
     }
 
     /**
