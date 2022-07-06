@@ -15,7 +15,7 @@
         <!-- INSERIR CATEGORIAS -->
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <card-component titulo="Cadastrar categorias">
+                <colapse-component titulo="Cadastro de categorias">
                     <template v-slot:conteudo>
                         <form id="formCadastroCategoria" method="POST" @submit.prevent="insereCategoria($event)">
                             <input type="hidden" name="_token" :value="csrf_token">
@@ -30,14 +30,39 @@
 
                                 </div>
                                 <div class="col mt-4">
-                                    
+
                                     <button type="submit" class="btn btn-outline-primary">Inserir</button>
 
                                 </div>
                             </div>
                         </form>
                     </template>
-                </card-component>
+                </colapse-component>
+
+
+                <!-- <card-component titulo="Cadastrar categorias">
+                    <template v-slot:conteudo>
+                        <form id="formCadastroCategoria" method="POST" @submit.prevent="insereCategoria($event)">
+                            <input type="hidden" name="_token" :value="csrf_token">
+                            <div class="row">
+                                <div class="col-md-9">
+
+                                    <input-component id="categoriaCadastro" id-help="categoriaCadastro">
+                                        <input required type="text" class="form-control" id="categoriaCadastro"
+                                            aria-describedby="categoriaCadastro" placeholder="Nome da categoria"
+                                            v-model="categoriaCadastro">
+                                    </input-component>
+
+                                </div>
+                                <div class="col mt-4">
+
+                                    <button type="submit" class="btn btn-outline-primary">Inserir</button>
+
+                                </div>
+                            </div>
+                        </form>
+                    </template>
+                </card-component> -->
             </div>
         </div>
         <br>

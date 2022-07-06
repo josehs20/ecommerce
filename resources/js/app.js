@@ -36,6 +36,9 @@ Vue.component('dropdown-component', require('./components/Dropdown.vue').default
 Vue.component('input-component', require('./components/Input.vue').default);
 Vue.component('modal-produto-component', require('./components/ModalProduto.vue').default);
 
+//Colapse ou dropdown
+Vue.component('colapse-component', require('./components/Colapse.vue').default);
+
 //componentes produto
 Vue.component('card-produto-component', require('./components/CardProduto.vue').default);
 Vue.component('modal-produto-component', require('./components/ModalProduto.vue').default);
