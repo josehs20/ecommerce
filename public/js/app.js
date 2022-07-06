@@ -8009,34 +8009,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['csrf_token', 'data'],
   data: function data() {
     return {
-      // data: '',
       url: '/produto',
       produtosLista: '',
       prodInserido: '',
       produto: '',
-      // nomeProduto: '',
-      // precoProduto: '',
-      // custoProduto: '',
-      // lucroProduto: '',
-      // selectCategoria: '',
       imagens: [],
-      // selectCor: '',
-      // selectTamanho: '',
-      // estoqueProduto: '',
-      dados: parse_json__WEBPACK_IMPORTED_MODULE_1___default()(this.data) //     selects: {
-      //         categorias: parseJson(this.data).categorias,
-      //         cores: parseJson(this.data).cores,
-      //         tamanhos: parseJson(this.data).tamanhos,
-      //     },
-      //     produto: parseJson(this.data).produto
-      // },
-
+      dados: parse_json__WEBPACK_IMPORTED_MODULE_1___default()(this.data)
     };
   },
   methods: (_methods = {
@@ -8111,80 +8100,67 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     }
   }, _defineProperty(_methods, "atualizarProduto", function atualizarProduto(data) {
+    console.log(data); // let formData = new FormData()
+    // for (let i = 0; i < data.imagens.length; i++) {
+    //     formData.append('imagens[]', data.imagens[i])
+    // }
+    // formData.append('nome', data.nomeProduto)
+    // formData.append('custo', data.custoProduto)
+    // formData.append('preco', data.precoProduto)
+    // formData.append('lucro', data.lucroProduto)
+    // formData.append('cor', data.selectCor)
+    // formData.append('tamanho', data.selectTamanho)
+    // formData.append('estoqueProduto', data.estoqueProduto)
+    // formData.append('categoria_id', data.selectCategoria)
+    // axios.post(this.url, formData, { headers: { 'Content-Type': 'multipart/form-data' } })
+    //     .then(response => {
+    //         this.prodInserido = response.data.prodInserido
+    //         console.log(response.data);
+    //         if (response.data.existe === true) {
+    //             Swal.fire({
+    //                 position: 'top-end',
+    //                 icon: 'warning',
+    //                 title: response.data.msg,
+    //                 showConfirmButton: false,
+    //                 timer: 3000
+    //             })
+    //         } else {
+    //             this.carregarLista();
+    //             //pega niveis de componentes filho para acessar dados e methos...
+    //             const componenteFilho = this.$children.find(component => component.$options.name === "card-component").
+    //                 $children.find(component => component.$options.name === "formulario-produto-component");
+    //             componenteFilho.desabilitaInputs()
+    //             Swal.fire({
+    //                 position: 'top-end',
+    //                 icon: 'success',
+    //                 title: response.data.msg,
+    //                 text: 'Voce pode continuar adicionando cor, tamanho e estoque para este produto',
+    //                 showConfirmButton: false,
+    //                 timer: 5000
+    //             })
+    //         }
+    //     })
+    //     .catch(errors => {
+    //         if (errors) {
+    //             Swal.fire({
+    //                 position: 'top-end',
+    //                 icon: 'error',
+    //                 title: 'Não foi possível, tente novamente',
+    //                 showConfirmButton: false,
+    //                 timer: 2000
+    //             })
+    //             // $store.state.d = true;
+    //         }
+    //         return errors
+    //     })
+  }), _defineProperty(_methods, "eventoInserirProduto", function eventoInserirProduto(e, data) {}), _defineProperty(_methods, "carregarLista", function carregarLista() {
     var _this2 = this;
 
-    var formData = new FormData();
-
-    for (var i = 0; i < data.imagens.length; i++) {
-      formData.append('imagens[]', data.imagens[i]);
-    }
-
-    formData.append('nome', data.nomeProduto);
-    formData.append('custo', data.custoProduto);
-    formData.append('preco', data.precoProduto);
-    formData.append('lucro', data.lucroProduto);
-    formData.append('cor', data.selectCor);
-    formData.append('tamanho', data.selectTamanho);
-    formData.append('estoqueProduto', data.estoqueProduto);
-    formData.append('categoria_id', data.selectCategoria);
-    axios__WEBPACK_IMPORTED_MODULE_0___default().post(this.url, formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }
-    }).then(function (response) {
-      _this2.prodInserido = response.data.prodInserido;
-      console.log(response.data);
-
-      if (response.data.existe === true) {
-        Swal.fire({
-          position: 'top-end',
-          icon: 'warning',
-          title: response.data.msg,
-          showConfirmButton: false,
-          timer: 3000
-        });
-      } else {
-        _this2.carregarLista(); //pega niveis de componentes filho para acessar dados e methos...
-
-
-        var componenteFilho = _this2.$children.find(function (component) {
-          return component.$options.name === "card-component";
-        }).$children.find(function (component) {
-          return component.$options.name === "formulario-produto-component";
-        });
-
-        componenteFilho.desabilitaInputs();
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: response.data.msg,
-          text: 'Voce pode continuar adicionando cor, tamanho e estoque para este produto',
-          showConfirmButton: false,
-          timer: 5000
-        });
-      }
-    })["catch"](function (errors) {
-      if (errors) {
-        Swal.fire({
-          position: 'top-end',
-          icon: 'error',
-          title: 'Não foi possível, tente novamente',
-          showConfirmButton: false,
-          timer: 2000
-        }); // $store.state.d = true;
-      }
-
-      return errors;
-    });
-  }), _defineProperty(_methods, "eventoInserirProduto", function eventoInserirProduto(e, data) {}), _defineProperty(_methods, "carregarLista", function carregarLista() {
-    var _this3 = this;
-
     axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.url).then(function (response) {
-      _this3.produtosLista = {
-        count: 0
-      };
-      _this3.produtosLista['produtos'] = response.data;
-      _this3.produtosLista['count'] = Object.keys(response.data).length; //console.log(this.produtosLista);
+      //console.log(response.data);
+      // this.produtosLista = { count: 0 }
+      _this2.produtosLista = response.data.produtos; //this.produtosLista['count'] = Object.keys(response.data).length
+      //  console.log(this.produtosLista)
     })["catch"](function (errors) {
       console.log(errors);
     });
@@ -9410,6 +9386,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['id', 'titulo']
 });
@@ -9517,7 +9497,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['dados', 'titulos', 'visualizar', 'atualizar', 'remover'],
   emits: ['carregarLista'],
@@ -9531,51 +9510,76 @@ __webpack_require__.r(__webpack_exports__);
   // },
   computed: {
     dadosFiltrados: function dadosFiltrados() {
+      var _this = this;
+
       var campos = Object.keys(this.titulos);
       var dadosFiltrados = [];
+      Object.keys(this.dados).forEach(function (key) {
+        var itemFiltrado = {};
+        campos.forEach(function (campo) {
+          itemFiltrado[campo] = _this.dados[key][campo]; //utilizar a sintaxe de array para atribuir valores a objetos
+        }); //adicionando objeto ao array
 
-      if (this.dados.count) {
-        var produtos = this.dados.produtos;
-        produtos = Object.keys(produtos).map(function (key) {
-          return produtos[key][0][0];
-        });
-        produtos.map(function (item) {
-          var itemFiltrado = {};
-          campos.forEach(function (campo) {
-            //atribuindo valor a abjeto
-            itemFiltrado[campo] = item[campo]; //utilizar a sintaxe de array para atribuir valores a objetos
-          }); //adicionando objeto ao array
-
-          dadosFiltrados.push(itemFiltrado);
-        }); // console.log(dadosFiltrados);
-
-        return dadosFiltrados; //retorne um array de objetos 
-      } else {
-        this.dados.map(function (item) {
-          //objeto
-          var itemFiltrado = {};
-          campos.forEach(function (campo) {
-            //atribuindo valor a abjeto
-            itemFiltrado[campo] = item[campo]; //utilizar a sintaxe de array para atribuir valores a objetos
-          }); //adicionando objeto ao array
-
-          dadosFiltrados.push(itemFiltrado);
-        });
-        return dadosFiltrados; //retorne um array de objetos 
-      }
+        dadosFiltrados.push(itemFiltrado);
+      });
+      return dadosFiltrados; //retorne um array de objetos 
+      // console.log(convertida);
+      // this.dados.map(item => {
+      //     //objeto
+      //     let itemFiltrado = {}
+      //     campos.forEach(campo => {
+      //         //atribuindo valor a abjeto
+      //         console.log(item[campo]);
+      //         itemFiltrado[campo] = item[campo] //utilizar a sintaxe de array para atribuir valores a objetos
+      //     })
+      //     //adicionando objeto ao array
+      //     dadosFiltrados.push(itemFiltrado)
+      // })
+      // return dadosFiltrados //retorne um array de objetos 
+      // if (this.dados.count) {
+      //     var produtos = this.dados.produtos
+      //     produtos = Object.keys(produtos)
+      //         .map(function (key) {
+      //             return produtos[key][0][0];
+      //         })
+      //     produtos.map(item => {
+      //         let itemFiltrado = {}
+      //         campos.forEach(campo => {
+      //             //atribuindo valor a abjeto
+      //             itemFiltrado[campo] = item[campo] //utilizar a sintaxe de array para atribuir valores a objetos
+      //         })
+      //         //adicionando objeto ao array
+      //         dadosFiltrados.push(itemFiltrado)
+      //     })
+      //     // console.log(dadosFiltrados);
+      //     return dadosFiltrados //retorne um array de objetos 
+      // } else {
+      // this.dados.map(item => {
+      //     //objeto
+      //     let itemFiltrado = {}
+      //     campos.forEach(campo => {
+      //         //atribuindo valor a abjeto
+      //         itemFiltrado[campo] = item[campo] //utilizar a sintaxe de array para atribuir valores a objetos
+      //     })
+      //     //adicionando objeto ao array
+      //     dadosFiltrados.push(itemFiltrado)
+      // })
+      //  }
     }
   },
   methods: {
     setStore: function setStore(obj) {
-      this.$store.state.item = this.dados.produtos[obj.id][0][0];
-      var ptc = this.dados.produtos[obj.id];
-      ptc = Object.keys(ptc).map(function (key) {
-        return ptc[key][1];
-      });
-      this.$store.state.prodTamCor = ptc;
+      //console.log(this.dados[obj.id]);
+      this.$store.state.produto.item = this.dados[obj.id];
+      this.$store.state.produto.prodTamCor = this.dados[obj.id].prod_tam_cors;
+      this.$store.state.produto.imagens = this.dados[obj.id].imagens;
+      console.log(this.$store.state.produto.imagens); // ptc = Object.keys(ptc)
+      //     .map(function (key) {
+      //         return ptc[key][1];
+      //     })
     },
     modalConfirm: function modalConfirm(obj, texto, url) {
-      var _this = this;
+      var _this2 = this;
 
       var url = url + '/' + String(obj.id);
       Swal.fire({
@@ -9600,7 +9604,7 @@ __webpack_require__.r(__webpack_exports__);
               timer: 1500
             });
 
-            _this.$emit('carregarLista');
+            _this2.$emit('carregarLista');
           })["catch"](function (errors) {
             console.log(errors);
           });
@@ -9634,8 +9638,11 @@ window.Swal = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2
 Vue.use(vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
 var store = new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
   state: {
-    item: {},
-    prodTamCor: {}
+    produto: {
+      item: {},
+      prodTamCor: {},
+      imagens: {}
+    }
   }
 });
 /**
@@ -9682,6 +9689,10 @@ Vue.component('table-component', (__webpack_require__(/*! ./components/Table.vue
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.filter('formataPathImg', function (img) {
+  var path = './../../../public/' + img.nome;
+  console.log(path);
+});
 Vue.filter('formataDataTempo', function (d) {
   if (!d) return '';
   d = d.split('T');
@@ -42435,30 +42446,30 @@ var render = function () {
             ? _c(
                 "div",
                 [
-                  _c("card-component", {
-                    attrs: { titulo: "Cadastro de produto" },
-                    scopedSlots: _vm._u(
-                      [
-                        {
-                          key: "conteudo",
-                          fn: function () {
-                            return [
-                              _c(
-                                "form",
-                                {
-                                  attrs: {
-                                    enctype: "multipart/form-data",
-                                    action: "/produto",
-                                    method: "POST",
-                                  },
-                                  on: {
-                                    submit: function ($event) {
-                                      $event.preventDefault()
-                                      return _vm.eventoInserirProduto($event)
-                                    },
-                                  },
-                                },
-                                [
+                  _c(
+                    "form",
+                    {
+                      attrs: {
+                        enctype: "multipart/form-data",
+                        action: "/produto",
+                        method: "POST",
+                      },
+                      on: {
+                        submit: function ($event) {
+                          $event.preventDefault()
+                          return _vm.eventoInserirProduto($event)
+                        },
+                      },
+                    },
+                    [
+                      _c("card-component", {
+                        attrs: { titulo: "Cadastro de produto" },
+                        scopedSlots: _vm._u(
+                          [
+                            {
+                              key: "conteudo",
+                              fn: function () {
+                                return [
                                   _c("input", {
                                     attrs: { type: "hidden", name: "_token" },
                                     domProps: { value: _vm.csrf_token },
@@ -42471,26 +42482,26 @@ var render = function () {
                                     },
                                     on: { inserirProduto: _vm.inserirProduto },
                                   }),
-                                ],
-                                1
-                              ),
-                            ]
-                          },
-                          proxy: true,
-                        },
-                        {
-                          key: "rodape",
-                          fn: function () {
-                            return undefined
-                          },
-                          proxy: true,
-                        },
-                      ],
-                      null,
-                      false,
-                      3907972491
-                    ),
-                  }),
+                                ]
+                              },
+                              proxy: true,
+                            },
+                            {
+                              key: "rodape",
+                              fn: function () {
+                                return undefined
+                              },
+                              proxy: true,
+                            },
+                          ],
+                          null,
+                          false,
+                          3806871668
+                        ),
+                      }),
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
@@ -42502,7 +42513,7 @@ var render = function () {
                           key: "conteudo",
                           fn: function () {
                             return [
-                              !_vm.produtosLista.count
+                              !_vm.produtosLista
                                 ? _c(
                                     "div",
                                     {
@@ -42517,7 +42528,7 @@ var render = function () {
                                   )
                                 : _vm._e(),
                               _vm._v(" "),
-                              _vm.produtosLista.count
+                              _vm.produtosLista
                                 ? _c("table-component", {
                                     attrs: {
                                       dados: _vm.produtosLista,
@@ -42573,7 +42584,7 @@ var render = function () {
                       ],
                       null,
                       false,
-                      3516505736
+                      150197512
                     ),
                   }),
                 ],
@@ -42681,7 +42692,7 @@ var render = function () {
                                       dataBsTarget: "",
                                     },
                                     atualizar: {
-                                      visivel: true,
+                                      visivel: false,
                                       titulo: "Editar",
                                       url: "/produto",
                                     },
@@ -42710,7 +42721,7 @@ var render = function () {
       _vm._v(" "),
       _c("modal-produto-component", {
         attrs: {
-          titulo: _vm.$store.state.item.nome,
+          titulo: _vm.$store.state.produto.item.nome,
           id: "modalProdutoVisualizar",
         },
         scopedSlots: _vm._u([
@@ -42735,19 +42746,48 @@ var render = function () {
                   _vm._v(" "),
                   _c(
                     "tbody",
-                    _vm._l(_vm.$store.state.prodTamCor, function (obj, key) {
-                      return _c("tr", { key: key }, [
-                        _c("td", [_vm._v(_vm._s(obj.tamanho))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(obj.cor))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(obj.estoque))]),
-                      ])
-                    }),
+                    _vm._l(
+                      _vm.$store.state.produto.prodTamCor,
+                      function (obj, key) {
+                        return _c("tr", { key: key }, [
+                          _c("td", [_vm._v(_vm._s(obj.tamanho.nome))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(obj.cor.nome))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(obj.estoque.quantidade))]),
+                        ])
+                      }
+                    ),
                     0
                   ),
                 ]),
               ]
+            },
+            proxy: true,
+          },
+          {
+            key: "imagens",
+            fn: function () {
+              return _vm._l(
+                _vm.$store.state.produto.imagens,
+                function (img, key) {
+                  return _c(
+                    "div",
+                    {
+                      key: key,
+                      staticStyle: { width: "80%", border: "1px solid red" },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "./../" + img.nome,
+                          alt: "formataPathImg(img)",
+                        },
+                      }),
+                    ]
+                  )
+                }
+              )
             },
             proxy: true,
           },
@@ -43850,7 +43890,9 @@ var render = function () {
               _vm._l(_vm.data.imagens, function (item, key) {
                 return _vm.data.imagens.length
                   ? _c("li", { key: key }, [
-                      _vm._v("\n                        " + _vm._s(item.name)),
+                      _vm._v(
+                        "\n                            " + _vm._s(item.name)
+                      ),
                     ])
                   : _vm._e()
               }),
@@ -43861,7 +43903,7 @@ var render = function () {
         1
       ),
     ]),
-    _vm._v(" "),
+    _vm._v("\nproduto\n        "),
     _c("div", { staticClass: "row mt-4" }, [
       _c(
         "div",
@@ -43919,9 +43961,9 @@ var render = function () {
                     { key: key, domProps: { value: item.id } },
                     [
                       _vm._v(
-                        "\n                        " +
+                        "\n                            " +
                           _vm._s(item.nome) +
-                          "\n                    "
+                          "\n                        "
                       ),
                     ]
                   )
@@ -43990,9 +44032,9 @@ var render = function () {
                     { key: key, domProps: { value: item.id } },
                     [
                       _vm._v(
-                        "\n                        " +
+                        "\n                            " +
                           _vm._s(item.nome) +
-                          "\n                    "
+                          "\n                        "
                       ),
                     ]
                   )
@@ -44763,7 +44805,18 @@ var render = function () {
               _c("br"),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "modal-body" }, [_vm._t("conteudo")], 2),
+            _c(
+              "div",
+              { staticClass: "modal-body" },
+              [
+                _vm._t("conteudo"),
+                _vm._v(" "),
+                _c("h5", { staticClass: "modal-title" }, [_vm._v("Imagens")]),
+                _vm._v(" "),
+                _vm._t("imagens"),
+              ],
+              2
+            ),
             _vm._v(" "),
             _c("div", { staticClass: "modal-footer" }, [_vm._t("rodape")], 2),
           ]),

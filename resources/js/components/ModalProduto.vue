@@ -5,15 +5,19 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">{{titulo}}</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">{{ titulo }}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         <br>
-                      
+
                     </div>
                     <div class="modal-body">
 
                         <slot name="conteudo"></slot>
 
+
+
+                        <h5 class="modal-title">Imagens</h5>
+                        <slot name="imagens"></slot>
                     </div>
                     <div class="modal-footer">
 
@@ -30,4 +34,5 @@
 export default {
     props: ['id', 'titulo'],
 }
+
 </script>

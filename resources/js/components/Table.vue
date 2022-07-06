@@ -10,7 +10,6 @@
             </thead>
             <tbody>
                 <tr v-for="obj, chave in dadosFiltrados" :key="chave">
-
                     <td v-for="valor, chaveValor in obj" :key="chaveValor">
 
                         <span v-if="titulos[chaveValor].tipo == 'texto'">{{ valor }}</span>
@@ -59,62 +58,89 @@ export default {
     computed: {
         dadosFiltrados() {
 
-
             let campos = Object.keys(this.titulos)
             let dadosFiltrados = []
-            if (this.dados.count) {
-                var produtos = this.dados.produtos
 
-                produtos = Object.keys(produtos)
-                    .map(function (key) {
-                        return produtos[key][0][0];
-                    })
+            Object.keys(this.dados).forEach((key) => {
+                let itemFiltrado = {}
 
-                produtos.map(item => {
-
-                    let itemFiltrado = {}
-
-                    campos.forEach(campo => {
-                        //atribuindo valor a abjeto
-                        itemFiltrado[campo] = item[campo] //utilizar a sintaxe de array para atribuir valores a objetos
-                    })
-                    //adicionando objeto ao array
-                    dadosFiltrados.push(itemFiltrado)
-
+                campos.forEach(campo => {
+                    itemFiltrado[campo] = this.dados[key][campo] //utilizar a sintaxe de array para atribuir valores a objetos
                 })
+                //adicionando objeto ao array
+                dadosFiltrados.push(itemFiltrado)
+            });
 
-                // console.log(dadosFiltrados);
-                return dadosFiltrados //retorne um array de objetos 
+            return dadosFiltrados //retorne um array de objetos 
 
-            } else {
+            // console.log(convertida);
+            // this.dados.map(item => {
+            //     //objeto
+            //     let itemFiltrado = {}
+            //     campos.forEach(campo => {
+            //         //atribuindo valor a abjeto
+            //         console.log(item[campo]);
+            //         itemFiltrado[campo] = item[campo] //utilizar a sintaxe de array para atribuir valores a objetos
+            //     })
+            //     //adicionando objeto ao array
+            //     dadosFiltrados.push(itemFiltrado)
+            // })
 
-                this.dados.map(item => {
-                    //objeto
-                    let itemFiltrado = {}
-                    campos.forEach(campo => {
-                        //atribuindo valor a abjeto
-                        itemFiltrado[campo] = item[campo] //utilizar a sintaxe de array para atribuir valores a objetos
-                    })
-                    //adicionando objeto ao array
-                    dadosFiltrados.push(itemFiltrado)
-                })
+            // return dadosFiltrados //retorne um array de objetos 
+            // if (this.dados.count) {
+            //     var produtos = this.dados.produtos
 
-                return dadosFiltrados //retorne um array de objetos 
-            }
+            //     produtos = Object.keys(produtos)
+            //         .map(function (key) {
+            //             return produtos[key][0][0];
+            //         })
+
+            //     produtos.map(item => {
+
+            //         let itemFiltrado = {}
+
+            //         campos.forEach(campo => {
+            //             //atribuindo valor a abjeto
+            //             itemFiltrado[campo] = item[campo] //utilizar a sintaxe de array para atribuir valores a objetos
+            //         })
+            //         //adicionando objeto ao array
+            //         dadosFiltrados.push(itemFiltrado)
+
+            //     })
+
+            //     // console.log(dadosFiltrados);
+            //     return dadosFiltrados //retorne um array de objetos 
+
+            // } else {
+
+            // this.dados.map(item => {
+            //     //objeto
+            //     let itemFiltrado = {}
+            //     campos.forEach(campo => {
+            //         //atribuindo valor a abjeto
+            //         itemFiltrado[campo] = item[campo] //utilizar a sintaxe de array para atribuir valores a objetos
+            //     })
+            //     //adicionando objeto ao array
+            //     dadosFiltrados.push(itemFiltrado)
+            // })
+
+            //  }
         }
     },
     methods: {
         setStore(obj) {
 
-            this.$store.state.item = this.dados.produtos[obj.id][0][0]
-            var ptc = this.dados.produtos[obj.id]
+            //console.log(this.dados[obj.id]);
 
-            ptc = Object.keys(ptc)
-                .map(function (key) {
-                    return ptc[key][1];
-                })
+            this.$store.state.produto.item = this.dados[obj.id]
+            this.$store.state.produto.prodTamCor = this.dados[obj.id].prod_tam_cors
+            this.$store.state.produto.imagens = this.dados[obj.id].imagens
+console.log(this.$store.state.produto.imagens);
+            // ptc = Object.keys(ptc)
+            //     .map(function (key) {
+            //         return ptc[key][1];
+            //     })
 
-            this.$store.state.prodTamCor = ptc
         },
 
         modalConfirm(obj, texto, url) {

@@ -15,8 +15,9 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state: {
-        item: {},
-        prodTamCor: {},
+        produto: { item: {}, prodTamCor: {}, imagens: {} }
+
+
     }
 })
 /**
@@ -69,6 +70,13 @@ Vue.component('table-component', require('./components/Table.vue').default);
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
+Vue.filter('formataPathImg', function (img) {
+    let path = './../../../public/'+img.nome
+    console.log(path);
+});
+
+
 Vue.filter('formataDataTempo', function (d) {
     if (!d) return ''
 

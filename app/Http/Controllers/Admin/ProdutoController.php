@@ -21,41 +21,19 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        $produtos = [];
-        $estoque = Estoque::with('prodTamcor')->get();
+        $produtos = Produto::get();
 
-        foreach ($estoque as $key => $e) {
-            $produtos[$e->prodTamCor->produto->id][] =
-                [
-                    $e->prodTamCor->produto, [
-                        'tamanho' => $e->prodTamCor->tamanho->nome,
-                        'cor' => $e->prodTamCor->cor->nome,
-                        'estoque' => $e->quantidade
-                    ]
-                ];
+        foreach ($produtos as $key => $p) {
+
+            $data['produtos'][$p->id] = $p;
+            $data['produtos'][$p->id]['imagens'] = $p->imagens->toArray();
+
+            foreach ($p->prodTamCors as $key => $ptc) {
+               $data['produtos'][$p->id]['prod_tam_cors'] = ['tam' => $ptc->tamanho, 'cor' => $ptc->cor, 'estoque' => $ptc->estoque->quantidade, 'id' => $ptc->estoque->id];
+            }
         }
-        //dd($produtos);
-        //         foreach ($estoque as $key => $e) {
-        //             $prodTamCor = ProdTamCor::where('produto_id', $e->prodTamCor->produto->id)
-        //             $produtos[$i]['produto'][$e->prodTamCor->produto->id] = $e;
-        // dd($e->prodTamCor->produto->id);
-        // foreach ($produto->prodTamCors as $key => $ptc) {
-        //     $produtos[$i]['cores'][] = $ptc->cor;
-        //     $produtos[$i]['tamanhos'][] = $ptc->tamanho;
-        // }
-
-        //}
-
-        // foreach ($prods as $key => $produto) {
-        //     $produtos[$i]['produto'] = $produto;
-
-        //     foreach ($produto->prodTamCors as $key => $ptc) {
-        //         $produtos[$i]['cores'][] = $ptc->cor;
-        //         $produtos[$i]['tamanhos'][] = $ptc->tamanho;
-        //     }
-        //     $i++;
-        // }
-        return response()->json($produtos, 200);
+   
+        return response()->json($data, 200);
     }
 
     /**
@@ -68,7 +46,7 @@ class ProdutoController extends Controller
         $data['selects']['categorias'] = Categoria::get()->toArray();
         $data['selects']['tamanhos'] =  Tamanho::get()->toArray();
         $data['selects']['cores'] = Cor::get()->toArray();
- 
+
         return view('admin.produto.create', compact('data'));
     }
 
@@ -157,14 +135,14 @@ class ProdutoController extends Controller
         $data['produto'] = $produto->toArray();
 
         $data['produto']['categoria'] = $produto->categoria->nome;
-        //dd($produto->prodTamCors->where('produto_id' $produto->id));
-       // foreach ($produto->prodTamCors as $ptc) {
-
-           // $data['produto']['ptc'][] = ['tam' => $produto->prodTamCors->where('produto_id' $produto->)->toArray(), 'cor' => $ptc->cor->nome, 'estoque' => $ptc->estoque->quantidade, 'id' => $ptc->estoque->id];
-       // }
+        //  $data['produto']['imagens'] = $produto->imagens->toArray();
 
         $data['selects']['tamanhos'] = Tamanho::get()->toArray();
         $data['selects']['cores'] = Cor::get()->toArray();
+
+        foreach ($produto->prodTamCors as $ptc) {
+            $data['produto']['ptc'][] = ['tam' => $ptc->tamanho->nome, 'cor' => $ptc->cor->nome, 'estoque' => $ptc->estoque ? $ptc->estoque->quantidade : null, 'id' => $ptc->estoque ? $ptc->estoque->id : null];
+        }
 
         $data = json_encode($data);
 

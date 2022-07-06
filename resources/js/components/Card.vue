@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="card-footer">
-            
+
         </div>
     </div>
     <!--Fim do card-->

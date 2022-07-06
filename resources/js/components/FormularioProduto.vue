@@ -76,7 +76,7 @@
                 </div>
             </div>
         </div>
-
+produto
         <div class="row mt-4">
 
             <div class="col-md-4">
@@ -146,9 +146,8 @@ export default {
             },
         }
     },
-    
+
     methods: {
-      
         setDados() {
 
             this.$emit(this.functionEvento, this.data)
