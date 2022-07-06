@@ -17010,7 +17010,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.ip {\r\n    display: flex;\r\n    justify-content: center;\n}\n.ip input {\r\n    width: 60%;\r\n    margin-right: 10px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.ip {\n    display: flex;\n    justify-content: center;\n}\n.ip input {\n    width: 60%;\n    margin-right: 10px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -17034,7 +17034,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.ip {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.ip input {\r\n    width: 60%;\r\n    margin-right: 10px;\n}\n#corCodCadastro {\r\n    width: 17%;\n}\n.inputI{\r\n    margin-bottom: 23px;\n}\n.btn{\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.ip {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.ip input {\n    width: 60%;\n    margin-right: 10px;\n}\n#corCodCadastro {\n    width: 17%;\n}\n.inputI{\n    margin-bottom: 23px;\n}\n.btn{\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -17058,7 +17058,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.form-adicionar {\r\n    display: flex;\r\n    justify-content: space-around\n}\n.inputQ {\r\n    width: 150px !important;\n}\n.inputN {\r\n    width: 250px !important\n}\n.produto-para-promocao {\r\n    display: flex;\r\n    justify-content: space-around\n}\n.produto-para-promocao>div {\r\n    width: 80%\n}\n.ctnr>div {\r\n    margin-bottom: 10px\n}\n.btnSearch {\r\n    height: 37px !important;\n}\n.lista-produtos-pesquisados {\r\n    list-style: none;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.form-adicionar {\n    display: flex;\n    justify-content: space-around\n}\n.inputQ {\n    width: 150px !important;\n}\n.inputN {\n    width: 250px !important\n}\n.produto-para-promocao {\n    display: flex;\n    justify-content: space-around\n}\n.produto-para-promocao>div {\n    width: 80%\n}\n.ctnr>div {\n    margin-bottom: 10px\n}\n.btnSearch {\n    height: 37px !important;\n}\n.lista-produtos-pesquisados {\n    list-style: none;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -17082,7 +17082,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.ip {\r\n    display: flex;\r\n    justify-content: center;\n}\n.ip input {\r\n    width: 60%;\r\n    margin-right: 10px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.ip {\n    display: flex;\n    justify-content: center;\n}\n.ip input {\n    width: 60%;\n    margin-right: 10px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -17106,7 +17106,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.divvermais {\r\n    position: relative;\r\n    bottom: 120px;\r\n    left: 0;\r\n    width: 100%;\r\n    display: flex;\r\n    justify-content: center;\n}\n.vermais {\r\n    background-color: #cda981 !important;\r\n    padding: 5px 20px;\r\n    border-radius: 7px;\r\n    text-decoration: none;\r\n    color: #fff !important;\r\n    font-weight: bold;\r\n    opacity: 0;\r\n    transition: opacity .5s linear;\n}\n@media (max-width: 700px){\n.vermais{\r\n        opacity: 1;\n}\n}\n.cardproduto {\r\n    position: relative;\r\n    width: 245px;\r\n    height: 320px;\r\n    margin: 10px 7px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 5px;\n}\n.cardbody {\r\n    margin-top: 7px;\n}\n.cardimgtop {\r\n    width: 243px;\r\n    height: 250px;\r\n    opacity: 1;\r\n    transition: opacity .2s linear;\n}\n.cardproduto:hover .cardimgtop {\r\n    opacity: 0.8;\n}\n.cardproduto:hover .vermais {\r\n    opacity: 1 !important;\n}\r\n\r\n/* PARA PROMOÇÃO NA VIEW PAGINA PRINCIPAL EXIBIR ESSA DIV */\n.divprodutos {   \r\n    display: flex;\r\n    padding: 10px;\r\n    min-height: 420px;\r\n    overflow-x: scroll;\n}\r\n\r\n/* NA VIEW LOJA EXIBIR ESSA DIV */\n.divprodutosviewloja{\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-wrap: wrap;\n}\n@media (max-width: 900px){\n.cardproduto {      \r\n        width: 170px; \r\n        height: 220px;  \r\n        margin: 10px 3px;\n}\n.cardimgtop {\r\n        width: 168px;\r\n        height: 150px;\n}\n.divprodutos {        \r\n        height: 280px;\n}\n}\n.empromocao{\r\n    background-color: rgb(89, 250, 89);\r\n    position: absolute;\r\n    top: 0;\r\n    padding: 5px 20px;\n}\n.empromocao h5{\r\n    font-size: 0.7rem;\r\n    font-weight: bold;\r\n    margin: 0 !important;\r\n    letter-spacing: 2px;\n}\n.precoantigo{\r\n    color: red;\n}\n.preconovo{\r\n    font-weight: bold;\r\n    color: green;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.divvermais {\n    position: relative;\n    bottom: 120px;\n    left: 0;\n    width: 100%;\n    display: flex;\n    justify-content: center;\n}\n.vermais {\n    background-color: #cda981 !important;\n    padding: 5px 20px;\n    border-radius: 7px;\n    text-decoration: none;\n    color: #fff !important;\n    font-weight: bold;\n    opacity: 0;\n    transition: opacity .5s linear;\n}\n@media (max-width: 700px){\n.vermais{\n        opacity: 1;\n}\n}\n.cardproduto {\n    position: relative;\n    width: 245px;\n    height: 320px;\n    margin: 10px 7px;\n    border: 1px solid #ccc;\n    border-radius: 5px;\n}\n.cardbody {\n    margin-top: 7px;\n}\n.cardimgtop {\n    width: 243px;\n    height: 250px;\n    opacity: 1;\n    transition: opacity .2s linear;\n}\n.cardproduto:hover .cardimgtop {\n    opacity: 0.8;\n}\n.cardproduto:hover .vermais {\n    opacity: 1 !important;\n}\n\n/* PARA PROMOÇÃO NA VIEW PAGINA PRINCIPAL EXIBIR ESSA DIV */\n.divprodutos {   \n    display: flex;\n    padding: 10px;\n    min-height: 420px;\n    overflow-x: scroll;\n}\n\n/* NA VIEW LOJA EXIBIR ESSA DIV */\n.divprodutosviewloja{\n    display: flex;\n    justify-content: center;\n    flex-wrap: wrap;\n}\n@media (max-width: 900px){\n.cardproduto {      \n        width: 170px; \n        height: 220px;  \n        margin: 10px 3px;\n}\n.cardimgtop {\n        width: 168px;\n        height: 150px;\n}\n.divprodutos {        \n        height: 280px;\n}\n}\n.empromocao{\n    background-color: rgb(89, 250, 89);\n    position: absolute;\n    top: 0;\n    padding: 5px 20px;\n}\n.empromocao h5{\n    font-size: 0.7rem;\n    font-weight: bold;\n    margin: 0 !important;\n    letter-spacing: 2px;\n}\n.precoantigo{\n    color: red;\n}\n.preconovo{\n    font-weight: bold;\n    color: green;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -17130,7 +17130,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.carrinho {\r\n    display: flex;\r\n    justify-content: center;\r\n    margin-top: 100px;\n}\n.meucarrinho {\r\n    width: 50%;\r\n    padding: 0 20px;\n}\n.resumodopedido {\r\n    width: 30%;\r\n    padding: 0 30px;\n}\n.produtonocarrinho {\r\n    display: flex;\r\n    justify-content: space-between;\n}\n.produtonocarrinho img {\r\n    width: 90px;\r\n    height: 90px;\n}\n.btnfinalizarcompra {\r\n    border: 1px solid #304148;\r\n    padding: 7px 15px;\r\n    border-radius: 5px;\r\n    background: #304148;\r\n    letter-spacing: 1px;\r\n    font-weight: bold;\r\n    color: #FFF;\r\n    width: 100%;\n}\n.btnfinalizarcompra:hover {\r\n    opacity: 0.8;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.carrinho {\n    display: flex;\n    justify-content: center;\n    margin-top: 100px;\n}\n.meucarrinho {\n    width: 50%;\n    padding: 0 20px;\n}\n.resumodopedido {\n    width: 30%;\n    padding: 0 30px;\n}\n.produtonocarrinho {\n    display: flex;\n    justify-content: space-between;\n}\n.produtonocarrinho img {\n    width: 90px;\n    height: 90px;\n}\n.btnfinalizarcompra {\n    border: 1px solid #304148;\n    padding: 7px 15px;\n    border-radius: 5px;\n    background: #304148;\n    letter-spacing: 1px;\n    font-weight: bold;\n    color: #FFF;\n    width: 100%;\n}\n.btnfinalizarcompra:hover {\n    opacity: 0.8;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -17202,7 +17202,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.individualprod {\r\n    padding: 0 20px;\r\n    display: flex;\n}\n.imagensdoproduto {\r\n    width: 60%;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    padding: 0 20px;\n}\n.descricaodoproduto {\r\n    width: 40%;\r\n    min-height: 100vh;\n}\n.listadeprodutos {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: space-around;\r\n    height: 500px;\r\n    margin-right: 50px;\n}\n.listadeprodutos img {\r\n    height: 90px;\r\n    width: 90px !important;\n}\n.slidedeprodutos {\r\n    width: 70%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.informacoesdoproduto {\r\n    min-height: 40vh;\r\n    padding: 0 30px;\n}\n.t {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    border: none;\r\n    background: transparent;\r\n    width: 100%;\r\n    padding: 0\n}\n.c {\r\n    display: flex;\r\n    flex-direction: column;\n}\n@media (max-width: 870px){\n.listadeprodutos {\r\n        display: none;\n}\n.slidedeprodutos {\r\n        width: 100% !important;\n}\n.imagensdoproduto{\r\n        width: 90%;\r\n        margin-bottom: 40px;\n}\n.individualprod{\r\n        flex-direction: column;\r\n        align-items: center;\n}\n.descricaodoproduto {\r\n        width: 90%;\r\n        min-height: 100vh;\n}\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.individualprod {\n    padding: 0 20px;\n    display: flex;\n}\n.imagensdoproduto {\n    width: 60%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: 0 20px;\n}\n.descricaodoproduto {\n    width: 40%;\n    min-height: 100vh;\n}\n.listadeprodutos {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-around;\n    height: 500px;\n    margin-right: 50px;\n}\n.listadeprodutos img {\n    height: 90px;\n    width: 90px !important;\n}\n.slidedeprodutos {\n    width: 70%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.informacoesdoproduto {\n    min-height: 40vh;\n    padding: 0 30px;\n}\n.t {\n    display: flex;\n    justify-content: space-between;\n    border: none;\n    background: transparent;\n    width: 100%;\n    padding: 0\n}\n.c {\n    display: flex;\n    flex-direction: column;\n}\n@media (max-width: 870px){\n.listadeprodutos {\n        display: none;\n}\n.slidedeprodutos {\n        width: 100% !important;\n}\n.imagensdoproduto{\n        width: 90%;\n        margin-bottom: 40px;\n}\n.individualprod{\n        flex-direction: column;\n        align-items: center;\n}\n.descricaodoproduto {\n        width: 90%;\n        min-height: 100vh;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -17226,7 +17226,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.card-e {\r\n    width: 48% !important;\n}\n.card-header {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\n}\n.card-header h4 {\r\n    margin: 0 !important;\n}\n.card-enderecos {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\n}\n.dnb{\r\n    display: flex;\r\n    justify-content: space-between;\n}\n.cb p{\r\n    font-size: 1.05rem;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.card-e {\n    width: 48% !important;\n}\n.card-header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.card-header h4 {\n    margin: 0 !important;\n}\n.card-enderecos {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-around;\n}\n.dnb{\n    display: flex;\n    justify-content: space-between;\n}\n.cb p{\n    font-size: 1.05rem;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -17250,7 +17250,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.dados {\r\n    width: 100%;\r\n    padding: 0 30px\n}\n.dados>div {\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-wrap: wrap;\n}\n.dadoscampos {\r\n    width: 50%;\n}\n.dadoscampos p {\r\n    font-size: 1.05rem;\n}\n@media (max-width: 900px) {\n.dadoscampos {\r\n        width: 100%\n}\n}\n.dadoscampos>div {\r\n    margin-bottom: 20px;\n}\n.nomebotao {\r\n    display: flex;\r\n    justify-content: space-between !important;\r\n    flex-wrap: wrap;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.dados {\n    width: 100%;\n    padding: 0 30px\n}\n.dados>div {\n    display: flex;\n    justify-content: center;\n    flex-wrap: wrap;\n}\n.dadoscampos {\n    width: 50%;\n}\n.dadoscampos p {\n    font-size: 1.05rem;\n}\n@media (max-width: 900px) {\n.dadoscampos {\n        width: 100%\n}\n}\n.dadoscampos>div {\n    margin-bottom: 20px;\n}\n.nomebotao {\n    display: flex;\n    justify-content: space-between !important;\n    flex-wrap: wrap;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
