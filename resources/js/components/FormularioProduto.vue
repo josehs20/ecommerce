@@ -61,9 +61,14 @@
                         aria-describedby="nomeProdutoHelp" v-model="data.selectCategoria">
                 </input-component>
             </div>
-            <div class="col-md-6">
-                <input-component titulo="Imagens" id="imagensProduto" id-help="imagensProduto">
-                    <input required type="file" class="form-control disabledInsert" id="imagensProdutoValue"
+             <div class="col-md-6"><!--v-if="!dados.produto"  -->
+                <input-component v-if="!dados.produto" titulo="Imagens" id="imagensProduto" id-help="imagensProduto">
+                    <input  required type="file" class="form-control disabledInsert" id="imagensProdutoValue"
+                        accept="image/*" multiple placeholder="Selecione uma imagem" @change="carregarImagem($event)">
+                </input-component>
+                
+                 <input-component v-else titulo="Adicionar imagem" id="imagensProduto" id-help="imagensProduto">
+                    <input type="file" class="form-control disabledInsert" id="imagensProdutoValue"
                         accept="image/*" multiple placeholder="Selecione uma imagem" @change="carregarImagem($event)">
                 </input-component>
                 <div class="mt-4">
@@ -76,7 +81,7 @@
                 </div>
             </div>
         </div>
-produto
+
         <div class="row mt-4">
 
             <div class="col-md-4">

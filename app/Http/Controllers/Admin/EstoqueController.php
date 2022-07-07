@@ -84,10 +84,15 @@ class EstoqueController extends Controller
         /*estoque é referenciado pelo id prod_tam_cor
         para saber qual tamanho ou cor zerar ou deletar*/
         $estoque = Estoque::find($estoque);
-        $estoque->prodTamCor->where('produto_id', $estoque->prodTamCor->produto->id)->count();
 
-        dd($estoque->prodTamCor->where('produto_id', $estoque->prodTamCor->produto->id)->count());
-        $estoque->prodTamCor->where('produto_id', $estoque->prodTamCor->produto->id)->count();
-        return response()->json(['msg' => 'tamanho e cor excluido com sucesso']);
+        $last_product = $estoque->prodTamCor->where('produto_id', $estoque->prodTamCor->produto->id)->count();
+
+        if ($last_product <= 1) {
+            return response()->json(['msg' => 'Produto deve ter no mínimo uma cor e tamanho', 'icon' => 'warning']);
+        }
+
+        $estoque->prodTamCor->delete();
+        
+        return response()->json(['msg' => 'tamanho e cor deste produto excluido com sucesso', 'icon' => 'success']);
     }
 }

@@ -14,4 +14,9 @@ class Imagem extends Model
         'prioridade',
         'id_produto',
     ];
+
+    public function produto()
+    {
+        return $this->belongsTo('App\Models\Produto');
+    }
 }

@@ -43,7 +43,8 @@ Route::middleware('admin')->group(function () {
 
     //produtos
     Route::resource('/produto', App\Http\Controllers\Admin\ProdutoController::class);
-
+    Route::delete('/delete-image/{id}', [App\Http\Controllers\Admin\ProdutoController::class, 'deleteImage'])->name('deleteImage');
+    
     //categoria
     Route::resource('/categorias', App\Http\Controllers\Admin\CategoriaController::class);
 

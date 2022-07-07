@@ -3,13 +3,13 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import Vuex from 'vuex';
 
 require('./bootstrap');
 
 window.Vue = require('vue').default;
 window.Swal = require('sweetalert2');
-
-import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
@@ -78,7 +78,7 @@ Vue.component('table-component', require('./components/Table.vue').default);
  */
 
 Vue.filter('formataPathImg', function (img) {
-    let path = './../../../public/'+img.nome
+    let path = './../../../public/' + img.nome
     console.log(path);
 });
 

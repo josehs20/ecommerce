@@ -52,9 +52,9 @@ export default {
             itensDados: {}
         }
     },
-    // mounted() {
-    //     console.log(this.dados);
-    // },
+    mounted() {
+        console.log(this.dados);
+    },
     computed: {
         dadosFiltrados() {
 
@@ -65,87 +65,29 @@ export default {
                 let itemFiltrado = {}
 
                 campos.forEach(campo => {
+
                     itemFiltrado[campo] = this.dados[key][campo] //utilizar a sintaxe de array para atribuir valores a objetos
                 })
                 //adicionando objeto ao array
+                console.log(itemFiltrado);
                 dadosFiltrados.push(itemFiltrado)
             });
 
             return dadosFiltrados //retorne um array de objetos 
-
-            // console.log(convertida);
-            // this.dados.map(item => {
-            //     //objeto
-            //     let itemFiltrado = {}
-            //     campos.forEach(campo => {
-            //         //atribuindo valor a abjeto
-            //         console.log(item[campo]);
-            //         itemFiltrado[campo] = item[campo] //utilizar a sintaxe de array para atribuir valores a objetos
-            //     })
-            //     //adicionando objeto ao array
-            //     dadosFiltrados.push(itemFiltrado)
-            // })
-
-            // return dadosFiltrados //retorne um array de objetos 
-            // if (this.dados.count) {
-            //     var produtos = this.dados.produtos
-
-            //     produtos = Object.keys(produtos)
-            //         .map(function (key) {
-            //             return produtos[key][0][0];
-            //         })
-
-            //     produtos.map(item => {
-
-            //         let itemFiltrado = {}
-
-            //         campos.forEach(campo => {
-            //             //atribuindo valor a abjeto
-            //             itemFiltrado[campo] = item[campo] //utilizar a sintaxe de array para atribuir valores a objetos
-            //         })
-            //         //adicionando objeto ao array
-            //         dadosFiltrados.push(itemFiltrado)
-
-            //     })
-
-            //     // console.log(dadosFiltrados);
-            //     return dadosFiltrados //retorne um array de objetos 
-
-            // } else {
-
-            // this.dados.map(item => {
-            //     //objeto
-            //     let itemFiltrado = {}
-            //     campos.forEach(campo => {
-            //         //atribuindo valor a abjeto
-            //         itemFiltrado[campo] = item[campo] //utilizar a sintaxe de array para atribuir valores a objetos
-            //     })
-            //     //adicionando objeto ao array
-            //     dadosFiltrados.push(itemFiltrado)
-            // })
-
-            //  }
         }
     },
     methods: {
         setStore(obj) {
 
-            //console.log(this.dados[obj.id]);
-
             this.$store.state.produto.item = this.dados[obj.id]
             this.$store.state.produto.prodTamCor = this.dados[obj.id].prod_tam_cors
             this.$store.state.produto.imagens = this.dados[obj.id].imagens
-console.log(this.$store.state.produto.imagens);
-            // ptc = Object.keys(ptc)
-            //     .map(function (key) {
-            //         return ptc[key][1];
-            //     })
 
         },
 
         modalConfirm(obj, texto, url) {
             var url = url + '/' + String(obj.id);
-
+            console.log(url);
             Swal.fire({
                 title: 'Excluir',
                 text: texto,
@@ -163,10 +105,10 @@ console.log(this.$store.state.produto.imagens);
                         .then(response => {
                             Swal.fire({
                                 position: 'top-end',
-                                icon: 'success',
+                                icon: response.data.icon,
                                 title: response.data.msg,
                                 showConfirmButton: false,
-                                timer: 1500
+                                timer: 3000
                             })
 
                             this.$emit('carregarLista')
@@ -178,8 +120,6 @@ console.log(this.$store.state.produto.imagens);
                 }
             })
         }
-
-
     },
 }
 </script>
