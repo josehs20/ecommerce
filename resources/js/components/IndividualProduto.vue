@@ -30,6 +30,13 @@
     width: 90px !important;
 }
 
+.slide-produtos-pai{
+    display: flex;
+    justify-content: center;
+    height: 70vh;
+    width: 80%;
+}
+
 .slidedeprodutos {
     width: 70%;
     display: flex;
@@ -56,21 +63,29 @@
     flex-direction: column;
 }
 
-@media (max-width: 870px){
+@media (max-width: 870px) {
     .listadeprodutos {
         display: none;
+    }
+
+    .slide-produtos-pai{
+        height: fit-content !important;
+        width: 100% !important; 
     }
     .slidedeprodutos {
         width: 100% !important;
     }
-    .imagensdoproduto{
+
+    .imagensdoproduto {
         width: 90%;
         margin-bottom: 40px;
     }
-    .individualprod{
+
+    .individualprod {
         flex-direction: column;
         align-items: center;
-    }    
+    }
+
     .descricaodoproduto {
         width: 90%;
         min-height: 100vh;
@@ -83,38 +98,44 @@
         <!-- IMAGENS DO PRODUTO -->
         <div class="imagensdoproduto">
 
-            <div class="listadeprodutos" v-for="img, chave in data.imagens" :key="chave" :value="img.id">
-                <img :src="'./../../../'+img.nome" alt="..." />
+            <div class="listadeprodutos">
+                <img v-for="img, chave in data.imagens" :key="chave" :value="img.id" :src="'./../../../' + img.nome"
+                    alt="..." />
             </div>
             <!-- SLIDE DO PRODUTOS-->
-            <div class="slidedeprodutos">
-                <div id="carouselExampleControls" class="carousel slide"
-                    data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active"
-                        v-for="img, chave in data.imagens" :key="chave" :value="img.id">
-                            <img :src="'./../../../'+img.nome" class="d-block w-100" alt="...">
+            <div class="slide-produtos-pai">
+                <div class="slidedeprodutos">
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" v-for="img, chave in data.imagens" :key="chave"
+                                :value="img.id" v-if="chave == 0">
+                                <img :src="'./../../../' + img.nome" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item" v-else>
+                                <img :src="'./../../../' + img.nome" class="d-block w-100" alt="...">
+                            </div>
                         </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
                 </div>
             </div>
+
 
         </div>
         <!-- DESCRIÇÕES DO PRODUTO -->
         <div class="descricaodoproduto">
-            <h1>{{data.nome}}</h1>
+            <h1>{{ data.nome }}</h1>
             <hr>
-            <h5>R$ &nbsp; {{data.preco}}</h5>
+            <h5>R$ &nbsp; {{ data.preco }}</h5>
             <br>
             <h5>Cores </h5>
             <h5>Branco&nbsp;&nbsp;&nbsp; Preto &nbsp;&nbsp;&nbsp; Amarelo</h5>
@@ -146,7 +167,7 @@
                 <div id="dab" class="c" style="display: none">
                     <p style="font-size: 1rem">
                         Sou uma informação do produto. Sou um ótimo lugar para adicionar informações
-                        sobre seu produto, como tamanho, material, cuidados especiais e instruções 
+                        sobre seu produto, como tamanho, material, cuidados especiais e instruções
                         para limpeza. Escreva porque este produto é especial e como seus clientes podem
                         se beneficiar dele.
                     </p>
@@ -221,7 +242,7 @@ export default {
         }
     },
     mounted() {
-        this.carregadados()    
+        this.carregadados()
     }
 }
 </script>

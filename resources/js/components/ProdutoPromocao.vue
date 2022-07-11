@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="produtoscompromocao[0]">
         <div class="d">
             <h1 class="titulo">Promoção</h1>
             <br>
