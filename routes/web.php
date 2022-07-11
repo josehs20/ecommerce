@@ -59,6 +59,9 @@ Route::middleware('admin')->group(function () {
 
     //promocao
     Route::resource('/promocao', App\Http\Controllers\Admin\PromocaoController::class);
+
+    //configuração
+    Route::resource('/configuracao', App\Http\Controllers\Admin\ConfiguracaoController::class);
 });
 
 
